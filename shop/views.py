@@ -2,7 +2,8 @@
 Render function used to serve context to
 Webpages.
 """
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import addbrand, addcategory, addcategory_front_page, addproduct, addshop, addsubcategory
 #from .models import product, category, subcategory, rating, brand, category_front_page
 # Create your views here.
 def index(request):
