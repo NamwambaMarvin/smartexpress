@@ -1,0 +1,23 @@
+- I am going to use the same include to show different products on the same page using the with
+tag.
+{% with item as some_items %}
+    {% include 'products_card_without_header' %}
+{% endwith %}
+
+{% with second_item as some_items %}
+    {% include 'products_card_without_header' %}
+{% endwith %}
+
+------------------------------
+Contents of the product header
+------------------------------
+{% for item in some_items %}
+<tag>
+    <tag> {{item.name}}</tag>
+</tag>
+{% endfor %}
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To display context to the template, I will use template names to specify
+Which context is being delivered...
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

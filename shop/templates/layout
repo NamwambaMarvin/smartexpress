@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<!-- header section -->
+{% include 'header' %}
+<!-- End header section-->
+	<body>
+        {% block content %}
+        {% endblock %}
+	</body>
+</html>

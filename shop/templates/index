@@ -1,0 +1,16 @@
+{% extends 'layout' %}
+{% block content %}
+	<!--  HEADER SECTION -->
+	{% include 'navigation_bar' %}
+	<!-- END OF HEADER SECTION -->
+
+	<!-- Carousel -->
+	{% include 'front_banner' %}
+	<!-- End corousel -->
+	{% include 'category_card_with_header' %}
+	{% include 'category_card_without_header' %}
+	{% include 'product_card_with_header' %}
+	{% include 'product_card_without_header' %}
+	{% include 'product_card_without_header' %}
+	{% include 'product_card_with_header' %}
+{% endblock %}
