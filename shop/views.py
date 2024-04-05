@@ -10,7 +10,10 @@ def index(request):
     """
     View serving the home page logic
     """
+    c = category.objects.all()
+    categories = [c[:4], c[4:]]
     context = {
+        "categories": categories,
         "hello" : "Welcome to smart express",
         "title"  : "shop",
     }

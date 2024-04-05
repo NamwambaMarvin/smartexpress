@@ -7,7 +7,9 @@
 	<!-- Carousel -->
 	{% include 'front_banner' %}
 	<!-- End corousel -->
-	{% include 'category_card_with_header' %}
+	{% with categories as category %}
+		{% include 'category_card_with_header' %}
+	{% endwith %}
 	{% include 'category_card_without_header' %}
 	{% include 'product_card_with_header' %}
 	{% include 'product_card_without_header' %}
