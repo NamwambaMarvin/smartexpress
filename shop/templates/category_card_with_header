@@ -5,37 +5,32 @@
         </div>
         <div class="card-body">
             <div id="CardCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+                <div id="223" class="carousel-inner">
+                    {% for category in category %}
                     <div class="carousel-item active" data-bs-interval="5000">
                         <div class="container-fluid">
                             <div class="row">
+                                {% for cat in category %}
                                 <div class="col-md-3 col-6 item mt-3">
                                     <div class="card item-card card-block">
-                                        <img src="https://placehold.co/600x400">
-                                        <h5 class="item-card-title my-2">Internal</h5>
+                                        <img src="{{cat.image.url}}">
+                                        <h5 class="item-card-title my-2">{{cat.name|truncatechars:12}}</h5>
                                     </div>
                                 </div>
+                                {% endfor %}
+                                <!--
                                 <div class="col-md-3 col-6 item mt-3">
                                     <div class="card item-card card-block">
                                         <img src="https://placehold.co/600x400">
                                         <h5 class="item-card-title my-2">Pulmonology </h5>
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-6 item mt-3">
-                                    <div class="card item-card card-block">
-                                        <img src="https://placehold.co/600x400">
-                                        <h5 class="item-card-title my-2">Gastroenterology</h5>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6 item mt-3">
-                                    <div class="card item-card card-block">
-                                        <img src="https://placehold.co/600x400">
-                                        <h5 class="item-card-title my-2">Dentistry</h5>
-                                    </div>
-                                </div>
+                                -->
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
+                    <!--
                     <div class="carousel-item" data-bs-interval="5000">
                         <div class="container-fluid">
                             <div class="row">
@@ -66,6 +61,7 @@
                             </div>
                         </div>
                     </div>
+                -->
                 </div>
             </div>
         </div>
