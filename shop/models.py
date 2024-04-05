@@ -54,7 +54,7 @@ class category(models.Model):
     Each product should have one
     """
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=15)
+    name = models.CharField(max_length=30)
     slug = slugify(name)
     image = models.ImageField(upload_to="static/category_images")
 

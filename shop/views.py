@@ -4,7 +4,7 @@ Webpages.
 """
 from django.shortcuts import render, redirect
 from .forms import addbrand, addcategory, addcategory_front_page, addproduct, addshop, addsubcategory
-#from .models import product, category, subcategory, rating, brand, category_front_page
+from .models import product, category, subcategory, rating, brand, category_front_page
 # Create your views here.
 def index(request):
     """
@@ -30,7 +30,9 @@ def products(request, category_slug):
     """
     This displays products in a particular category
     """
+    categories = subcategory.objects.all()
     context = {
+        "categories" : categories,
         "hello" : "Welcome to smart express",
         "title"  : "category_title",
     }
