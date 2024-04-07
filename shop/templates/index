@@ -10,9 +10,14 @@
 	{% with categories as category %}
 		{% include 'category_card_with_header' %}
 	{% endwith %}
-	{% include 'category_card_without_header' %}
-	{% include 'product_card_with_header' %}
+	{% with subs as category %}
+		{% include 'category_card_without_header' %}
+	{% endwith %}
+	{% with products as products %}
+		{% include 'product_card_with_header' %}
+	{% endwith %}
 	{% include 'product_card_without_header' %}
-	{% include 'product_card_without_header' %}
 	{% include 'product_card_with_header' %}
+	{% include 'banner_card_without_header' %}
+	{% include 'banner_card_with_header' %}
 {% endblock %}

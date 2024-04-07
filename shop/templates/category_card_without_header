@@ -3,30 +3,22 @@
         <div class="card-body">
             <div class="container-fluid">
                 <div class="row">
+                    {% for category in category %}
                     <div class="col-md-3 col-6 item mt-3">
                         <div class="card item-card card-block">
-                            <img src="https://placehold.co/600x400">
-                            <h5 class="item-card-title my-2">Internal</h5>
+                            <img src="{{category.image.url}}">
+                            <h5 class="item-card-title my-2">{{category.name|truncatechars:12}}</h5>
                         </div>
                     </div>
-                    <div class="col-md-3 col-6 item mt-3">
-                        <div class="card item-card card-block">
-                            <img src="https://placehold.co/600x400">
-                            <h5 class="item-card-title my-2">Pulmonology </h5>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6 item mt-3">
-                        <div class="card item-card card-block">
-                            <img src="https://placehold.co/600x400">
-                            <h5 class="item-card-title my-2">Gastroenterology</h5>
-                        </div>
-                    </div>
+                    {% endfor %}
+                    <!--
                     <div class="col-md-3 col-6 item mt-3">
                         <div class="card item-card card-block">
                             <img src="https://placehold.co/600x400">
                             <h5 class="item-card-title my-2">Dentistry</h5>
                         </div>
                     </div>
+                    -->
                 </div>
             </div>
         </div>

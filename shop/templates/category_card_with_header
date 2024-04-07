@@ -1,18 +1,15 @@
 <section>
     <div class="card">
-        <div class="card-header text-center">
-            Featured
+        <div class="card-header text-center" style="background-color: #FFD700;">
+            <i class='fa fa-tags'></i>Featured
         </div>
         <div class="card-body">
             <div id="CardCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div id="223" class="carousel-inner">
                     {% for category in category %}
-                <div id="223" class="carousel-inner">
-                    {% for category in category %}
                     <div class="carousel-item active" data-bs-interval="5000">
                         <div class="container-fluid">
                             <div class="row">
-                                {% for cat in category %}
                                 {% for cat in category %}
                                 <div class="col-md-3 col-6 item mt-3">
                                     <div class="card item-card card-block">
@@ -22,8 +19,6 @@
                                 </div>
                                 {% endfor %}
                                 <!--
-                                {% endfor %}
-                                <!--
                                 <div class="col-md-3 col-6 item mt-3">
                                     <div class="card item-card card-block">
                                         <img src="https://placehold.co/600x400">
@@ -31,12 +26,9 @@
                                     </div>
                                 </div>
                                 -->
-                                -->
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
-                    <!--
                     {% endfor %}
                     <!--
                     <div class="carousel-item" data-bs-interval="5000">
@@ -68,9 +60,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                -->
-                -->
+                    </div>-->
                 </div>
             </div>
         </div>

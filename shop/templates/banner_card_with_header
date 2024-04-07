@@ -1,0 +1,27 @@
+{% load static %}
+<!-- start carousel -->
+<section>
+<div class="card">
+    <div class="card-header text-center" style="background-color: #FFD700;">
+        <i class='fa fa-tags'></i>Featured
+    </div>
+    <div class="card-body">
+        <div>
+            <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" style="margin-top: -50px;"
+                data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="4000">
+                        <img class="img-resize" src="{% static 'front_page_images/3.gif' %}" class="d-block w-100"
+                            alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img class="img-resize" src="{% static 'front_page_images/4.gif' %}" class="d-block w-100"
+                            alt="...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- End carousel -->

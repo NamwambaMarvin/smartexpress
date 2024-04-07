@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.template.defaultfilters import slugify
 
 #Shop model incase of multiple branches
@@ -96,6 +97,7 @@ class product(models.Model):
     subcategory = models.ForeignKey(subcategory, on_delete=models.PROTECT, null=True, blank=True)
     model = models.CharField(max_length=50)
     shop = models.ForeignKey(shop, on_delete=models.PROTECT, null=True, blank=True)
+    items_left = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=10)
 
     def __str__(self) -> str:
         return f'{self.name}'

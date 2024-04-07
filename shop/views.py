@@ -12,14 +12,18 @@ def index(request):
     """
     c = category.objects.all()
     categories = [c[:4], c[4:]]
+    s = subcategory.objects.all()[:4]
+    p = product.objects.all()[5:9]
     context = {
+        "products": p,
+        "subs" : s,
         "categories": categories,
         "hello" : "Welcome to smart express",
         "title"  : "shop",
     }
     return render(request, 'index', context)
 
-def product(request, category_slug, product_slug):
+def single_product(request, category_slug, product_slug):
     """
     This displays details of a product in a particular category
     """
