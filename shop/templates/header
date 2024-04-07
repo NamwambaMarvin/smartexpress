@@ -46,7 +46,13 @@
         margin: auto;
       }
     }
-
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    a:hover {
+      color: black;
+    }
       nav {
         background-color: white;
       }

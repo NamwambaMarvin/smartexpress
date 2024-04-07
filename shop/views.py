@@ -54,11 +54,15 @@ def subproducts(request, category_slug, subcategory_slug, product_slug):
     }
     return render(request, 'product', context=context)
 
-def search(request, search_query):
+def search(request):
     """
     To search products from the database
     """
+    if request.POST:
+        search_query = request.POST['search_query']
+    search_package = product.objects.filter(name__icontains=str(search_query))
     context = {
-        'title' : 'search_results',
+        'title' : str(search_query),
+        'products' : search_package,
     }
     return render(request, 'search_results', context)

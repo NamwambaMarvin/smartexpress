@@ -2,7 +2,7 @@
     <header>
         <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">SMARTEXPRESS</a>
+                <a class="navbar-brand" href="{% url 'index' %}">SMARTEXPRESS</a>
                 <button class="navbar-toggler fa fa-bars" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -45,9 +45,11 @@
                             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    
+                    <form method="post" action="{% url 'search' %}" class="d-flex" role="search">
+                        <input name="search_query" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
+                      {% csrf_token %}  
                     </form>
                 </div>
             </div>
