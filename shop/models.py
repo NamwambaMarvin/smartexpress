@@ -7,7 +7,7 @@ from django.template.defaultfilters import slugify
 class shop(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
-    slug = slugify(name)
+    slug = slug = models.SlugField(slugify(name), default="hello-world", unique=True)
     shop_location = models.CharField(max_length=100)
     def __str__(self) -> str:
         return f'{self.name}'
@@ -20,7 +20,7 @@ class brand(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='static/brand_images')
-    slug = slugify(name)
+    slug = slug = models.SlugField(slugify(name), default="hello-world", unique=True)
 
     def __str__(self) -> str:
         return f'{self.name}'
@@ -56,7 +56,7 @@ class category(models.Model):
     """
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
-    slug = slugify(name)
+    slug = models.SlugField(slugify(name), default="hello-world", unique=True)
     image = models.ImageField(upload_to="static/category_images")
 
     def __str__(self) -> str:
@@ -68,7 +68,7 @@ class subcategory(models.Model):
     """
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
-    slug = slugify(name)
+    slug = models.SlugField(slugify(name), default="hello-world", unique=True)
     image = models.ImageField(upload_to="static/subcat_images")
     category = models.ForeignKey(category, on_delete=models.PROTECT)
 
@@ -81,9 +81,9 @@ class product(models.Model):
     Store product information
     """
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=200)
     image = models.ImageField(upload_to='static/product_images')
-    slug = slug = slugify(name)
+    slug = models.SlugField(slugify(name), default="hello-world", unique=True)
     price = models.PositiveIntegerField()
     discount = models.PositiveIntegerField()
     brand = models.ForeignKey(brand, on_delete=models.PROTECT, null=True, blank=True)

@@ -1,7 +1,8 @@
 {% extends 'layout' %}
 {% block content %}
-{% for category in categories %}
-<h1>{{category.name}}</h1>
-<img src="{{category.image.url}}" />
-{% endfor %}
+{% include 'navigation_bar' %}
+{% include 'banner_card_without_header' %}
+{% with products as products %}
+    {% include 'product_card_with_header' %}
+{% endwith%}
 {% endblock %}
