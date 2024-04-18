@@ -25,15 +25,20 @@
                             </div>
                         </div>
                     </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
+                    <p class="card-text">
+                        Product Rating: 
+                    </p>
                     <div class="d-grid gap-2">
                         <button class="btn btn-primary" type="button">
                             <div class="row">
                                 <div class="col align-self-start" style="text-align: left;">
                                     <i class="fa fa-cart-plus" style="font-size: large;"></i>
                                 </div>
-                                <div class="col align-self-center">PLACE ORDER</div>
+                                <div class="col align-self-center">
+                                   <a href="https://wa.me/256702087501?text='Hello\n I want {{product.name}}'">
+                                    PLACE ORDER
+                                    </a>
+                                </div>
                                 <div class="col">
                                     <!---->
                                 </div></div>
@@ -55,6 +60,7 @@
     </p>
     </div>
   </div>
+  <!--
   <section>
     <div class="card">
     <div class="card-header">
@@ -90,9 +96,7 @@
     </div>
   </div>
   </section>
-<section>
-    {% include 'product_card_without_header' %}
-</section>
+-->
 {% include 'front_banner' %}
 
 {% endblock %}

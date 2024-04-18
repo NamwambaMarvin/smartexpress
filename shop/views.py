@@ -3,7 +3,7 @@ Render function used to serve context to
 Webpages.
 """
 from django.shortcuts import render, redirect
-from .forms import addbrand, addcategory, addcategory_front_page, addproduct, addshop, addsubcategory
+# from .forms import addbrand, addcategory, addcategory_front_page, addproduct, addshop, addsubcategory
 from .models import product, category, subcategory, rating, brand, category_front_page
 from django.db.models import Q
 # Create your views here.
@@ -19,7 +19,6 @@ def index(request):
         "products": p,
         "subs" : s,
         "categories": categories,
-        "hello" : "Welcome to smart express",
         "title"  : "shop",
     }
     return render(request, 'index', context)
@@ -28,10 +27,17 @@ def single_product(request, category_slug, product_slug):
     """
     This displays details of a product in a particular category
     """
-    c = category.objects.get(slug=category_slug)
-    p = product.objects.get(slug=product_slug, category=c)
+    try:
+        c = category.objects.get(slug=category_slug)
+        p = product.objects.get(slug=product_slug, category=c)
+        title = p.name
+    except:
+        c = None
+        p = None
+        title = "No Product Found"
+
     context = {
-        "title"  : p.name,
+        "title"  : title,
         "product" : p,
     }
     return render(request, 'product', context)

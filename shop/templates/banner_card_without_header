@@ -1,6 +1,6 @@
 {% load static %}
 <!-- start carousel -->
-<section>
+<section style="margin-top: 50px;">
 <div>
     <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" style="margin-top: -40px;" data-bs-ride="carousel">
         <div class="carousel-inner">
