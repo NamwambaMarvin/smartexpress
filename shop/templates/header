@@ -37,7 +37,7 @@
       width: 80%;
       margin: auto;
     }
-    @media only screen and (max-width: 700px) {
+    @media only screen and (max-width: 900px) {
       body {
         width: 96%;
         margin: auto;
