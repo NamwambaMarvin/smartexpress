@@ -1,9 +1,8 @@
 {% extends 'layout' %}
 {% block content %}
 {% load humanize %}
-{% include 'navigation_bar' %}
 <section>
-    <div class="card mb-3" style="max-width: 100%; margin-top: 80px;">
+    <div class="card mb-3" style="max-width: 100%; margin-top: 8px;">
         <div class="row g-0">
             <div class="col-md-4">
                 <img src="{{product.image.url}}" class="img-fluid rounded-start" alt="...">
@@ -29,20 +28,18 @@
                         Product Rating: 
                     </p>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-primary" type="button">
+                        <a href="https://wa.me/256702087501?text='Hello\n I want {{product.name}}'" class="btn btn-primary" type="button">
                             <div class="row">
                                 <div class="col align-self-start" style="text-align: left;">
                                     <i class="fa fa-cart-plus" style="font-size: large;"></i>
                                 </div>
                                 <div class="col align-self-center">
-                                   <a href="https://wa.me/256702087501?text='Hello\n I want {{product.name}}'">
                                     PLACE ORDER
-                                    </a>
                                 </div>
                                 <div class="col">
                                     <!---->
                                 </div></div>
-                        </button>
+                            </a>
                     </div>
                 </div>
             </div>

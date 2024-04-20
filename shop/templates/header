@@ -24,31 +24,41 @@
     );
 
   </script>
-  <script>
-    $(document).ready(
-      function () {
-        $("#223").children('div').eq(1).attr('class', 'carousel-item');
-      }
-    );
-
-  </script>
   <style>
     body {
-      background-color: turquoise;
+      background-color: orange;
+    }
+    .body {
       width: 80%;
       margin: auto;
     }
     @media only screen and (max-width: 900px) {
-      body {
-        width: 96%;
+      .body {
+        width: 100%;
         margin: auto;
         font-size: large;
+      }
+    
+      .img-resize {
+        margin-top: 10px;
+        height: 25vh;
+        width: 100%;
+        border-radius: 8px;
+      }
+    }
+    @media only screen and (min-width: 890px) {
+      .disappear {
+        visibility: hidden;
       }
     }
     a {
       text-decoration: none;
       color: black;
     }
+    .bg-danger {
+      background-color: red;
+    }
+
     a:hover {
       color: black;
     }
@@ -56,29 +66,31 @@
         background-color: white;
       }
 
+      .card-header
+      {
+        background-color: gray;
+      }
       .my-2 {
         text-align: center;
       }
 
+      .navbar-brand {
+        margin-right: auto;
+      }
+
       section {
-        margin-top: 10px;
+        margin-top: 0px;
         margin-bottom: 10px;
       }
 
-      .card-block {
-        background-color: #FFD700;
-      }
-
       .img-resize {
-        margin-top: 50px;
+        margin-top: 10px;
         height: 50vh;
         width: 100%;
         border-radius: 8px;
       }
-
       .progress-bar {
         height: 5px;
-        background-color: rgb(224, 64, 157);
       }
 
       .progress {
@@ -86,11 +98,32 @@
       }
 
       img {
-        border-radius: 3%;
+        border-top-left-radius: 3%;
+        border-top-right-radius: 3%;
       }
 
       h6 {
         font-size: small;
       }
+
+
+
+      
+.form-control:focus {
+  box-shadow: none;
+}
+
+.form-control-underlined {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-radius: 0;
+  padding-left: 0;
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
   </style>
 </head>

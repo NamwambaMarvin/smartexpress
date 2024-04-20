@@ -1,8 +1,8 @@
 {% load humanize %}
 <section>
     <div class="card border-danger">
-        <div class="card-header bg-danger text-center">
-            <i class='fa fa-flash'></i>   Flash Sales
+        <div class="card-header text-center" style="background-color: red;">
+            {% include 'flash_sales' %}
         </div>
         <div class="card-body">
             <div class="container-fluid">
@@ -11,16 +11,16 @@
                     <a class="col-md-3 col-6 item mt-3" href="{% url 'single_product' product.category.slug product.slug %}">
                         <div class="card item-card card-block">
                             <img src="{{product.image.url}}">
-                            <h6>{{product.name|truncatechars:29}}</h6>
+                            <h6>{{product.name|truncatechars:35}}</h6>
                             <h6 class="item-card-title">UGX {{product.price|intcomma}}</h6>
                             {% if product.items_left < 40 %}
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: {{product.items_left}}%" aria-valuenow="{{product.items_left}}"
+                                <div class="progress-bar" role="progressbar" style="background-color: red ;width: {{product.items_left}}%" aria-valuenow="{{product.items_left}}"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             {% else %}
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="background-color: turquoise; width: {{product.items_left}}%" aria-valuenow="{{product.items_left}}"
+                                <div class="progress-bar" role="progressbar" style="background-color: orange; width: {{product.items_left}}%" aria-valuenow="{{product.items_left}}"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             {% endif %}

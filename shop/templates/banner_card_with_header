@@ -3,11 +3,11 @@
 <section>
 <div class="card">
     <div class="card-header text-center" style="background-color: #FFD700;">
-        <i class='fa fa-tags'></i>Featured
+        {% include 'featured' %}
     </div>
     <div class="card-body">
         <div>
-            <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" style="margin-top: -50px;"
+            <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade"
                 data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="4000">

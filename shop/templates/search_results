@@ -1,7 +1,6 @@
 {% extends 'layout' %}
 {% load humanize %}
 {% block content %}
-{% include 'navigation_bar' %}
 <section style="margin-top: 70px;">
     <div class="card border-danger">
         <div class="card-header text-center" style="background-color: #FFD700;">

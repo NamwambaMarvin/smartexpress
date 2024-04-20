@@ -1,61 +1,77 @@
 {% load static %}
-<section>
-    <header>
-        <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'index' %}">
-                    <img src="{% static 'assets/logo.png' %}" alt="..." style="width: 160px;"/>
-                </a>
-                <button class="navbar-toggler fa fa-bars" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+<header>
+</header>
+<nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                <i class="fa fa-bars"></i>
+            </span>
+        </a>
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <div class="col">
+                <img src="{% static 'assets/logo.png' %}" alt="..." style="width: 160px; height: 40px;" />
+            </div>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Appliances
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'products' 'refrigerators52' %}">Refrigerators</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Appliances
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{% url 'products' 'refrigerators52' %}">Refrigerators</a></li>
-                                <li><a class="dropdown-item" href="{% url 'products' 'cookers9' %}">Cookers</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="{% url 'products' 'appliances95' %}">Others</a></li>
-                            </ul>
+                        <li><a class="dropdown-item" href="{% url 'products' 'cookers9' %}">Cookers</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle disabled" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                        </li>
+                        <li><a class="dropdown-item" href="{% url 'products' 'appliances95' %}">Others</a></li>
                     </ul>
-                    
-                    <form method="post" action="{% url 'search' %}" class="d-flex" role="search">
-                        <input name="search_query" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                      {% csrf_token %}  
-                    </form>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle disabled" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Coming Soon!
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+        </div>
+        <div class="disappear">
+            <i class="fa fa-user" style="margin-right: 5px; font-size: xx-large;"></i>
+            <i class='fa fa-shopping-cart' style="margin-left: 5px; font-size: xx-large;"></i>
+        </div>
+        <form method="post" action="{% url 'search' %}" class="d-flex sm-12 w-100" role="search">
+            <div class="w-100">
+                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4 w-100">
+                    <div class="input-group w-100">
+                        
+                        <input name="search_query" type="search" placeholder="Search products, brands and categories"
+                            aria-describedby="button-addon2" class="form-control border-0 bg-light">
+                    <div class="input-group-prepend">
+                            <button id="button-addon2" type="submit" class="btn btn-link"><i
+                                    class="fa fa-search"></i></button>
+                        </div>
+                        </div>
                 </div>
             </div>
-        </nav>
-    </header>
-</section>
+            {% csrf_token %}
+        </form>
+    </div>
+</nav>

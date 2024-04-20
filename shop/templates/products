@@ -1,6 +1,5 @@
 {% extends 'layout' %}
 {% block content %}
-{% include 'navigation_bar' %}
 {% include 'banner_card_without_header' %}
 {% with products as products %}
     {% include 'product_card_with_header' %}

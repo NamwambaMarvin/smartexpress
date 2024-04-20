@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html>
-<!-- header section -->
-{% include 'header' %}
-<!-- End header section-->
-	<body>
-        {% block content %}
-        {% endblock %}
-	</body>
+        <html>
+        <!-- header section -->
+        {% include 'header' %}
+        <!-- End header section-->
+        <body>
+                {% include 'navigation_bar' %}
+                <div class="body">
+                     {% block content %}
+                     {% endblock %}   
+                </div>
+                
+        </body>
+                {% include 'footer' %}
 </html>

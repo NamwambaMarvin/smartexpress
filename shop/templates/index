@@ -1,9 +1,5 @@
 {% extends 'layout' %}
 {% block content %}
-	<!--  HEADER SECTION -->
-	{% include 'navigation_bar' %}
-	<!-- END OF HEADER SECTION -->
-
 	<!-- Carousel -->
 	{% include 'front_banner' %}
 	<!-- End corousel -->
