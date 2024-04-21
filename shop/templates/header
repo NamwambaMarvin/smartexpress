@@ -46,7 +46,7 @@
         border-radius: 8px;
       }
     }
-    @media only screen and (min-width: 890px) {
+    @media only screen and (min-width: 990px) {
       .disappear {
         visibility: hidden;
       }
