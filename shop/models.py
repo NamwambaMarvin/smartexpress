@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.template.defaultfilters import slugify
@@ -68,7 +69,7 @@ class subcategory(models.Model):
     """
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
-    slug = models.SlugField(slugify(name), default="hello-world", unique=True)
+    slug = models.SlugField(slugify(name), unique=True)
     image = models.ImageField(upload_to="static/subcat_images")
     category = models.ForeignKey(category, on_delete=models.PROTECT)
 
@@ -83,12 +84,12 @@ class product(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200)
     image = models.ImageField(upload_to='static/product_images')
-    slug = models.SlugField(slugify(name), default="hello-world", unique=True)
+    slug = models.SlugField(slugify(name), default= "Optional-Field", unique=True)
     price = models.PositiveIntegerField()
     discount = models.PositiveIntegerField()
     brand = models.ForeignKey(brand, on_delete=models.PROTECT, null=True, blank=True)
     reviews = models.ForeignKey(review, null=True, blank=True, on_delete=models.PROTECT)
-    detail = models.TextField(max_length=3000)
+    detail = HTMLField(blank=True, null=True)
     weight = models.PositiveIntegerField()
     color = models.CharField(max_length=10)
     type = models.CharField(max_length=15)
@@ -98,7 +99,6 @@ class product(models.Model):
     model = models.CharField(max_length=50)
     shop = models.ForeignKey(shop, on_delete=models.PROTECT, null=True, blank=True)
     items_left = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=10)
-
     def __str__(self) -> str:
         return f'{self.name}'
 
