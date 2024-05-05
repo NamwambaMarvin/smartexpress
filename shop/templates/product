@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <p class="card-text">
-                        Product Rating: 
+                        Product Rating: 5 stars
                     </p>
                     <div class="d-grid gap-2">
                         <a href="https://wa.me/256702087501?text='Hello\n I want {{product.name}}'" class="btn btn-primary" type="button">
@@ -53,7 +53,7 @@
     <div class="card-body">
       <h5 class="card-title">{{product.title}}</h5>
       <p class="card-text">
-        {{product.detail}}
+        {{product.detail|safe}}
     </p>
     </div>
   </div>
