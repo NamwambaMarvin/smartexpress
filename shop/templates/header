@@ -43,7 +43,7 @@
       }
     
       .img-resize {
-        margin-top: 10px;
+        margin-top: 5px;
         width: 100%;
         border-radius: 8px;
       }
@@ -82,11 +82,11 @@
 
       section {
         margin-top: 0px;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
       }
 
       .img-resize {
-        margin-top: 10px;
+        margin-top: 5px;
         width: 100%;
         border-radius: 8px;
       }
@@ -97,14 +97,11 @@
       .progress {
         height: 5px;
       }
-
-      img {
-        border-top-left-radius: 3%;
-        border-top-right-radius: 3%;
-      }
-
       h6 {
         font-size: small;
+      }
+      img {
+        width: 100%;
       }
 
 
@@ -125,6 +122,18 @@
   font-size: 0.95rem;
   color: #aaa;
   font-style: italic;
+}
+
+.scrollmenu {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+::-webkit-scrollbar {
+  
 }
   </style>
 </head>

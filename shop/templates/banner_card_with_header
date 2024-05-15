@@ -5,23 +5,7 @@
     <div class="card-header text-center" style="background-color: #FFD700;">
         {% include 'featured' %}
     </div>
-    <div class="card-body">
-        <div>
-            <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade"
-                data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="4000">
-                        <img class="img-resize" src="{% static 'front_page_images/3.gif' %}" class="d-block w-100"
-                            alt="...">
-                    </div>
-                    <div class="carousel-item" data-bs-interval="4000">
-                        <img class="img-resize" src="{% static 'front_page_images/4.gif' %}" class="d-block w-100"
-                            alt="...">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include 'card_banner' %}
 </div>
 </section>
 <!-- End carousel -->

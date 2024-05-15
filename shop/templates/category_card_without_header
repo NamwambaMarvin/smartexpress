@@ -4,10 +4,10 @@
             <div class="container-fluid">
                 <div class="row">
                     {% for category in category %}
-                    <a href="{% url 'products' category.slug %}" class="col-md-3 col-6 item mt-3">
+                    <a href="{% url 'products' category.slug %}" class="col-md-3 col-4 item mt-3">
                         <div class="card item-card card-block" style="background-color: turquoise;">
                             <img src="{{category.image.url}}">
-                            <h5 class="item-card-title my-2">{{category.name|truncatechars:35}}</h5>
+                            <h6 class="item-card-title my-2">{{category.name|truncatechars:12}}</h6>
                         </div>
                     </a>
                     {% endfor %}

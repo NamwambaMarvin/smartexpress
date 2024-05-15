@@ -11,14 +11,13 @@ def index(request):
     """
     View serving the home page logic
     """
-    c = category.objects.all()
-    categories = [c[:4], c[4:]]
-    s = subcategory.objects.all()[:4]
-    p = product.objects.order_by('?')[5:9]
+    c = category.objects.all()[:6]
+    s = subcategory.objects.all()
+    p = product.objects.order_by('?')[:12]
     context = {
         "products": p,
-        "subs" : s,
-        "categories": categories,
+        "subcategories" : s,
+        "category": c,
         "title"  : "shop",
     }
     return render(request, 'index', context)

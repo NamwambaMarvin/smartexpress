@@ -3,10 +3,10 @@
 	<!-- Carousel -->
 	{% include 'front_banner' %}
 	<!-- End corousel -->
-	{% with categories as category %}
+	{% with category as category %}
 		{% include 'category_card_with_header' %}
 	{% endwith %}
-	{% with subs as category %}
+	{% with subcategories as category %}
 		{% include 'category_card_without_header' %}
 	{% endwith %}
 	{% include 'banner_card_with_header' %}
@@ -16,4 +16,5 @@
 	{% include 'product_card_without_header' %}
 	{% include 'product_card_with_header' %}
 	{% include 'banner_card_without_header' %}
+	{% include 'scroll_bar' %}
 {% endblock %}

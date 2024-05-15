@@ -12,7 +12,9 @@
                     <h5 class="card-title">{{product.name}}</h5>
                     <h6>Brand: {{product.brand.name }}</h6>
                     <div class="card border-danger">
-                        <h5 class="card-header text-white bg-danger"><i class="fa fa-tag"></i>   Flash Sales</h5>
+                        <h5 class="card-header text-white bg-danger">
+                            {% include 'flash_sales'%}
+                        </h5>
                         <div class="card-body">
                             <h3 class="card-title">UGX {{product.price|intcomma}}</h3>
                                 <div class="row">
@@ -33,7 +35,7 @@
                                 <div class="col align-self-start" style="text-align: left;">
                                     <i class="fa fa-cart-plus" style="font-size: large;"></i>
                                 </div>
-                                <div class="col align-self-center">
+                                <div class="col align-self-center" style="font-size: small;">
                                     PLACE ORDER
                                 </div>
                                 <div class="col">

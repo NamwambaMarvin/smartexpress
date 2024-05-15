@@ -1,0 +1,23 @@
+{% load static %}
+<!-- start carousel -->
+<section>
+<div>
+    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner" style="padding: 3px;">
+            <div class="carousel-item active" data-bs-interval="4000">
+                <img class="" src="{% static 'front_page_images/1.gif' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img class="" src="{% static 'front_page_images/2.gif' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img class="" src="{% static 'front_page_images/3.gif' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+                <img class="" src="{% static 'front_page_images/4.gif' %}" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- End carousel -->
