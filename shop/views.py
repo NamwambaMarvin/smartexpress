@@ -12,7 +12,7 @@ def index(request):
     View serving the home page logic
     """
     c = category.objects.all()[:6]
-    s = subcategory.objects.all()
+    s = subcategory.objects.all()[:12]
     p = product.objects.order_by('?')[:12]
     context = {
         "products": p,

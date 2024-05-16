@@ -1,0 +1,22 @@
+{% load static %}
+{% load humanize %}
+<div class="">
+    <div class="card-body" style="padding: 0%;">
+        <div class="container-fluid">
+            <div class="row scrollmenu">
+                <div style="width: 66%; padding-left: 0%;">
+                    <img class="img-resize" src="{% static 'front_page_images/1.gif' %}" class="d-block w-100" alt="...">
+                </div>
+                <div style="width: 66%; padding-left: 0%;">
+                    <img class="img-resize" src="{% static 'front_page_images/2.gif' %}" class="d-block w-100" alt="...">
+                </div>
+                <div style="width: 66%; padding-left: 0%;">
+                    <img class="img-resize" src="{% static 'front_page_images/3.gif' %}" class="d-block w-100" alt="...">
+                </div>
+                <div style="width: 66%; padding-left: 0%;">
+                    <img class="img-resize" src="{% static 'front_page_images/4.gif' %}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row">
                     {% for product in products %}
-                    <a class="col-md-3 col-4 item mt-3" href="{% url 'single_product' product.category.slug product.slug %}">
+                    <a class="col-md-4 col-4 item mt-3" href="{% url 'single_product' product.category.slug product.slug %}">
                         <div class="card item-card card-block">
                             <img src="{{product.image.url}}">
                             <h6>{{product.name|truncatechars:23}}</h6>

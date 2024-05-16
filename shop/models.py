@@ -7,7 +7,7 @@ from django.template.defaultfilters import slugify
 #Shop model incase of multiple branches
 class shop(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=150)
     slug = slug = models.SlugField(slugify(name), default="hello-world", unique=True)
     shop_location = models.CharField(max_length=100)
     def __str__(self) -> str:

@@ -10,7 +10,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 {% for cat in category %}
-                                <a href="{% url 'products' cat.slug %}" class="col-md-3 col-4 item mt-3">
+                                <a href="{% url 'products' cat.slug %}" class="col-md-4 col-4 item mt-3">
                                     <div class="card item-card card-block" style="background-color: turquoise;">
                                         <img src="{{cat.image.url}}">
                                         <h6 class="item-card-title my-2">{{cat.name|truncatechars:12}}</h6>
