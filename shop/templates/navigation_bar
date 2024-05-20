@@ -32,6 +32,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width = "14pt" viewBox="0 0 14.6 17.43"><g id="fontsvg1715858131459" stroke-linecap="round" fill-rule="evenodd" stroke="#fffefe" stroke-width="0mm" fill="#fb9c03"><path d="M 7.251 0.001 Q 11.694 0.001 13.721 4.591 Q 13.977 5.472 14.065 6.164 A 5.35 5.35 0 0 1 14.111 6.837 A 6.274 6.274 0 0 1 11.733 11.895 A 9.489 9.489 0 0 1 10.205 12.916 A 6.416 6.416 0 0 1 8.232 13.519 A 8.287 8.287 0 0 1 7.056 13.6 A 5.972 5.972 0 0 1 3.28 12.231 Q 2.43 11.561 1.653 10.563 A 12.963 12.963 0 0 1 1.367 10.182 A 9.205 9.205 0 0 1 0.751 8.597 A 6.778 6.778 0 0 1 0.488 6.764 Q 0.488 4.152 2.441 2.052 A 8.284 8.284 0 0 1 4.295 0.724 A 6.373 6.373 0 0 1 7.251 0.001 Z M 2.271 6.74 A 5.114 5.114 0 0 0 2.766 9.039 Q 3.696 10.916 6.372 11.744 A 95.415 95.415 0 0 0 6.718 11.778 Q 7.313 11.833 7.497 11.841 A 1.2 1.2 0 0 0 7.544 11.842 Q 9.931 11.842 11.598 9.302 A 9.858 9.858 0 0 0 11.841 8.912 A 5.864 5.864 0 0 0 12.18 7.896 A 7.991 7.991 0 0 0 12.354 6.862 A 4.961 4.961 0 0 0 11.814 4.512 Q 10.916 2.809 8.521 1.954 A 38.041 38.041 0 0 0 8.163 1.888 Q 7.449 1.759 7.251 1.759 A 4.653 4.653 0 0 0 3.541 3.547 A 7.639 7.639 0 0 0 2.759 4.689 Q 2.307 5.864 2.273 6.621 A 2.68 2.68 0 0 0 2.271 6.74 Z M 7.251 2.931 L 7.349 2.931 L 8.618 5.177 A 23.614 23.614 0 0 1 9.293 5.221 Q 10.962 5.356 10.962 5.665 Q 10.209 6.54 9.508 7.109 A 7.385 7.385 0 0 1 9.229 7.326 A 121.049 121.049 0 0 1 9.353 8.034 Q 9.595 9.436 9.595 9.694 A 0.198 0.198 0 0 1 9.575 9.786 Q 9.532 9.868 9.399 9.885 A 0.591 0.591 0 0 1 9.326 9.889 Q 7.445 8.841 7.259 8.815 A 0.061 0.061 0 0 0 7.251 8.815 A 47.409 47.409 0 0 1 6.817 9.067 Q 5.65 9.735 5.247 9.86 A 0.525 0.525 0 0 1 5.103 9.889 L 4.907 9.791 L 5.396 7.35 Q 4.868 7.018 4.059 6.154 A 21.176 21.176 0 0 1 3.638 5.69 A 0.165 0.165 0 0 1 3.742 5.57 Q 4.076 5.377 5.472 5.174 A 35.727 35.727 0 0 1 6.177 5.079 Q 6.776 3.535 7.202 2.991 A 1.763 1.763 0 0 1 7.251 2.931 Z M 1.978 12.257 L 2.051 12.257 A 7.966 7.966 0 0 0 4.019 13.579 A 10.24 10.24 0 0 0 5.298 14.088 L 5.298 14.186 L 3.54 17.433 L 3.247 17.433 L 2.368 15.48 L 1.782 15.48 Q 1.265 15.48 0.183 15.548 A 74.671 74.671 0 0 0 0.098 15.553 A 0.077 0.077 0 0 0 0.091 15.519 Q 0.072 15.48 0 15.48 A 178.253 178.253 0 0 1 0.431 14.725 Q 1.727 12.471 1.946 12.276 A 0.059 0.059 0 0 1 1.978 12.257 Z M 14.6 15.455 L 14.404 15.553 A 61.912 61.912 0 0 0 13.8 15.521 Q 13.06 15.486 12.524 15.481 A 18.364 18.364 0 0 0 12.354 15.48 L 12.256 15.48 Q 11.408 17.394 11.185 17.432 A 0.056 0.056 0 0 1 11.182 17.433 L 11.084 17.433 L 9.326 14.113 A 6.802 6.802 0 0 0 10.628 13.563 Q 11.603 13.034 12.646 12.135 A 463.846 463.846 0 0 1 13.104 12.892 Q 14.436 15.099 14.582 15.408 A 0.174 0.174 0 0 1 14.6 15.455 Z" vector-effect="non-scaling-stroke"></path></g></svg>
             </div>
         </a>
+        <!-- The profile and cart icon -->
+        <div class="disappear">
+            <!--<i class="fa fa-user" style="margin-right: 5px; font-size: xx-large;"></i>-->
+            <!--<i class='fa fa-shopping-cart' style="margin-left: 5px; font-size: xx-large;"></i>-->
+                <!-- Button trigger profile modal -->
+                <i type="button" class="fa fa-user" data-bs-toggle="modal" data-bs-target="#profileModal" style="margin-right: 5px; font-size: xx-large;"></i>
+                <!-- Button trigger cart modal -->
+                <i type="button" class="fa fa-shopping-cart" data-bs-toggle="modal" data-bs-target="#cartModal" style="margin-right: 5px; font-size: xx-large;"></i>
+        </div>
+        <!-- End of profile and cart -->
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -71,13 +82,9 @@
                 </li>
             </ul>
         </div>
-        <div class="disappear">
-            <i class="fa fa-user" style="margin-right: 5px; font-size: xx-large;"></i>
-            <i class='fa fa-shopping-cart' style="margin-left: 5px; font-size: xx-large;"></i>
-        </div>
         <form method="post" action="{% url 'search' %}" class="d-flex sm-12 w-100" role="search">
             <div class="w-100">
-                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4 w-100">
+                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-2 w-100">
                     <div class="input-group w-100">
                         <button id="button-addon2" type="submit" class="btn btn-link"><i
                             class="fa fa-search"></i></button>
@@ -91,4 +98,43 @@
             {% csrf_token %}
         </form>
     </div>
+  
+  <!-- Profile Modal -->
+  <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true" data-bs-backdrop="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="profileModalLabel">Your Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- End profile model -->
+<!-- Cart Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true" data-bs-backdrop="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Your Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- End cart model -->
 </nav>
