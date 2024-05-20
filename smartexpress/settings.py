@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'shop',
     'tinymce',
     'django.contrib.humanize',
-    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
