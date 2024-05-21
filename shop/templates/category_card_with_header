@@ -12,7 +12,7 @@
                                 {% for cat in category %}
                                 <a href="{% url 'products' cat.slug %}" class="col-md-4 col-4 item mt-3">
                                     <div class="card item-card card-block" style="font-size: small;">
-                                        <img src="{{cat.image.url}}">
+                                        <img src="{{cat.image.url}}" loading="lazy" alt="{{category.name}} image">
                                         <h6 class="item-card-title my-2">{{cat.name|truncatechars:12}}</h6>
                                     </div>
                                 </a>
