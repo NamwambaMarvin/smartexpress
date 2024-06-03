@@ -1,15 +1,17 @@
 from django.db import models
 from tinymce.models import HTMLField
 from django.contrib.auth.models import User
+import uuid
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.template.defaultfilters import slugify
 
 #Shop model incase of multiple branches
 class shop(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=150)
-    slug = slug = models.SlugField(slugify(name), default="hello-world", unique=True)
-    shop_location = models.CharField(max_length=100)
+    slug = models.SlugField(slugify(name), unique=True, editable=False)
+    location = models.CharField(max_length=255)
     def __str__(self) -> str:
         return f'{self.name}'
 
@@ -21,7 +23,7 @@ class brand(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='static/brand_images')
-    slug = slug = models.SlugField(slugify(name), default="hello-world", unique=True)
+    slug = slug = models.SlugField(slugify(name), unique=True, editable=False)
 
     def __str__(self) -> str:
         return f'{self.name}'
@@ -57,7 +59,7 @@ class category(models.Model):
     """
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
-    slug = models.SlugField(slugify(name), default="hello-world", unique=True)
+    slug = models.SlugField(slugify(name), unique=True, editable=False)
     image = models.ImageField(upload_to="static/category_images")
 
     def __str__(self) -> str:
@@ -68,8 +70,8 @@ class subcategory(models.Model):
     Sub category incase a product belongs to one
     """
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
-    slug = models.SlugField(slugify(name), unique=True)
+    name = models.CharField(max_length=150)
+    slug = models.SlugField(slugify(name), unique=True, editable=False)
     image = models.ImageField(upload_to="static/subcat_images")
     category = models.ForeignKey(category, on_delete=models.PROTECT)
 
@@ -82,9 +84,10 @@ class product(models.Model):
     Store product information
     """
     id = models.AutoField(primary_key=True)
+    secodary_id = models.UUIDField(default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=200)
     image = models.ImageField(upload_to='static/product_images')
-    slug = models.SlugField(slugify(name), default= "Optional-Field", unique=True)
+    slug = models.SlugField(slugify(name), unique=True, editable=False)
     price = models.PositiveIntegerField()
     discount = models.PositiveIntegerField()
     brand = models.ForeignKey(brand, on_delete=models.PROTECT, null=True, blank=True)
@@ -96,7 +99,7 @@ class product(models.Model):
     specifications = models.TextField(max_length=2000)
     category = models.ForeignKey(category, on_delete=models.PROTECT, null=True, blank=True)
     subcategory = models.ForeignKey(subcategory, on_delete=models.PROTECT, null=True, blank=True)
-    model = models.CharField(max_length=50)
+    model = models.CharField(max_length=150)
     shop = models.ForeignKey(shop, on_delete=models.PROTECT, null=True, blank=True)
     items_left = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=10)
     def __str__(self) -> str:
@@ -112,3 +115,41 @@ class category_front_page(models.Model):
 
     def __str__(self) -> str:
         return f'{self.category.name}'
+    
+class customer(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer_id = models.UUIDField(default=uuid.uuid4, editable=False)
+    phone = models.CharField(max_length=20)
+    address_1 = models.CharField(max_length=255)
+    address_2 = models.CharField(max_length=255)
+
+    def __str__(self) -> str:
+        return self.user.username
+
+"""
+All user carts are in one table,
+Each row represents an independent
+cart item.
+Pulling out cart items;
+we user a user(customer_id) to get all
+associated cart items.
+"""
+class cart(models.Model):
+    customer = models.OneToOneField(customer, on_delete=models.PROTECT)
+    product = models.ForeignKey(product, on_delete=models.PROTECT)
+    order_id = models.UUIDField(default=uuid.uuid4, editable=False)
+    def __str__(self):
+        return f'{self.product.name} {self.customer.user.first_name}'
+
+"""
+All check outs made by the customer
+are saved here.
+Will be seen by the suppliers
+"""   
+class order(models.Model):
+    customer = models.ForeignKey(customer, on_delete=models.PROTECT)
+    order_id = models.UUIDField(default=uuid.uuid4, editable=False)
+    cart = models.OneToOneField(cart, on_delete=models.PROTECT)
+
+    def __str__(self) -> str:
+        return self.customer.user.first_name

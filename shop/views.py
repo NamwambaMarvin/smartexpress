@@ -22,6 +22,9 @@ def index(request):
     }
     return render(request, 'index', context)
 
+def shop_home(request, shop_name):
+    return render(request, 'index', {})
+
 def single_product(request, category_slug, product_slug):
     """
     This displays details of a product in a particular category
