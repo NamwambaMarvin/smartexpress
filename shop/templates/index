@@ -17,4 +17,5 @@
 	{% include 'product_card_without_header' %}
 	{% include 'product_card_with_header' %}
 	{% include 'banner_card_without_header' %}
+	{% include 'scroll_product_with_header' %}
 {% endblock %}
