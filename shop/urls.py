@@ -7,7 +7,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('<slug:shop_name>/', views.shop_home, name='shop_home'),
+    path('shop/<slug:shop_name>/', views.shop_home, name='shop_home'),
     path('search/', views.search, name='search'),
     path('products/<slug:category_slug>/', views.products, name='products'),
     path('product/<slug:category_slug>/<slug:product_slug>/', views.single_product, name='single_product'),

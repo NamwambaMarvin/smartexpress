@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 # from .forms import addbrand, addcategory, addcategory_front_page, addproduct, addshop, addsubcategory
 from .models import product, category, subcategory, rating, brand, category_front_page
 from django.db.models import Q
+import datetime
 # Create your views here.
 def index(request):
     """
@@ -19,6 +20,11 @@ def index(request):
         "subcategories" : s,
         "category": c,
         "title"  : "shop",
+        'last_revised': datetime.datetime.today(),
+        'meta_category': "PRODUCTS",
+        'summary': "Shop home appliances, electronics and other products with mzuri express",
+        'keywords': "shopping, mzuriexpress, mzuri, express, online store",
+        'description': "Mzuri express offers a wide variety of products made from around the planet, Start shopping on the fly",
     }
     return render(request, 'index', context)
 

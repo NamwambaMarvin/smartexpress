@@ -20,7 +20,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('shop.urls')),
-    #path('admin/', admin.site.urls),
     path('auth/', include('django.contrib.auth.urls')),
     path(r'^tinymce/', include('tinymce.urls')),
 ]
