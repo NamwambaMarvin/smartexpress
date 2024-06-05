@@ -133,3 +133,6 @@ MEDIA_ROOT = BASE_DIR
 # Authentication redirects
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# CSRF Trusted origins
+CSRF_TRUSTED_ORIGINS = ["https://mzuriexpress.com", "https://www.mzuriexpress.com"]

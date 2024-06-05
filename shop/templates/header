@@ -49,7 +49,7 @@
 
 
 <!--Open Graph meta tags -->
-<meta name="og:title" content="{{title}}"/>
+<meta name="og:title" content="MZURI EXPRESS | {{title}}"/>
 <meta name="og:type" content="product"/>
 <meta name="og:url" content="https://www.mzuriexpress.com{{request.path}}"/>
 <meta name="og:image" content="{% static 'assets/favicon.ico' %}"/>
