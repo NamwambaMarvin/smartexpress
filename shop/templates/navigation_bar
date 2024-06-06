@@ -78,7 +78,12 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    <!-- Button trigger profile modal -->
+                <i type="button" class="fa fa-user" data-bs-toggle="modal" data-bs-target="#profileModal" style="margin-right: 5px; font-size: xx-large;"></i>
+                </li>
+                <li class="nav-item">
+                    <!-- Button trigger cart modal -->
+                <i type="button" class="fa fa-shopping-cart" data-bs-toggle="modal" data-bs-target="#cartModal" style="margin-right: 5px; font-size: xx-large;"></i>
                 </li>
             </ul>
         </div>
