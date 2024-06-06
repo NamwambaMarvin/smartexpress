@@ -7,11 +7,22 @@ from django.shortcuts import render, redirect
 from .models import product, category, subcategory, rating, brand, category_front_page
 from django.db.models import Q
 import datetime
+from django.contrib.auth import authenticate, login
 # Create your views here.
 def index(request):
     """
     View serving the home page logic
     """
+    user = None
+    if request.POST:
+        user_fetched = authenticate(username=request.POST['email'], password=request.POST['password'])
+        if user_fetched is not None:
+            login(request, user_fetched)
+        else:
+            pass
+    else:
+        pass
+
     c = category.objects.all()[:6]
     s = subcategory.objects.all()[:12]
     p = product.objects.order_by('?')[:12]
