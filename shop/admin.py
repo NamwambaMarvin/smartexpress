@@ -12,6 +12,6 @@ class MyModelAdmin(admin.ModelAdmin):
 
 admin.site.register(my_models, MyModelAdmin)
 
-admin.site.site_header = "SMART EXPRESS ADMIN"
-admin.site.index_title = "SMART EXPRESS ADMIN"
-admin.site.site_title = "SMART EXPRESS ADMIN"
+admin.site.site_header = "MZURI EXPRESS ADMIN"
+admin.site.index_title = "MZURI EXPRESS ADMIN"
+admin.site.site_title = "MZURI EXPRESS ADMIN"
