@@ -3,11 +3,22 @@ Render function used to serve context to
 Webpages.
 """
 from django.shortcuts import render, redirect
+import random
 # from .forms import addbrand, addcategory, addcategory_front_page, addproduct, addshop, addsubcategory
 from .models import product, category, subcategory, rating, brand, category_front_page
 from django.db.models import Q
 import datetime
 from django.contrib.auth import authenticate, login
+
+# Make query sets random
+# 1D query set
+def _shuffle(query_set):
+    new_list = []
+    for i in query_set:
+        new_list.append(i)
+    random.shuffle(new_list)
+    return new_list
+
 # Create your views here.
 def index(request):
     """
@@ -25,11 +36,12 @@ def index(request):
 
     c = category.objects.all()[:6]
     s = subcategory.objects.all()[:12]
-    p = product.objects.order_by('?')[:12]
+    p = product.objects.all()[:12]
+
     context = {
-        "products": p,
-        "subcategories" : s,
-        "category": c,
+        "products": _shuffle(p),
+        "subcategories" : _shuffle(s),
+        "category": _shuffle(c),
         "title"  : "shop",
         'last_revised': datetime.datetime.today(),
         'meta_category': "PRODUCTS",

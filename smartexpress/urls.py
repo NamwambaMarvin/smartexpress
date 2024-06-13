@@ -19,7 +19,7 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('shop.urls')),
+    path('', include('shop.urls', namespace="shop")),
     path('auth/', include('django.contrib.auth.urls')),
     path(r'^tinymce/', include('tinymce.urls')),
 ]

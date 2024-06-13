@@ -9,7 +9,6 @@ class MyModelAdmin(admin.ModelAdmin):
     class Media:
         js = ('js/tinymce/js/tinymce/custom.js',)
 
-
 admin.site.register(my_models, MyModelAdmin)
 
 admin.site.site_header = "MZURI EXPRESS ADMIN"

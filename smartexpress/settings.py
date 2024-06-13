@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ks#8@l5lv@sz*r__a^a@_r)@a2(m6pvtms1@5a(fd*3x2)ha&s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -128,7 +128,7 @@ STATIC_ROOT = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #MEDIA_URL = 'media/'
-#MEDIA_ROOT = '/home/smartexpress/static/'
+MEDIA_ROOT = BASE_DIR
 
 # Authentication redirects
 LOGIN_REDIRECT_URL = '/'

@@ -9,7 +9,7 @@
                 <i class="fa fa-bars"></i>
             </span>
         </a>
-        <a class="navbar-brand mx-auto" href="{% url 'index' %}">
+        <a class="navbar-brand mx-auto" href="{% url 'shop:index' %}">
             <div class="col">
                 <!--<img src="{% static 'assets/logo.png' %}" alt="..." style="width: 160px; height: 40px;" /> -->
             <!--
@@ -46,7 +46,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -54,13 +54,13 @@
                         Appliances
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'products' 'refrigerators52' %}">Refrigerators</a>
+                        <li><a class="dropdown-item" href="{% url 'shop:products' 'refrigerators52' %}">Refrigerators</a>
                         </li>
-                        <li><a class="dropdown-item" href="{% url 'products' 'cookers9' %}">Cookers</a></li>
+                        <li><a class="dropdown-item" href="{% url 'shop:products' 'cookers9' %}">Cookers</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="{% url 'products' 'appliances95' %}">Others</a></li>
+                        <li><a class="dropdown-item" href="{% url 'shop:products' 'appliances95' %}">Others</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -87,7 +87,7 @@
                 </li>
             </ul>
         </div>
-        <form method="post" action="{% url 'search' %}" class="d-flex sm-12 w-100" role="search">
+        <form method="post" action="{% url 'shop:search' %}" class="d-flex sm-12 w-100" role="search">
             <div class="w-100">
                 <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-2 w-100">
                     <div class="input-group w-100">
