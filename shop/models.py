@@ -10,10 +10,14 @@ class shop(models.Model):
     owner = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=150)
-    slug = models.SlugField(slugify(name), unique=True, editable=False)
+    slug = models.SlugField(unique=True, editable=False)
     location = models.CharField(max_length=255)
     def __str__(self) -> str:
         return f'{self.name}'
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        return super().save(*args, **kwargs)
 
 #Brand model
 class brand(models.Model):
@@ -23,10 +27,15 @@ class brand(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='static/brand_images')
-    slug = slug = models.SlugField(slugify(name), unique=True, editable=False)
+    slug = slug = models.SlugField(unique=True, editable=False)
 
     def __str__(self) -> str:
         return f'{self.name}'
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        return super().save(*args, **kwargs)
 
 # Product rating
 class rating(models.Model):
@@ -59,11 +68,16 @@ class category(models.Model):
     """
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
-    slug = models.SlugField(slugify(name), unique=True, editable=False)
+    slug = models.SlugField(unique=True, editable=False)
     image = models.ImageField(upload_to="static/category_images")
 
     def __str__(self) -> str:
         return f'{self.name}'
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        return super().save(*args, **kwargs)
 
 class subcategory(models.Model):
     """
@@ -71,12 +85,17 @@ class subcategory(models.Model):
     """
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=150)
-    slug = models.SlugField(slugify(name), unique=True, editable=False)
+    slug = models.SlugField(unique=True, editable=False)
     image = models.ImageField(upload_to="static/subcat_images")
     category = models.ForeignKey(category, on_delete=models.PROTECT)
 
     def __str__(self) -> str:
         return f'{self.name}'
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        return super().save(*args, **kwargs)
 
 # Product model
 class product(models.Model):
@@ -87,7 +106,7 @@ class product(models.Model):
     secodary_id = models.UUIDField(default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=200)
     image = models.ImageField(upload_to='static/product_images')
-    slug = models.SlugField(slugify(name), unique=True, editable=False)
+    slug = models.SlugField(unique=True, editable=False)
     price = models.PositiveIntegerField()
     discount = models.PositiveIntegerField()
     brand = models.ForeignKey(brand, on_delete=models.PROTECT, null=True, blank=True)
@@ -104,6 +123,11 @@ class product(models.Model):
     items_left = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=10)
     def __str__(self) -> str:
         return f'{self.name}'
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        return super().save(*args, **kwargs)
 
 class category_front_page(models.Model):
     """

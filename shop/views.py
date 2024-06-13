@@ -36,7 +36,7 @@ def index(request):
 
     c = category.objects.all()[:6]
     s = subcategory.objects.all()[:12]
-    p = product.objects.all()[:12]
+    p = product.objects.all()[12:]
 
     context = {
         "products": _shuffle(p),
