@@ -1,0 +1,5 @@
+# Don't tamper with settings file
+smartexpress/settings.py
+
+# Ignore compiled python files (.pyc)
+*.pyc
