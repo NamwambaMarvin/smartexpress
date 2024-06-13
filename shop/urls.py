@@ -8,7 +8,6 @@ from . import views
 app_name = "shop"
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('shop/<slug:shop_name>/', views.shop_home, name='shop_home'),
     path('search/', views.search, name='search'),
