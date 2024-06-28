@@ -1,3 +1,4 @@
+{% load static %}
 {% load humanize %}
 <section>
     <div class="card border-danger">
@@ -11,7 +12,7 @@
                     <div class="col-md-4 col-6 item mt-3">
                         <div class="card item-card card-block">
                             <a href="{% url 'shop:single_product' product.category.slug product.slug %}">
-                            <img src="{{product.image.url}}" loading="lazy" alt="{{product.name}} image">
+                            <img src="{% static 'assets/banner_load_s.png'%}" class="attachment-home-thumb" loading="lazy" alt="{{product.name}} image" data-mainSrc="{{product.image.url}}">
                             <h6>{{product.name|truncatechars:23}}</h6>
                             <h6 class="item-card-title">UGX {{product.price|intcomma}}</h6>
                             {% if product.items_left < 40 %}

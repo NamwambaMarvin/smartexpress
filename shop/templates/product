@@ -1,11 +1,12 @@
 {% extends 'layout' %}
 {% block content %}
 {% load humanize %}
+{% load static %}
 <section>
     <div class="card mb-3" style="max-width: 100%; margin-top: 8px;">
         <div class="row g-0">
             <div class="col-md-4">
-                <img src="{{product.image.url}}" loading="lazy" alt="{{product.name}} image" class="img-fluid rounded-start" alt="...">
+                <img src="{% static 'assets/banner_load_s.png'%}" class="attachment-home-thumb" data-mainSrc="{{product.image.url}}" loading="lazy" alt="{{product.name}} image" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
