@@ -26,7 +26,7 @@ class brand(models.Model):
     """
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='static/brand_images')
+    image = models.ImageField(upload_to='static/brand_images', null=True, blank=True)
     slug = slug = models.SlugField(unique=True, editable=False)
 
     def __str__(self) -> str:
@@ -69,7 +69,7 @@ class category(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
     slug = models.SlugField(unique=True, editable=False)
-    image = models.ImageField(upload_to="static/category_images")
+    image = models.ImageField(upload_to="static/category_images", null=True, blank=True)
 
     def __str__(self) -> str:
         return f'{self.name}'
@@ -86,7 +86,7 @@ class subcategory(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=150)
     slug = models.SlugField(unique=True, editable=False)
-    image = models.ImageField(upload_to="static/subcat_images")
+    image = models.ImageField(upload_to="static/subcat_images", null=True, blank=True)
     category = models.ForeignKey(category, on_delete=models.PROTECT)
 
     def __str__(self) -> str:
@@ -137,7 +137,7 @@ class category_front_page(models.Model):
     Store page banners of categorical products.
     """
     id = models.AutoField(primary_key=True)
-    image = models.ImageField(upload_to='static/category_front_page')
+    image = models.ImageField(upload_to='static/category_front_page', null=True, blank=True)
     category = models.ForeignKey(category, on_delete=models.PROTECT)
 
     def __str__(self) -> str:

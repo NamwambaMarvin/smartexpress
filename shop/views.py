@@ -64,7 +64,7 @@ def single_product(request, category_slug, product_slug):
         title = p.name
     except:
         c = None
-        p = None
+        p = product.objects.get(slug=product_slug)
         title = "No Product Found"
 
     context = {
