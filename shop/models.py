@@ -119,7 +119,7 @@ class product(models.Model):
     color = models.CharField(max_length=10)
     type = models.CharField(max_length=15)
     specifications = models.TextField(max_length=2000)
-    category = models.ForeignKey(category, on_delete=models.PROTECT, null=True, blank=True)
+    category = models.ForeignKey(category, on_delete=models.PROTECT, null=True)
     subcategory = models.ForeignKey(subcategory, on_delete=models.PROTECT, null=True, blank=True)
     model = models.CharField(max_length=150)
     shop = models.ForeignKey(shop, on_delete=models.PROTECT, null=True, blank=True)

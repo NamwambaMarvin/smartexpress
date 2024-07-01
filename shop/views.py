@@ -38,6 +38,14 @@ def index(request):
     s = subcategory.objects.all()[:12]
     p = product.objects.all()[12:]
 
+    category_update, created =  category.objects.get_or_create(name="uncategorised")
+    for pr in p:
+        try:
+            m = pr.category.slug
+        except:
+            pr.category = category_update
+            pr.save()
+
     context = {
         "products": _shuffle(p),
         "subcategories" : _shuffle(s),
