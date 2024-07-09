@@ -1,20 +1,67 @@
 {% load static %}
 <!-- start carousel -->
 <section>
-<div>
-    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="4000">
-                <img class="img-resize" loading="lazy" alt="Front Page Banner" src="{% static 'front_page_images/1.png' %}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="4000">
-                <img class="img-resize" loading="lazy" alt="Front Page Banner" src="{% static 'front_page_images/2.png' %}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="4000">
-                <img class="img-resize" loading="lazy" alt="Front Page Banner" src="{% static 'front_page_images/3.png' %}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item" data-bs-interval="4000">
-                <img class="img-resize" loading="lazy" alt="Front Page Banner" src="{% static 'front_page_images/4.png' %}" class="d-block w-100" alt="...">
+<div class="row">
+    <div class="col-lg-2 d-none d-lg-block mt-1 rounded"  style="background-color: white; padding-left: 6px;">
+        <div class="w-20">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: small;">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
+                        <i class='fa fa-home'></i>  Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
+                        <i class='fa fa-mobile-phone'></i>  Phones & tablets
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
+                        <i class='fa fa-mobile-phone'></i>  Appliances
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
+                        <i class='fa fa-mobile-phone'></i>  Fashion
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
+                        <i class='fa fa-mobile-phone'></i>  Supermarket
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
+                        <i class='fa fa-mobile-phone'></i>  Computing
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
+                        <i class='fa fa-mobile-phone'></i>  Other Categories
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-12 col-lg-10">
+        <div>
+            <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="4000">
+                        <img class="img-resize" loading="lazy" alt="Front Page Banner" src="{% static 'front_page_images/1.png' %}" class="d-block w-80" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img class="img-resize" loading="lazy" alt="Front Page Banner" src="{% static 'front_page_images/2.png' %}" class="d-block w-80" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img class="img-resize" loading="lazy" alt="Front Page Banner" src="{% static 'front_page_images/3.png' %}" class="d-block w-80" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img class="img-resize" loading="lazy" alt="Front Page Banner" src="{% static 'front_page_images/4.png' %}" class="d-block w-80" alt="...">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

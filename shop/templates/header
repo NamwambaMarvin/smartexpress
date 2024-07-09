@@ -75,7 +75,7 @@
       background-color: orange;
     }
     .body {
-      width: 80%;
+      width: 84%;
       margin: auto;
     }
     @media only screen and (max-width: 900px) {
@@ -92,8 +92,9 @@
       }
     }
     @media only screen and (min-width: 990px) {
-      .disappear {
-        visibility: hidden;
+      .nav-r {
+        width: 90%;
+        margin: auto;
       }
     }
     a {
@@ -210,7 +211,9 @@ div.scrollcards .card {
     width: 300px;
 }
 
-
+a.nav-link {
+  color: black;
+}
 
 
 .flex {

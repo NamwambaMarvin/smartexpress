@@ -2,7 +2,7 @@
 <header>
 </header>
 <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
+    <div class="container-fluid nav-r">
         <a class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
@@ -33,28 +33,35 @@
             </div>
         </a>
         <!-- The profile and cart icon -->
-        <div class="disappear">
+        <div class="d-sm-block d-md-block d-lg-none">
             <!--<i class="fa fa-user" style="margin-right: 5px; font-size: xx-large;"></i>-->
             <!--<i class='fa fa-shopping-cart' style="margin-left: 5px; font-size: xx-large;"></i>-->
                 <!-- Button trigger profile modal -->
                 <i type="button" class="fa fa-user" data-bs-toggle="modal" data-bs-target="#profileModal" style="margin-right: 5px; font-size: xx-large;"></i>
                 <!-- Button trigger cart modal -->
-                <i type="button" class="fa fa-shopping-cart" data-bs-toggle="modal" data-bs-target="#cartModal" style="margin-right: 5px; font-size: xx-large;"></i>
+                <i type="button" class="fa fa-shopping-cart position-relative" data-bs-toggle="modal" data-bs-target="#cartModal" style="margin-right: 5px; font-size: xx-large;">
+                <!-- Number of items in cart -->
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary" style="font-size: small">1 <span class="visually-hidden">Your cart</span></span>
+                <!-- End number of items in cart -->
+                </i>
         </div>
         <!-- End of profile and cart -->
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">Home</a>
+                <li class="nav-item d-lg-none d-sm-inline d-md-inline">
+                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}"><i class='fa fa-home'></i>  Home</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Appliances
+                <li class="nav-item d-lg-none d-sm-inline d-md-inline">
+                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}"><i class='fa fa-mobile-phone'></i>  Phones & tablets</a>
+                </li>
+                <li class="nav-item d-lg-none d-sm-inline d-md-inline dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class='fa fa-tv'></i>  Appliances
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'shop:products' 'refrigerators52' %}">Refrigerators</a>
+                        <li><a class="dropdown-item" href="{% url 'shop:products' 'refrigerators52' %}">
+                        Refrigerators</a>
                         </li>
                         <li><a class="dropdown-item" href="{% url 'shop:products' 'cookers9' %}">Cookers</a></li>
                         <li>
@@ -63,7 +70,7 @@
                         <li><a class="dropdown-item" href="{% url 'shop:products' 'appliances95' %}">Others</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item d-lg-none d-sm-inline d-md-inline dropdown">
                     <a class="nav-link dropdown-toggle disabled" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Coming Soon!
@@ -78,12 +85,21 @@
                     </ul>
                 </li>
                 <li class="nav-item">
+                    <!--any additional -->
+                </li>
+                <li class="nav-item d-flex flex-row">
                     <!-- Button trigger profile modal -->
-                <i type="button" class="fa fa-user d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#profileModal" style="margin-right: 5px; font-size: xx-large;"></i>
+                <i type="button" class="fa fa-user col d-none d-lg-inline" data-bs-toggle="modal" data-bs-target="#profileModal" style="margin-right: 5px; font-size: xx-large;"></i><h5 class="d-none d-lg-block">Profile</h5>
                 </li>
                 <li class="nav-item">
-                    <!-- Button trigger cart modal -->
-                <i type="button" class="fa fa-shopping-cart d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#cartModal" style="margin-right: 5px; font-size: xx-large;"></i>
+                <i type="button" class="fa fa-shopping-cart position-relative d-none d-lg-block" data-bs-toggle="modal" data-bs-target="#cartModal" style="margin-right: 5px; font-size: xx-large;">
+                <!-- Number of items in cart -->
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary" style="font-size: small">1 <span class="visually-hidden">Your cart</span></span>
+                <!-- End number of items in cart -->
+                </i>
+                </li>
+                <li class="nav-item">
+                
                 </li>
             </ul>
         </div>
