@@ -5,16 +5,16 @@
     <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner" style="padding: 3px;">
             <div class="carousel-item active" data-bs-interval="4000">
-                <img class="" loading="lazy" alt="Banner Image" src="{% static 'front_page_images/1.png' %}" class="d-block w-100" alt="...">
+                <img class="lazyload d-block w-100" loading="lazy" alt="Banner Image" data-src="{% static 'front_page_images/1.png' %}" alt="...">
             </div>
             <div class="carousel-item" data-bs-interval="4000">
-                <img class="" loading="lazy" alt="Banner Image" src="{% static 'front_page_images/2.png' %}" class="d-block w-100" alt="...">
+                <img class="lazyload d-block w-100" loading="lazy" alt="Banner Image" data-src="{% static 'front_page_images/2.png' %}" alt="...">
             </div>
             <div class="carousel-item" data-bs-interval="4000">
-                <img class="" loading="lazy" alt="Banner Image" src="{% static 'front_page_images/3.png' %}" class="d-block w-100" alt="...">
+                <img class="lazyload d-block w-100" loading="lazy" alt="Banner Image" data-src="{% static 'front_page_images/3.png' %}" alt="...">
             </div>
             <div class="carousel-item" data-bs-interval="4000">
-                <img class="" loading="lazy" alt="Banner Image" src="{% static 'front_page_images/4.png' %}" class="d-block w-100" alt="...">
+                <img class="lazyload d-block w-100" loading="lazy" alt="Banner Image" data-src="{% static 'front_page_images/4.png' %}" alt="...">
             </div>
         </div>
     </div>

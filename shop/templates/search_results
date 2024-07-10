@@ -18,7 +18,7 @@
                     <div class="col-md-4 col-4 item mt-3">
                         <div class="card item-card card-block">
                             <a href="{% url 'shop:single_product' product.category.slug product.slug %}">
-                            <img src="{{product.image.url}}" loading="lazy">
+                            <img src="{% static 'assets/banner_load_s.png'%}" data-src="{{product.image.url}}" loading="lazy" class="lazyload" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';">
                             <h6>{{product.name|truncatechars:23}}</h6>
                             <h6 class="item-card-title">UGX {{product.price|intcomma}}</h6>
                             {% if product.items_left < 40 %}

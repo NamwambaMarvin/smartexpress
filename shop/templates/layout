@@ -12,7 +12,7 @@
                 
         </body>
                 {% include 'footer' %}
-                {% include 'scripts' %}
+               
         <script>
                 /*
  * Bootstrap Cookie Alert by Wruczek

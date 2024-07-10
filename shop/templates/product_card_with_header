@@ -12,7 +12,7 @@
                     <div class="col-md-4 col-6 item mt-3">
                         <div class="card item-card card-block">
                             <a href="{% url 'shop:single_product' product.category.slug product.slug %}">
-                            <img src="{% static 'assets/banner_load_s.png'%}" class="attachment-home-thumb" loading="lazy" alt="{{product.name}} image" data-mainSrc="{{product.image.url}}">
+                            <img src="{% static 'assets/banner_load_s.png'%}" data-src="{{product.image.url}}" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';" class="attachment-home-thumb lazyload" loading="lazy" alt="{{product.name}} image">
                             <h6>{{product.name|truncatechars:23}}</h6>
                             <h6 class="item-card-title">UGX {{product.price|intcomma}}</h6>
                             {% if product.items_left < 40 %}
