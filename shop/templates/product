@@ -2,6 +2,46 @@
 {% block content %}
 {% load humanize %}
 {% load static %}
+<style>
+    /* Example styles (customize as needed) */
+form {
+  max-width: 400px; /* Adjust the maximum width based on your design */
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+</style>
 <section>
     <div class="card mb-3" style="max-width: 100%; margin-top: 8px;">
         <div class="row g-0">
@@ -31,7 +71,7 @@
                         Product Rating: 5 stars
                     </p>
                     <div class="d-grid gap-2">
-                        <a href="https://wa.me/256702087501?text='Hello\n I want {{product.name}}'" class="btn btn-primary" type="button">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <div class="row">
                                 <div class="col align-self-start" style="text-align: left;">
                                     <i class="fa fa-cart-plus" style="font-size: large;"></i>
@@ -42,7 +82,7 @@
                                 <div class="col">
                                     <!---->
                                 </div></div>
-                            </a>
+                            </button>
                     </div>
                 </div>
             </div>
@@ -60,6 +100,33 @@
     </p>
     </div>
   </div>
+
+  <!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Enter your details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="{% url 'shop:public_cart' %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="hidden" name="product_id" value="{{product.secodary_id}}" id="id_product_id"/>
+                <input type="hidden" name="product_name" value="{{product.name}}" id="id_product_name"/>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end modal-->
   <!--
   <section>
     <div class="card">

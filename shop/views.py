@@ -2,9 +2,9 @@
 Render function used to serve context to
 Webpages.
 """
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 import random
-# from .forms import addbrand, addcategory, addcategory_front_page, addproduct, addshop, addsubcategory
+from .forms import public_cart_form
 from .models import product, category, subcategory, rating, brand, category_front_page
 from django.db.models import Q
 import datetime
@@ -62,10 +62,25 @@ def index(request):
 def shop_home(request, shop_name):
     return render(request, 'index', {})
 
+def public_cart(request):
+    if request.method == "POST":
+        form = public_cart_form(request.POST)
+        form
+        if form.is_valid():
+            new_form = form.save(commit=False)
+            new_form.product_name = request.POST["product_name"]
+            new_form.product_id = request.POST["product_id"]
+            new_form.save()
+            return redirect("/")
+        else:
+            pass
+
+
 def single_product(request, category_slug, product_slug):
     """
     This displays details of a product in a particular category
     """
+    form = public_cart_form()
     try:
         c = category.objects.get(slug=category_slug)
         p = product.objects.get(slug=product_slug, category=c)
@@ -78,6 +93,7 @@ def single_product(request, category_slug, product_slug):
     context = {
         "title"  : title,
         "product" : p,
+        "form": form,
     }
     return render(request, 'product', context)
 

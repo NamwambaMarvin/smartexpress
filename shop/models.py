@@ -164,7 +164,7 @@ associated cart items.
 class cart(models.Model):
     customer = models.OneToOneField(customer, on_delete=models.PROTECT)
     product = models.ForeignKey(product, on_delete=models.PROTECT)
-    order_id = models.UUIDField(default=uuid.uuid4, editable=False)
+    cart_id = models.UUIDField(default=uuid.uuid4, editable=False)
     def __str__(self):
         return f'{self.product.name} {self.customer.user.first_name}'
 
@@ -180,3 +180,23 @@ class order(models.Model):
 
     def __str__(self) -> str:
         return self.customer.user.first_name
+    
+class public_cart(models.Model):
+    region_list = (
+        ("Central Region", "Central Region"),
+        ("Eastern Region", "Eastern Region"),
+        ("Western Region", "Western Region"),
+        ("Nothern Region", "Nothern Region"),
+        ("Southern Region", "Southern Region"),
+    )
+    first_name = models.CharField(max_length=160)
+    last_name = models.CharField(max_length=160)
+    phone_number = models.CharField(max_length=20)
+    region = models.CharField(max_length=160, choices=region_list)
+    city = models.CharField(max_length=160, default="Kampala")
+    address = models.CharField(max_length=255)
+    product_id = models.UUIDField()
+    product_name = models.CharField(max_length=255)
+
+    def __str__(self) -> str:
+        return f"{self.first_name}--{self.phone_number}--{self.product_name}"
