@@ -4,10 +4,10 @@
 {% load static %}
 <style>
     /* Example styles (customize as needed) */
-form {
+form.user_data {
   max-width: 400px; /* Adjust the maximum width based on your design */
   margin: 0 auto; /* Center the form horizontally */
-  padding: 20px;
+  padding: 10px;
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -25,20 +25,6 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
-}
-
-input[type="submit"] {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-input[type="submit"]:hover {
-  background-color: #0056b3;
 }
 
 </style>
@@ -111,17 +97,28 @@ input[type="submit"]:hover {
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="{% url 'shop:public_cart' %}" method="post">
+            <form class="user_data" action="{% url 'shop:public_cart' %}" method="post">
                 {% csrf_token %}
                 {{ form }}
                 <input type="hidden" name="product_id" value="{{product.secodary_id}}" id="id_product_id"/>
                 <input type="hidden" name="product_name" value="{{product.name}}" id="id_product_name"/>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" class="btn btn-secondary">
+              <a href="tel:+256700229775">
+                <button type="button" class="btn btn-primary">
+                  <i class='fa fa-phone'></i>
+                  <div class="d-inline">Call Seller</div>
+                </button>
+              </a>
             </form>
         </div>
         <div class="modal-footer">
+          <a href="https://wa.me/256700229775?text=I'm%20interested%20in%20{{product.name}}">
+          <button type="button" class="btn btn-success">
+            <i class='fa fa-whatsapp' style="font-size: larger;"></i>
+            <div class="d-inline">Chat on WhatsApp</div>
+          </button>
+          </a>
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
         </div>
       </div>
     </div>
