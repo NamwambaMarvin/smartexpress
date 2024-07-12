@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col align-self-start" style="text-align: left;">
-        <i class="fa fa-flash" style="font-size: large;"></i>
+        <i class="fa fa-flash"></i>
     </div>
     <div class="col align-self-center">
-        Flash Sale
+        <h4>Flash Sale</h4>
     </div>
     <div class="col">
         <!---->

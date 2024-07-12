@@ -1,0 +1,25 @@
+
+<div class="card card-body body" style="border-radius: 0px;">
+    <h3>Mzuri Express - Elevating Your Online Shopping Experience in Uganda</h3>
+    <h4>Welcome to Mzuri Express, fastest e-commerce platform</h4>
+    <p>
+        Welcome to <b>Mzuri Express</b>, your premier e-commerce destination! We’re not just another online store; we’re your digital haven for all things shopping. Whether you’re in bustling Kampala,
+        serene Nansana, picturesque Entebbe, or vibrant Kira, we’ve got you covered.
+        Here’s why Mzuri Express stands out:...
+    </p>
+</div>
+<div class="collapse body" id="collapseExample">
+  <div class="card card-body" style="border-radius: 0px;">
+    <p>
+        <h4>Unbeatable Prices and Premium Brands</h4>
+        Our commitment transcends mere transactions—we’re here to ensure you get maximum value for your money. 
+        Explore diverse categories, from cutting-edge electronics and computing to stylish fashion, sporting goods, health essentials, and more. 
+        Our top-tier products hail from renowned brands like Samsung, Tecno, HP, Infinix, Apple, Lenovo, DELL, and Hisense.
+    </p>
+  </div>
+</div>
+<p class="d-flex flex-row justify-content-center align-items-center">
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    SEE MORE
+  </button>
+</p>

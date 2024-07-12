@@ -9,10 +9,9 @@
                      {% block content %}
                      {% endblock %}   
                 </div>
-                
+                {% include 'information_footer' %}
         </body>
-                {% include 'footer' %}
-               
+            {% include 'footer' %}
         <script>
                 /*
  * Bootstrap Cookie Alert by Wruczek
