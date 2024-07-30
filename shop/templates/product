@@ -26,13 +26,55 @@ select {
   border-radius: 4px;
   font-size: 14px;
 }
+/*Setting Basic Dimensions to give 
+    gallery view */
+    .container {
+    margin: 0 auto;
+}
+
+.side_view {
+    justify-content: center;
+    display: inline-block;
+}
+.main_view {
+    width: 100%;
+    height: auto;
+}
+.main_view img {
+    width: 100%;
+    height: 350px;
+}
+.side_view img {
+    width: 5rem;
+    height: 3rem;
+    cursor: pointer;
+    margin: 0.5rem;
+}
 
 </style>
 <section>
     <div class="card mb-3" style="max-width: 100%; margin-top: 8px;">
         <div class="row g-0">
             <div class="col-md-4">
-                <img src="{% static 'assets/banner_load_s.png'%}" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';" class="attachment-home-thumb lazyload" data-src="{{product.image.url}}" loading="lazy" alt="{{product.name}} image" class="img-fluid rounded-start" alt="...">
+              <div class="container">
+                <div class="main_view">
+                  <img id="main" src="{% static 'assets/banner_load_s.png'%}" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';" class="attachment-home-thumb img-fluid lazyload" data-src="{{product.image.url}}" loading="lazy" alt="{{product.name}} image">
+                </div>
+                <div class="side_view card-body">
+                  {% if product.image.url %}
+                  <img src="{% static 'assets/banner_load_s.png'%}" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';" class="attachment-home-thumb img-fluid lazyload" data-src="{{product.image.url}}" loading="lazy" alt="{{product.name}} image" onclick="change(this.src)">
+                  {% endif %}
+                  {% if product.image.url %}
+                  <img src="{% static 'assets/banner_load_s.png'%}" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';" class="attachment-home-thumb img-fluid lazyload" data-src="{{product.image1.url}}" loading="lazy" alt="{{product.name}} image" onclick="change(this.src)">
+                  {% endif %}
+                  {% if product.image.url %}
+                  <img src="{% static 'assets/banner_load_s.png'%}" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';" class="attachment-home-thumb img-fluid lazyload" data-src="{{product.image2.url}}" loading="lazy" alt="{{product.name}} image" onclick="change(this.src)">
+                  {% endif %}
+                  {% if product.image.url %}
+                  <img src="{% static 'assets/banner_load_s.png'%}" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';" class="attachment-home-thumb img-fluid lazyload" data-src="{{product.image3.url}}" loading="lazy" alt="{{product.name}} image" onclick="change(this.src)">
+                  {% endif %}
+                </div>
+              </div>
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -63,12 +105,25 @@ select {
                                     <i class="fa fa-cart-plus" style="font-size: large;"></i>
                                 </div>
                                 <div class="col align-self-center" style="font-size: small;">
-                                    PLACE ORDER
+                                    Request a call back
                                 </div>
                                 <div class="col">
                                     <!---->
-                                </div></div>
+                                </div>
+                              </div>
                             </button>
+                            <a class="d-grid gap-2" href="https://wa.me/256700229775?text=I'm%20interested%20in%20{{product.name}}" style="width: 100%;">
+                              <button type="button" class="btn btn-success">
+                                <i class='fa fa-whatsapp' style="font-size: larger;"></i>
+                                <div class="d-inline">Chat on WhatsApp</div>
+                              </button>
+                            </a>
+                            <a class="d-grid gap-2" href="tel:+256700229775">
+                              <button type="button" class="btn btn-secondary">
+                                <i class='fa fa-phone'></i>
+                                <div class="d-inline">Directly Call Us</div>
+                              </button>
+                            </a>
                     </div>
                 </div>
             </div>
@@ -93,7 +148,7 @@ select {
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Enter your details</h5>
+          <h5 class="modal-title" id="staticBackdropLabel">Request a call back</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -103,21 +158,9 @@ select {
                 <input type="hidden" name="product_id" value="{{product.secodary_id}}" id="id_product_id"/>
                 <input type="hidden" name="product_name" value="{{product.name}}" id="id_product_name"/>
                 <input type="submit" value="Submit" class="btn btn-secondary">
-              <a href="tel:+256700229775">
-                <button type="button" class="btn btn-primary">
-                  <i class='fa fa-phone'></i>
-                  <div class="d-inline">Call Seller</div>
-                </button>
-              </a>
             </form>
         </div>
         <div class="modal-footer">
-          <a href="https://wa.me/256700229775?text=I'm%20interested%20in%20{{product.name}}">
-          <button type="button" class="btn btn-success">
-            <i class='fa fa-whatsapp' style="font-size: larger;"></i>
-            <div class="d-inline">Chat on WhatsApp</div>
-          </button>
-          </a>
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
         </div>
       </div>

@@ -4,7 +4,7 @@
         {% include 'header' %}
         <!-- End header section-->
         <body>
-                {% include 'navigation_bar' %}
+                {% include 'navigation_bar.html' %}
                 <div class="body">
                      {% block content %}
                      {% endblock %}   

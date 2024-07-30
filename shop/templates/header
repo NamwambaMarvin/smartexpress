@@ -70,6 +70,9 @@
         $("#223").children('div').eq(1).attr('class', 'carousel-item');
       }
     );
+    const change = src => {
+    document.getElementById('main').src = src
+  }
   </script>
   <style>
     body {
