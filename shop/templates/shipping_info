@@ -1,15 +1,5 @@
-{% extends 'layout' %}
-{% block content %}
-    <style>
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        .container {
+<style>
+        .policy-container {
             margin: 20px auto;
             padding: 20px;
             background: #fff;
@@ -46,7 +36,7 @@
         }
     </style>
 
-    <div class="container">
+    <div class="policy-container">
         <h1>Shipping Policy</h1>
         <h2>How does Mzuri Express deliver?</h2>
         <p>For deliveries around Kampala, Wakiso and Entebbe districts, we use our local delivery agents. Our delivery means include a motorcycle, tricycle, or a truck. For deliveries outside the mentioned areas, we process orders through a delivery courier that transports your item to your location.</p>
@@ -137,4 +127,3 @@
             <li>At Mzuri Express, we believe in customer interaction. Therefore, expect us to communicate with you through a phone call or messaging. Put it in mind that it is not possible to process an order without communicating with you.</li>
         </ul>
     </div>
-{% endblock %}

@@ -24,6 +24,7 @@
   <script src="{% static 'js/lazysizes.min.js' %}" async=""></script>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <!--META TAGS -->
+<meta charset="UTF-8">
 <meta name="keywords" content="{{keywords}}"/>
 <meta name="description" content="{{description}}"/>
 <meta name="subject" content="MZURI EXPRESS online shopping, Get products at favourable prices">

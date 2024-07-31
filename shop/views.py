@@ -143,9 +143,13 @@ def search(request):
     return render(request, 'search_results', context)
 
 def shipping_and_return_policy(request):
-    context = {}
+    context = {
+        'title': 'Shipping and Return Policy'
+    }
     return render(request, 'shipping_and_return_policy.html', context)
 
 def contact(request):
-    context = {}
+    context = {
+        'title': 'Contact Us'
+    }
     return render(request, 'contact.html', context)

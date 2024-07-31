@@ -1,26 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+{% extends 'layout' %}
+{% block content %}
+<style>
         .contact-container {
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            max-width: 600px;
+            max-width: 100%;
             width: 100%;
         }
         .contact-card {
@@ -43,9 +29,8 @@
             margin-right: 15px;
         }
     </style>
-</head>
-<body>
-    <div class="contact-container">
+
+    <div class="contact-container mt-3 mb-3 mx-auto">
         <div class="contact-card">
             <div class="contact-icon">📍</div>
             <div>
@@ -65,9 +50,8 @@
             <div class="contact-icon">📞</div>
             <div>
                 <h3>Our Telephone</h3>
-                <p>+256 700 229 775</p>
+                <p>+256 700 22 789</p>
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

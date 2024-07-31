@@ -217,7 +217,7 @@
               <div class="card-body">
                 <!-- Create Inner Cards -->
                  <div class="row">
-                  <div class="col-lg-6 col-md-6  col-sm-12">
+                  <div class="col-lg-6 col-md-6  col-sm-12 mt-2">
                     <div class="card">
                       <div class="card-header">
                         <h5 class="card-title">Major Features</h5>
@@ -227,7 +227,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-6 col-md-6 col-sm-12">
+                  <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
                     <div class="card">
                       <div class="card-header">
                         <h5 class="card-title">What to expect (Full Package)</h5>
@@ -237,7 +237,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-6 col-md-6 col-sm-12">
+                  <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
                     <div class="card">
                       <div class="card-header">
                         <h5 class="card-title">Technical Product information</h5>
@@ -280,7 +280,7 @@
         <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
           <div class="accordion-body">
             <!-- Start shipping and return policy -->
-             
+             {% include 'shipping_info' %}
              <!-- End shipping and return policy -->
           </div>
         </div>
