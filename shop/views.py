@@ -145,3 +145,7 @@ def search(request):
 def shipping_and_return_policy(request):
     context = {}
     return render(request, 'shipping_and_return_policy.html', context)
+
+def contact(request):
+    context = {}
+    return render(request, 'contact.html', context)

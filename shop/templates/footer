@@ -34,6 +34,7 @@
           <li class="nav-item mb-2"><a href="{% url 'shop:shipping' %}">Shipping and Return Policy</a></li>
           <li class="nav-item mb-2"><a href="#">FAQs</a></li>
           <li class="nav-item mb-2"><a href="#">About</a></li>
+          <li class="nav-item mb-2"><a href="{% url 'shop:contact' %}">Contact Us</a></li>
           <li class="nav-item mb-2"><a href="mailto:marvinnamwamba@gmail.com">Contact Developer</a></li>
         </ul>
       </div>
