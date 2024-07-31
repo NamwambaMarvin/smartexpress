@@ -141,3 +141,7 @@ def search(request):
         'products' : search_package,
     }
     return render(request, 'search_results', context)
+
+def shipping_and_return_policy(request):
+    context = {}
+    return render(request, 'shipping_and_return_policy.html', context)

@@ -2,6 +2,7 @@
         <html>
         <!-- header section -->
         {% include 'header' %}
+        {% include 'scripts' %}
         <!-- End header section-->
         <body>
                 {% include 'navigation_bar.html' %}

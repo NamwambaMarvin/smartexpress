@@ -1,18 +1,4 @@
-<!--https://jsfiddle.net/95rpu029/9/-->
-<script>
-$(function () {
-    setTimeout(function () {
-        var imgs = $("img.attachment-home-thumb");
-        $.each(imgs, function () {
-            var $this = $(this);
-            var im = new Image();
-            im.onload = function () {
-                var theImage = $this;
-                $this.hide("fast");
-                theImage[0].src = im.src;
-                $this.show('fast');
-            };
-            im.src = $this.data("mainsrc");
-        });}, 50);
-    });
+<script  type="text/javascript">
+
+
 </script>

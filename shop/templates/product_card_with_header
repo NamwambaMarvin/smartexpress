@@ -10,7 +10,8 @@
                 <div class="row">
                     {% for product in products %}
                     <div class="col-md-4 col-6 item mt-3">
-                        <div class="card item-card card-block">
+                        <div class="card item-card card-block position-relative">
+                        <div class="position-absolute top-0 end-0"><span class="badge bg-secondary">-0.0%</span></div>    
                             <a href="{% url 'shop:single_product' product.category.slug product.slug %}">
                             <img src="{% static 'assets/banner_load_s.png'%}" data-src="{{product.image.url}}" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';" class="attachment-home-thumb lazyload" loading="lazy" alt="{{product.name}} image">
                             <h6>{{product.name|truncatechars:23}}</h6>
@@ -28,8 +29,6 @@
                             {% endif %}
                             </a>
                             <code>{{product.items_left}} items left</code>
-                        
-                            <button type="button" class="btn btn-primary" style="font-size: smaller;">Add to Cart</button>
                         </div>
                     </div>
                     {% endfor %}

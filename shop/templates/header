@@ -18,7 +18,9 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
   <script src="{% static 'js/tinymce/js/tinymce/tinymce.min.js' %}"></script>
+  <!--
   <script type="text/javascript" src="{% static 'js/tinymce/js/tinymce/custom.js' %}"></script>
+  -->
   <script src="{% static 'js/lazysizes.min.js' %}" async=""></script>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <!--META TAGS -->
