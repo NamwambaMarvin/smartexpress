@@ -1,8 +1,14 @@
 <!DOCTYPE html>
         <html>
+            <head>
+                <title>
+                  mzuriexpress | {{title}}
+                </title>
+                {% block rich_results %}
+                {% endblock %}
+                {% include 'header' %}
+            </head>
         <!-- header section -->
-        {% include 'header' %}
-        {% include 'scripts' %}
         <!-- End header section-->
         <body>
                 {% include 'navigation_bar.html' %}

@@ -1,0 +1,16 @@
+<form method="post" action="{% url 'shop:search' %}" class="d-flex sm-12 w-100" role="search">
+    <div class="w-100">
+        <div class="p-1 bg-light rounded shadow-sm mb-2 w-100">
+            <div class="input-group w-100">
+                <span id="button-addon2" class="btn btn-link"><i
+                    class="fa fa-search"></i></span>
+                <input name="search_query" type="search" placeholder="Search products, brands and categories"
+                    aria-describedby="button-addon2" class="form-control border-0 bg-light">
+            <div class="input-group-prepend">
+                </div>
+                </div>
+        </div>
+        <button class="btn btn-success w-100 d-block" type="submit">Search</button>
+    </div>
+    {% csrf_token %}
+</form>

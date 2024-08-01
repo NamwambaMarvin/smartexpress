@@ -37,8 +37,6 @@
                             {% endif %}
                             </a>
                             <code>{{product.items_left}} items left</code>
-                        
-                            <button type="button" class="btn btn-primary">Add to Cart</button>
                         </div>
                     </div>
                     {% endfor %}

@@ -1,7 +1,63 @@
 {% extends 'layout' %}
 {% block content %}
 {% load humanize %}
+{% load discount %}
 {% load static %}
+{% block rich_results %}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "{{product.name}}",
+    "image": [
+    {% if product.image %}
+    "https://www.mzuriexpress.com{{product.image.url}}",
+    {% endif %}
+    {% if product.image1 %}
+    "https://www.mzuriexpress.com{{product.image1.url}}",
+    {% endif %}
+    {% if product.image2 %}
+    "https://www.mzuriexpress.com{{product.image2.url}}",
+    {% endif %}
+    {% if product.image3 %}
+    "https://www.mzuriexpress.com{{product.image3.url}"
+    {% endif %}
+     ],
+    "description": "{{clean_description}}",
+    "sku": "{{product.secodary_id}},
+    "brand": {
+      "@type": "Brand",
+      "name": "{{product.brand.name}}"
+    },
+    "review": {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Namwamba Marvin"
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 4.9,
+      "reviewCount": {% rating %}
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://mzuriexpress.com{{request.path}}",
+      "priceCurrency": "UGX",
+      "price": {{product.price}},
+      "priceValidUntil": "2025-11-20",
+      "itemCondition": "https://schema.org/NewCondition",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+{% endblock %}
 <style>
   /* Example styles (customize as needed) */
   form.user_data {
@@ -108,7 +164,7 @@
               {% include 'flash_sales'%}
             </h5>
             <div class="card-body">
-            <h3 class="card-title">UGX {{product.price}}
+            <h3 class="card-title">UGX {{product.price|intcomma}}
               <span class="badge bg-danger" style="font-size: small;">-{{percentage_discount|floatformat:2}}%</span>
             </h3>
             <del style="color: grey;">UGX {{original_price|intcomma}}</del>    
@@ -128,54 +184,45 @@
           <div class="d-grid gap-2">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               <div class="row">
-                <div class="col align-self-start" style="text-align: left;">
+                <div class="col-2 align-self-start" style="text-align: left;">
                   <i class='fa fa-volume-control-phone'></i>
                 </div>
-                <div class="col align-self-center" style="font-size: small;">
+                <div class="col-10 align-self-center" style="font-size: small;">
                   Request a call back
-                </div>
-                <div class="col">
-                  <!---->
                 </div>
               </div>
             </button>
             <a class="d-grid gap-2 btn btn-success" href="https://wa.me/256700229775?text=I'm%20interested%20in%20{{product.name}}"
               style="width: 100%;">
               <div class="row">
-                <div class="col" style="text-align: left;">
+                <div class="col-2" style="text-align: left;">
                   <i class='fa fa-whatsapp' style="font-size: larger;"></i>
                 </div>
-                <div class="col">
+                <div class="col-10">
                  
                 <div class="d-inline"  style="font-size: small;">Chat on WhatsApp</div>
              
-                </div>
-                <div class="col">
                 </div>
               </div>
             </a>
             <a class="d-grid gap-2 btn btn-secondary" href="tel:+256700229775">
               <div class="row">
-                <div class="col" style="text-align: left;">
+                <div class="col-2" style="text-align: left;">
                   <i class='fa fa-phone'></i>
                 </div>
-                <div class="col">
+                <div class="col-10">
                   <div class="d-inline"  style="font-size: small;">Directly Call Us</div>
-                </div>
-                <div class="col">
                 </div>
               </div>
             </a>
             <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdropReview">
               <div class="row">
-                <div class="col align-self-start" style="text-align: left;">
+                <div class="col-2 align-self-start" style="text-align: left;">
                   <i class='fa fa-commenting-o'></i>
                 </div>
-                <div class="col align-self-center" style="font-size: small;">
-                  Review Product
+                <div class="col-10">
+                  <div class="d-inline"  style="font-size: small;">Review Product</div>
                 </div>
-                <div class="col">
-                  <!---->
                 </div>
               </div>
             </button>
@@ -285,8 +332,86 @@
           </div>
         </div>
       </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+            <h5 class="card-title">Payment Methods</h5>
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
+          <div class="accordion-body">
+            <div class="col-10 align-self-center" style="font-size: small;">
+              <img src="{% static 'assets/banner_load_s.png'%}"
+          onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';"
+          class="attachment-home-thumb img-fluid border border-dark lazyload" data-src="{% static 'assets/Payment-methods.png'%}" loading="lazy"
+          alt="Payment methods image"">
+          <p style="font-size: larger;">The product ({{product.name}}) can be paid for via MTN Mobile Money, Airtel Money, Cash at the store, and Cash on Delivery.<br />
+          We advise you not to pay before talking to or informing us</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
+          <h5 class="card-title">Tax information</h5>
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSix">
+        <div class="accordion-body">
+          <div class="col-10 align-self-center" style="font-size: small;">
+            <div class="container mt-5">
+              <h2 class="mb-4">Detailed Product Pricing Table</h2>
+              <table class="table table-bordered">
+                  <thead>
+                      <tr>
+                          <th>Product</th>
+                          <th>Price (UGX)</th>
+                          <th>VAT (18%)</th>
+                          <th>Discount (-{{percentage_discount|floatformat:2}}%)</th>
+                          <th>Total Price (UGX)</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>{{product.name}}</td>
+                          <td>UGX {% price_minus_vat product.price product.discount  as p %}{{ p|intcomma }}</td>
+                          <td>UGX {% vat product.price product.discount as x %}{{x|intcomma }}</td>
+                          <td>- UGX {{product.discount|intcomma}}</td>
+                          <td>UGX {{product.price|intcomma }}</td>
+                      </tr>
+                  </tbody>
+              </table>
+              <div class="note">
+                <strong>NOTE</strong><p style="font-size: larger;">Every price of a product on this website includes Value Added Tax (VAT) and discount <br />
+                but excludes delivery fees. </p>
+              </div>
+              
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingSeven">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false" aria-controls="panelsStayOpen-collapseSeven">
+        <h5 class="card-title">Terms And Conditions</h5>
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSeven">
+      <div class="accordion-body">
+        <div class="col-10 align-self-center" style="font-size: small;">
+          Not yet drafted!
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
 </div>
 
 <!-- Modal -->

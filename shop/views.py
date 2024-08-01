@@ -10,6 +10,7 @@ from django.db.models import Q
 import datetime
 import decimal
 from django.contrib.auth import authenticate, login
+from django.utils.html import strip_tags
 
 # Make query sets random
 # 1D query set
@@ -101,6 +102,7 @@ def single_product(request, category_slug, product_slug):
         "original_price": original_price,
         "form": form,
         "percentage_discount": percentage_discount,
+        "clean_description": strip_tags(p.detail),
     }
     return render(request, 'product', context)
 

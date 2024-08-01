@@ -1,9 +1,5 @@
 {% load static %}
 {% load humanize %}
-<head>
-  <title>
-    mzuriexpress | {{title}}
-  </title>
   <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}">
   <!-- For iOS -->
   <link rel="apple-touch-icon" href="{% static 'assets/favicon.ico' %}">
@@ -112,16 +108,6 @@
       background-color: red;
     }
 
-    .btn-primary {
-      background-color: orange;
-      border-color: orange;
-      color: black;
-    }
-    .btn-primary:hover {
-      background-color: orange;
-      border-color: orange;
-      color: black;
-    }
     a:hover {
       color: black;
     }
@@ -295,5 +281,8 @@ a.nav-link {
     margin-left: 10px;
     vertical-align: baseline;
 }
+/* Show the dropdown menu on hover */
+#dropdownMenu15:hover #dropdownMenu15 {
+  display: block;
+}
   </style>
-</head>
