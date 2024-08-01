@@ -8,6 +8,7 @@ from .forms import public_cart_form
 from .models import product, category, subcategory, rating, brand, category_front_page
 from django.db.models import Q
 import datetime
+import decimal
 from django.contrib.auth import authenticate, login
 
 # Make query sets random
@@ -90,10 +91,16 @@ def single_product(request, category_slug, product_slug):
         p = product.objects.get(slug=product_slug)
         title = "No Product Found"
 
+    percentage_discount = p.discount*100
+    percentage_discount = percentage_discount/p.price
+    original_price = p.price+p.discount
+
     context = {
         "title"  : title,
         "product" : p,
+        "original_price": original_price,
         "form": form,
+        "percentage_discount": percentage_discount,
     }
     return render(request, 'product', context)
 
@@ -109,7 +116,7 @@ def products(request, category_slug):
     except:
         sc = subcategory.objects.get(slug=category_slug)
         p = product.objects.filter(subcategory=sc)
-    
+
     context = {
         "products" : p,
         "title"  : category_slug,

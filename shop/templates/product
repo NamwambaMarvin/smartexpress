@@ -108,11 +108,10 @@
               {% include 'flash_sales'%}
             </h5>
             <div class="card-body">
-            <h3 class="card-title">UGX {{product.price|intcomma}}
-              <span class="badge bg-secondary" style="font-size: small;">-0.0%</span>
-              <span style="color: grey; font-size: x-small;">In stock</span>
+            <h3 class="card-title">UGX {{product.price}}
+              <span class="badge bg-danger" style="font-size: small;">-{{percentage_discount|floatformat:2}}%</span>
             </h3>
-            <del style="color: grey;">UGX {{product.price|intcomma}}</del>    
+            <del style="color: grey;">UGX {{original_price|intcomma}}</del>    
               <div class="row">
                 <code class="col">{{product.items_left}} items left</code>
                 <div class="col progress">
@@ -120,6 +119,7 @@
                     aria-valuenow="{{product.items_left}}" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
               </div>
+              <b style="color: rgb(10, 240, 41); font-size: small;">In stock</b>
             </div>
           </div>
           <p class="card-text">
