@@ -86,6 +86,7 @@ def single_product(request, category_slug, product_slug):
     try:
         c = category.objects.get(slug=category_slug)
         p = product.objects.get(slug=product_slug, category=c)
+        similar_products =  product.objects.filter(brand=p.brand)
         title = p.name
     except:
         c = None
@@ -103,6 +104,7 @@ def single_product(request, category_slug, product_slug):
         "form": form,
         "percentage_discount": percentage_discount,
         "clean_description": strip_tags(p.detail),
+        "similar_products": similar_products,
     }
     return render(request, 'product', context)
 
@@ -162,3 +164,9 @@ def contact(request):
         'title': 'Contact Us'
     }
     return render(request, 'contact.html', context)
+
+def terms(request):
+    context = {
+        'title': 'Terms and Conditions'
+    }
+    return render(request, 'terms_and_conditions.html', context)

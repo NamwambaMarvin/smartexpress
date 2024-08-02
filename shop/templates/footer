@@ -39,7 +39,7 @@
         <h5>Information</h5>
         <ul class="nav flex-column" style="text-decoration: white;">
           <li class="nav-item mb-2"><a href="#">New Products</a></li>
-          <li class="nav-item mb-2"><a href="#">Terms and Conditions</a></li>
+          <li class="nav-item mb-2"><a href="{% url 'shop:terms' %}">Terms and Conditions</a></li>
           <li class="nav-item mb-2"><a href="#">About</a></li>
         </ul>
       </div>

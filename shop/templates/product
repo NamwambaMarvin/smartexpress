@@ -11,35 +11,23 @@
     "name": "{{product.name}}",
     "image": [
     {% if product.image %}
-    "https://www.mzuriexpress.com{{product.image.url}}",
+    "https://www.mzuriexpress.com{{product.image.url}}"
     {% endif %}
     {% if product.image1 %}
-    "https://www.mzuriexpress.com{{product.image1.url}}",
+    ,"https://www.mzuriexpress.com{{product.image1.url}}"
     {% endif %}
     {% if product.image2 %}
-    "https://www.mzuriexpress.com{{product.image2.url}}",
+    ,"https://www.mzuriexpress.com{{product.image2.url}}"
     {% endif %}
     {% if product.image3 %}
-    "https://www.mzuriexpress.com{{product.image3.url}"
+    ,"https://www.mzuriexpress.com{{product.image3.url}}"
     {% endif %}
      ],
     "description": "{{clean_description}}",
-    "sku": "{{product.secodary_id}},
+    "sku": "{{product.secodary_id}}",
     "brand": {
       "@type": "Brand",
       "name": "{{product.brand.name}}"
-    },
-    "review": {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": 5,
-        "bestRating": 5
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Namwamba Marvin"
-      }
     },
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -403,8 +391,8 @@
     </h2>
     <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSeven">
       <div class="accordion-body">
-        <div class="col-10 align-self-center" style="font-size: small;">
-          Not yet drafted!
+        <div class="col-10 mx-auto" style="font-size: small;">
+          {% include 'terms_and_conditions_template.html' %}
       </div>
     </div>
   </div>
@@ -413,6 +401,10 @@
   </div>
 </div>
 </div>
+
+{% with similar_products as products %}
+  {% include 'carousel_one.html' %}
+{% endwith %}
 
 <!-- Modal -->
 <!-- Request call back Modal -->

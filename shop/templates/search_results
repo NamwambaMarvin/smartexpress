@@ -17,11 +17,11 @@
             <div class="container-fluid">
                 <div class="row">
                     {% for product in products %}
-                    <div class="col-md-4 col-4 item mt-3">
+                    <div class="col-md-4 col-6 col-lg-3 item mt-3">
                         <div class="card item-card card-block position-relative">
                             <div class="position-absolute top-0 end-0"><span class="badge bg-danger">-{% percentage_discount product.price product.discount %}%</span></div>
                             <a href="{% url 'shop:single_product' product.category.slug product.slug %}">
-                            <img src="{% static 'assets/banner_load_s.png'%}" data-src="{{product.image.url}}" loading="lazy" class="lazyload" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';">
+                            <img height="300px" src="{% static 'assets/banner_load_s.png'%}" data-src="{{product.image.url}}" loading="lazy" class="lazyload" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';">
                             <h6>{{product.name|truncatechars:23}}</h6>
                             <h6 class="item-card-title">UGX {{product.price|intcomma}}</h6>
                             {% if product.items_left < 40 %}
