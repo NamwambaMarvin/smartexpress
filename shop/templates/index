@@ -1,4 +1,7 @@
 {% extends 'layout' %}
+{% block meta_tags %}
+	{% include 'index_metatags.html' %}
+{% endblock %}
 {% block content %}
 	<!-- Carousel -->
 	{% include 'front_banner' %}

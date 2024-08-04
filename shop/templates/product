@@ -1,8 +1,10 @@
 {% extends 'layout' %}
-{% block content %}
 {% load humanize %}
 {% load discount %}
 {% load static %}
+{% block meta_tags %}
+  {% include 'product_metatags.html' %}
+{% endblock %}
 {% block rich_results %}
 <script type="application/ld+json">
   {
@@ -46,6 +48,7 @@
   }
   </script>
 {% endblock %}
+{% block content %}
 <style>
   /* Example styles (customize as needed) */
   form.user_data {

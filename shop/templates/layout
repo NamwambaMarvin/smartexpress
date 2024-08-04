@@ -6,6 +6,8 @@
                 </title>
                 {% block rich_results %}
                 {% endblock %}
+                {% block meta_tags %}
+                {% endblock %}
                 {% include 'header' %}
             </head>
         <!-- header section -->
