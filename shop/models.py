@@ -200,3 +200,21 @@ class public_cart(models.Model):
 
     def __str__(self) -> str:
         return f"{self.first_name}--{self.phone_number}--{self.product_name}"
+
+class public_reviews(models.Model):
+    rating_choices = (
+        ("5", "★★★★★"),
+        ("4", "★★★★"),
+        ("3", "★★★"),
+        ("2", "★★"),
+        ("1", "★"),
+    )
+    product_name = models.CharField(max_length=2000)
+    customer_fullname = models.CharField(max_length=160)
+    product_id = models.IntegerField()
+    product_sec_id = models.UUIDField()
+    customer_rating = models.CharField(max_length=10, choices=rating_choices)
+    customer_feedback = models.TextField(max_length=2000)
+
+    def __str__(self) -> str:
+        return f"{self.product_name}"

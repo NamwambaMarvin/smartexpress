@@ -2,49 +2,13 @@
 <!-- start carousel -->
 <section>
 <div class="row">
+    <!--
     <div class="col-lg-2 d-none d-lg-block mt-1 rounded"  style="background-color: white; padding-left: 6px;">
         <div class="w-20">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: small;">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
-                        <i class='fa fa-home'></i>  Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
-                        <i class='fa fa-mobile-phone'></i>  Phones & tablets
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
-                        <i class='fa fa-mobile-phone'></i>  Appliances
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
-                        <i class='fa fa-mobile-phone'></i>  Fashion
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
-                        <i class='fa fa-mobile-phone'></i>  Supermarket
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
-                        <i class='fa fa-mobile-phone'></i>  Computing
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'shop:index' %}">
-                        <i class='fa fa-mobile-phone'></i>  Other Categories
-                    </a>
-                </li>
-                
-            </ul>
+            <!--menu here
         </div>
-    </div>
-    <div class="col-sm-12 col-lg-10">
+    </div>-->
+    <div class="col-sm-12 col-lg-12">
         <div>
             <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 

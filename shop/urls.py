@@ -18,6 +18,12 @@ urlpatterns = [
     path('shipping_and_returns/', views.shipping_and_return_policy, name='shipping'),
     path('contact/', views.contact, name='contact'),
     path('terms_and_conditions/', views.terms, name='terms'),
+    path('about_us/', views.about, name='about'),
+    path('public_review/', views.public_review, name='public_review'),
+    path('order_success/', views.order_success, name='order_success'),
+    path('order_failed/', views.order_failed, name='order_failed'),
+    path('review_failed/', views.review_failed, name='review_failed'),
+    path('review_success/', views.review_success, name='review_success'),
 ]
 
 if settings.DEBUG:

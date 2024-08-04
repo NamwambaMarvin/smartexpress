@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Mzuri Express</title>
+</head>
+<body>
+    <style>
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.confirmation-message {
+    margin: 20px 0;
+}
+
+.confirmation-message h2 {
+    color: #4CAF50;
+}
+
+.confirmation-message p {
+    font-size: 18px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+}
+
+    </style>
+    <div class="container">
+        <header>
+            <h1>Thank You for Your Order!</h1>
+        </header>
+        <main>
+            <section class="confirmation-message">
+                <h2>Order Confirmed</h2>
+                <p>Your order has been successfully placed. We appreciate your business!</p>
+                <p>Order Number: <strong>#123456</strong></p>
+                <a href="{% url 'shop:index' %}" class="btn">Continue Shopping</a>
+            </section>
+        </main>
+        <footer>
+            <p>© 2024 Mzuri Express. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

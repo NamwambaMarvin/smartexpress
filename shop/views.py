@@ -3,9 +3,10 @@ Render function used to serve context to
 Webpages.
 """
 from django.shortcuts import render, redirect, HttpResponse
+from django.urls import reverse
 import random
-from .forms import public_cart_form
-from .models import product, category, subcategory, rating, brand, category_front_page
+from .forms import public_cart_form, public_review_form
+from .models import product, category, subcategory, public_reviews
 from django.db.models import Q
 import datetime
 import decimal
@@ -67,22 +68,37 @@ def shop_home(request, shop_name):
 def public_cart(request):
     if request.method == "POST":
         form = public_cart_form(request.POST)
-        form
         if form.is_valid():
             new_form = form.save(commit=False)
             new_form.product_name = request.POST["product_name"]
             new_form.product_id = request.POST["product_id"]
             new_form.save()
-            return redirect("/")
+            return redirect(reverse("shop:order_success"))
         else:
-            pass
+            return redirect(reverse("shop:order_failed"))
 
+def public_review(request):
+    if request.method == "POST":
+        review_form = public_review_form(request.POST)
+        if review_form.is_valid():
+            new_review_form = review_form.save(commit=False)
+            new_review_form.product_sec_id = request.POST["product_sec_id"]
+            new_review_form.product_id = request.POST["product_id"]
+            new_review_form.product_name = request.POST["product_name"]
+            new_review_form.save()
+            return redirect(reverse("shop:review_success"))
+        else:
+             return redirect(reverse("shop:review_failed"))
+    else:
+        pass
+        
 
 def single_product(request, category_slug, product_slug):
     """
     This displays details of a product in a particular category
     """
     form = public_cart_form()
+    review_form = public_review_form()
     try:
         c = category.objects.get(slug=category_slug)
         p = product.objects.get(slug=product_slug, category=c)
@@ -102,6 +118,7 @@ def single_product(request, category_slug, product_slug):
         "product" : p,
         "original_price": original_price,
         "form": form,
+        "review_form": review_form,
         "percentage_discount": percentage_discount,
         "clean_description": strip_tags(p.detail),
         "similar_products": similar_products,
@@ -170,3 +187,29 @@ def terms(request):
         'title': 'Terms and Conditions'
     }
     return render(request, 'terms_and_conditions.html', context)
+
+def about(request):
+    context = {
+        'title': 'About Mzuri Express'
+    }
+    return render(request, 'about.html', context)
+
+def order_success(request):
+    context = {
+    }
+    return render(request, 'order_success.html', context)
+
+def order_failed(request):
+    context = {
+    }
+    return render(request, 'order_failed.html', context)
+
+def review_success(request):
+    context = {
+    }
+    return render(request, 'review_success.html', context)
+
+def review_failed(request):
+    context = {
+    }
+    return render(request, 'review_failed.html', context)
