@@ -14,7 +14,7 @@
                         <div class="card item-card card-block position-relative">
                         <div class="position-absolute top-0 end-0"><span class="badge bg-danger">-{% percentage_discount product.price product.discount %}%</span></div>    
                             <a href="{% url 'shop:single_product' product.category.slug product.slug %}">
-                            <img height="210px" src="{% static 'assets/banner_load_s.png'%}" data-src="{{product.image.url}}" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';" class="attachment-home-thumb lazyload" loading="lazy" alt="{{product.name}} image">
+                            <img width="185px" height="185px" src="{% static 'assets/banner_load_s.png'%}" data-src="{{product.image.url}}" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';" class="attachment-home-thumb lazyload" loading="lazy" alt="{{product.name}} image">
                             <h6>{{product.name|truncatechars:23}}</h6>
                             <h6 class="item-card-title">UGX {{product.price|intcomma}}</h6>
                             {% if product.items_left < 40 %}

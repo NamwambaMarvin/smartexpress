@@ -3,3 +3,6 @@ smartexpress/settings.py
 
 # Ignore compiled python files (.pyc)
 *.pyc
+
+# Ignore settings.py
+settings.py
