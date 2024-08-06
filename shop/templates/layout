@@ -18,7 +18,7 @@
                      {% block content %}
                      {% endblock %}   
                 </div>
-                {% include 'information_footer' %}
+                
         </body>
             {% include 'footer' %}
         <script>
