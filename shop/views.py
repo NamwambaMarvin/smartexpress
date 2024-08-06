@@ -170,11 +170,11 @@ def search(request):
     }
     return render(request, 'search_results', context)
 
-def shipping_and_return_policy(request):
+def shipping_and_delivery_policy(request):
     context = {
-        'title': 'Shipping and Return Policy'
+        'title': 'Shipping and Delivery Policy'
     }
-    return render(request, 'shipping_and_return_policy.html', context)
+    return render(request, 'shipping_and_delivery_policy.html', context)
 
 def contact(request):
     context = {
@@ -213,3 +213,21 @@ def review_failed(request):
     context = {
     }
     return render(request, 'review_failed.html', context)
+
+def return_and_refunds_policy(request):
+    context = {
+        "title": "Return and Refunds",
+    }
+    return render(request, 'return_and_refund.html', context)
+
+def privacy_policy(request):
+    context = {
+        'title': "Privacy policy",
+    }
+    return render(request, 'privacy_policy.html', context)
+
+def terms_of_sale(request):
+    context = {
+        'title': "Terms of Sale",
+    }
+    return render(request, 'terms_of_sale.html', context)

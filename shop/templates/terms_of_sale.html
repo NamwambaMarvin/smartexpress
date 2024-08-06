@@ -1,0 +1,123 @@
+{% extends 'layout' %}
+{% block content %}
+<style>
+  .container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: whitesmoke;
+  }
+  h1, h2 {
+    color: #0056b3;
+  }
+  h1 {
+    text-align: center;
+  }
+  p {
+    text-align: justify;
+  }
+  .section {
+    margin-bottom: 20px;
+  }
+</style>
+<div class="container">
+  <h1>Terms of Sale</h1>
+  <div class="section">
+    <h2>Introduction</h2>
+    <p>Welcome to Mzuri Express. These terms of sale outline the rules and regulations for the use of Mzuri Express's Website, located at www.mzuriexpress.com.</p>
+  </div>
+  <div class="section">
+    <h2>General Conditions</h2>
+    <p>By placing an order at Mzuri Express, you warrant that you are at least 18 years old (or have parents' permission to buy from us) and accept these terms of sale by making a purchase from us.</p>
+  </div>
+   <!-- Payment Information -->
+<div class="section">
+    <h2>Payment Information</h2>
+    <p>All transactions are conducted in UGX. We accept the following methods of payment: credit card, debit card, MTN Mobile Money, and Airtel mobile money transfers. Payment must be made in full before shipment of your products.</p>
+  </div>
+  
+  <!-- Shipping Policies -->
+  <div class="section">
+    <h2>Shipping Policies</h2>
+    <p>We ship in Uganda only. Shipping costs will vary depending on the weight of products purchased. Goods between 0kg to 50kg are delivered at a cost of 10% of the buying price. Goods above 50 kgs are delivered at a cost 25% of the buying price. Estimated delivery times are also subject to change based on your location and the efficiency of your local postal service.<a href="{% url 'shop:shipping' %}"> Read more</a></p>
+  </div>
+  
+  <!-- Returns and Refunds -->
+  <div class="section">
+    <h2>Returns and Refunds</h2>
+    <p>Our <a href="{% url 'shop:return_and_refunds' %}">refund policy</a> lasts 7 days. If 7 days have gone by since your purchase, unfortunately, we can’t offer you a refund or exchange. To be eligible for a return, your item must be unused or slightly used and in the same condition that you received it.</p>
+  </div>
+  
+  <!-- Cancellation Policy -->
+  <div class="section">
+    <h2>Cancellation Policy</h2>
+    <p>You may cancel your order within 24 hours of purchase free of charge. After this period, a cancellation fee of 10% of the order may apply as your order will have been processed for shipment.</p>
+  </div>
+  
+  <!-- Product Information -->
+  <div class="section">
+    <h2>Product Information</h2>
+    <p>We make every effort to display as accurately as possible the colors and images of our products that appear at the store. We cannot guarantee that your computer monitor's display of any color will be accurate.</p>
+  </div>
+  
+  <!-- Account Registration -->
+  <div class="section">
+    <h2>Account Registration</h2>
+    <p>To make a purchase on our website, you are not required to register for an account.</p>
+  </div>
+  
+  <!-- Privacy Policy -->
+  <div class="section">
+    <h2>Privacy Policy</h2>
+    <p>Your submission of personal information through the store is governed by our <a href="{% url 'shop:privacy_policy' %}">Privacy Policy</a>. Please review our Privacy Policy, which also governs the site and informs users of our data collection practices.</p>
+  </div>
+  
+  <!-- User Comments and Feedback -->
+  <div class="section">
+    <h2>User Comments and Feedback</h2>
+    <p>Any feedback you provide at this site shall be deemed to be non-confidential. Mzuri Express shall be free to use such information on an unrestricted basis.</p>
+  </div>
+  
+  <!-- Errors, Inaccuracies, and Omissions -->
+  <div class="section">
+    <h2>Errors, Inaccuracies, and Omissions</h2>
+    <p>Occasionally there may be information on our site or in the Service that contains typographical errors, inaccuracies or omissions that may relate to product descriptions, pricing, promotions, offers, product shipping charges, transit times and availability.</p>
+  </div>
+  
+  <!-- Prohibited Uses -->
+  <div class="section">
+    <h2>Prohibited Uses</h2>
+    <p>In addition to other prohibitions as set forth in the Terms of Service, you are prohibited from using the site or its content for any unlawful purpose, to solicit others to perform or participate in any unlawful acts, or to violate any international, federal, provincial or state regulations, rules, laws, or local ordinances.</p>
+  </div>
+  
+  <!-- Disclaimer of Warranties; Limitation of Liability -->
+  <div class="section">
+    <h2>Disclaimer of Warranties; Limitation of Liability</h2>
+    <p>We do not guarantee, represent or warrant that your use of our service will be uninterrupted, timely, secure or error-free. We do not warrant that the results that may be obtained from the use of the service will be accurate or reliable.</p>
+  </div>
+  
+  <!-- Indemnification -->
+  <div class="section">
+    <h2>Indemnification</h2>
+    <p>You agree to indemnify, defend and hold harmless Mzuri Express and our parent, subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors, suppliers, interns and employees, harmless from any claim or demand, including reasonable attorneys’ fees.</p>
+  </div>
+  
+  <!-- Severability -->
+  <div class="section">
+    <h2>Severability</h2>
+    <p>In the event that any provision of these Terms of Service is determined to be unlawful, void or unenforceable, such provision shall nonetheless be enforceable to the fullest extent permitted by applicable law.</p>
+  </div>
+  
+  <!-- Termination -->
+  <div class="section">
+    <h2>Termination</h2>
+    <p>The obligations and liabilities of the parties incurred prior to the termination date shall survive the termination of this agreement for all purposes.</p>
+  </div>
+  
+  <!-- Entire Agreement -->
+  <div class="section">
+    <h2>Entire Agreement</h2>
+    <p>These Terms of Service and any policies or operating rules posted by us on this site or in respect to The Service constitutes the entire agreement and understanding between you and us and govern your use of the Service.</p>
+  </div>
+</div>
+{% endblock %}

@@ -319,6 +319,7 @@
           <div class="accordion-body">
             <!-- Start shipping and return policy -->
              {% include 'shipping_info' %}
+             {% include 'return_info.html' %}
              <!-- End shipping and return policy -->
           </div>
         </div>
@@ -463,7 +464,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="post" action="{% url 'shop:public_review' %}">
+        <form id="review_form" method="post" action="{% url 'shop:public_review' %}">
           <div class="rating-form">
             {{review_form}}
             <input type="hidden" name="product_sec_id" value="{{product.secodary_id}}" id="id_product_id" />

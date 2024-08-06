@@ -43,6 +43,17 @@
     document.getElementById('main').src = src
   }
   </script>
+  <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
+
+  <script>
+    window.renderBadge = function() {
+      var ratingBadgeContainer = document.createElement("div");
+      document.body.appendChild(ratingBadgeContainer);
+      window.gapi.load('ratingbadge', function() {
+        window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": 5400941219});
+      });
+    }
+  </script>
   <script type="text/javascript">
     $(document).ready(function(){
         $('.slider').slick({
@@ -299,4 +310,33 @@ a.nav-link {
 #dropdownMenu15:hover #dropdownMenu15 {
   display: block;
 }
+
+#review_form {
+  /* General form styles */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#review_form label {
+  display: block;
+  margin-bottom: 1  5px;
+}
+
+#review_form input[type="text"],
+#review_form input[type="email"],
+#review_form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#review_form button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
   </style>
