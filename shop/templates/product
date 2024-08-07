@@ -478,6 +478,4 @@
   </div>
   </section>
 -->
-{% include 'front_banner' %}
-
 {% endblock %}

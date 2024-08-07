@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
 	<!-- Carousel -->
-	{% include 'front_banner' %}
+	
 	<!-- End corousel -->
 	{% with category as category %}
 		{% include 'category_card_with_header' %}
@@ -12,12 +12,12 @@
 	{% with subcategories as category %}
 		{% include 'category_card_without_header' %}
 	{% endwith %}
-	{% include 'banner_card_with_header' %}
+
 	{% with products as products %}
 		{% include 'product_card_with_header' %}
 	{% endwith %}
 	{% include 'product_card_without_header' %}
-	{% include 'banner_card_without_header' %}
+
 	{% include 'product_card_with_header' %}
 	{% include 'carousel_one.html' %}
 {% endblock %}
