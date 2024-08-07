@@ -13,7 +13,6 @@
 		{% include 'category_card_without_header' %}
 	{% endwith %}
 	{% include 'banner_card_with_header' %}
-	{% include 'scroll_banner_with_header' %}
 	{% with products as products %}
 		{% include 'product_card_with_header' %}
 	{% endwith %}

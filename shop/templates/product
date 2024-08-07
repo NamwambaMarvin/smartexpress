@@ -167,6 +167,9 @@
                 </div>
               </div>
               <b style="color: rgb(10, 240, 41); font-size: small;">In stock</b>
+              <div>
+                <b style="color: red; font-size: small;">Product price does not include delivery fee</b>
+              </div>
             </div>
           </div>
           <p class="card-text">
@@ -343,50 +346,6 @@
         </div>
       </div>
     </div>
-
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="panelsStayOpen-headingSix">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
-          <h5 class="card-title">Tax information</h5>
-        </button>
-      </h2>
-      <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSix">
-        <div class="accordion-body">
-          <div class="col-10 align-self-center" style="font-size: small;">
-            <div class="container mt-5">
-              <h2 class="mb-4">Detailed Product Pricing Table</h2>
-              <table class="table table-bordered">
-                  <thead>
-                      <tr>
-                          <th>Product</th>
-                          <th>Price (UGX)</th>
-                          <th>VAT (18%)</th>
-                          <th>Discount (-{{percentage_discount|floatformat:2}}%)</th>
-                          <th>Total Price (UGX)</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>{{product.name}}</td>
-                          <td>UGX {% price_minus_vat product.price product.discount  as p %}{{ p|intcomma }}</td>
-                          <td>UGX {% vat product.price product.discount as x %}{{x|intcomma }}</td>
-                          <td>- UGX {{product.discount|intcomma}}</td>
-                          <td>UGX {{product.price|intcomma }}</td>
-                      </tr>
-                  </tbody>
-              </table>
-              <div class="note">
-                <strong>NOTE</strong><p style="font-size: larger;">Every price of a product on this website includes Value Added Tax (VAT) and discount <br />
-                but excludes delivery fees. </p>
-              </div>
-              
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingSeven">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="false" aria-controls="panelsStayOpen-collapseSeven">

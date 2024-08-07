@@ -39,7 +39,7 @@ def index(request):
 
     c = category.objects.all()[:6]
     s = subcategory.objects.all()[:12]
-    p = product.objects.all()[12:44]
+    p = product.objects.all().order_by('-name')[12:44]
 
     category_update, created =  category.objects.get_or_create(name="uncategorised")
     for pr in p:

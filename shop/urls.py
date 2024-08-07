@@ -24,7 +24,6 @@ urlpatterns = [
     path('order_failed/', views.order_failed, name='order_failed'),
     path('review_failed/', views.review_failed, name='review_failed'),
     path('review_success/', views.review_success, name='review_success'),
-    path('terms_of_sale/', views.terms_of_sale, name='terms_of_sale'),
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
     path('return_and_refunds/', views.return_and_refunds_policy, name='return_and_refunds'),
 ]
