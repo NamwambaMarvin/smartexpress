@@ -121,7 +121,7 @@ def single_product(request, category_slug, product_slug):
         "review_form": review_form,
         "percentage_discount": percentage_discount,
         "clean_description": strip_tags(p.detail),
-        "keywords": list(p.name),
+        "keywords": p.name.replace(' ', ',').split(),
         "description": strip_tags(p.detail),
         "summary": strip_tags(p.detail),
         "similar_products": similar_products,
