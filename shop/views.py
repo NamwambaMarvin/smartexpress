@@ -57,7 +57,7 @@ def index(request):
         'last_revised': datetime.datetime.today(),
         'meta_category': "PRODUCTS",
         'summary': "Shop home appliances, electronics and other products with mzuri express",
-        'keywords': "shopping, mzuriexpress, mzuri, express, online store",
+        'keywords': "shopping, mzuriexpress, mzuri, express, online store, uganda, online shopping",
         'description': "Mzuri Express offers a variety of electronic products. Buy Televisions, fridges, cookers, Ovens, Dispensers, Washing machines, freezers, Blenders, Air Conditioners, Sound Bars, Electronic Kettles and many more",
     }
     return render(request, 'index', context)
@@ -121,7 +121,11 @@ def single_product(request, category_slug, product_slug):
         "review_form": review_form,
         "percentage_discount": percentage_discount,
         "clean_description": strip_tags(p.detail),
+        "keywords": list(p.name),
+        "description": strip_tags(p.detail),
+        "summary": strip_tags(p.detail),
         "similar_products": similar_products,
+        "meta_category": p.category.name,
     }
     return render(request, 'product', context)
 
