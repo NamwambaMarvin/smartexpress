@@ -58,7 +58,7 @@ def index(request):
         'meta_category': "PRODUCTS",
         'summary': "Shop home appliances, electronics and other products with mzuri express",
         'keywords': "shopping, mzuriexpress, mzuri, express, online store",
-        'description': "Mzuri express offers a wide variety of products made from around the planet, Start shopping on the fly",
+        'description': "Mzuri Express offers a variety of electronic products. Buy Televisions, fridges, cookers, Ovens, Dispensers, Washing machines, freezers, Blenders, Air Conditioners, Sound Bars, Electronic Kettles and many more",
     }
     return render(request, 'index', context)
 
