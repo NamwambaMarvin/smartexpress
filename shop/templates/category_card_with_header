@@ -13,53 +13,11 @@
                                 {% for cat in category %}
                                 <a href="{% url 'shop:products' cat.slug %}" class="col-md-4 col-4 item mt-3">
                                     <div class="card item-card card-block" style="font-size: small;">
-                                        <img src="{% static 'assets/banner_load_s.png'%}" class="attachment-home-thumb lazyload" data-src="{{cat.image.url}}" loading="lazy" alt="{{category.name}} image">
+                                        <img class="lazyload" data-src="{{cat.image.url}}" loading="lazy" alt="{{category.name}} image">
                                         <h6 class="item-card-title my-2">{{cat.name|truncatechars:12}}</h6>
                                     </div>
                                 </a>
                                 {% endfor %}
-                                <!--
-                                <div class="col-md-3 col-6 item mt-3">
-                                    <div class="card item-card card-block">
-                                        <img src="https://placehold.co/600x400">
-                                        <h5 class="item-card-title my-2">Pulmonology </h5>
-                                    </div>
-                                </div>
-                                -->
-                            </div>
-                        </div>
-                    </div>
-                    <!--
-                    <div class="carousel-item" data-bs-interval="5000">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-3 col-6 item mt-3">
-                                    <div class="card item-card card-block">
-                                        <img src="https://placehold.co/600x400">
-                                        <h5 class="item-card-title my-2">Internal</h5>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6 item mt-3">
-                                    <div class="card item-card card-block">
-                                        <img src="https://placehold.co/600x400">
-                                        <h5 class="item-card-title my-2">Pulmonology </h5>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6 item mt-3">
-                                    <div class="card item-card card-block">
-                                        <img src="https://placehold.co/600x400">
-                                        <h5 class="item-card-title my-2">Gastroenterology</h5>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6 item mt-3">
-                                    <div class="card item-card card-block">
-                                        <img src="https://placehold.co/600x400">
-                                        <h5 class="item-card-title my-2">Dentistry</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
                 </div>
             </div>
         </div>

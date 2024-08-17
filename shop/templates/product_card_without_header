@@ -11,7 +11,7 @@
                         <div class="card item-card card-block position-relative">
                             <div class="position-absolute top-0 end-0"><span class="badge bg-danger">-{% percentage_discount product.price product.discount %}%</span></div> 
                             <a href="{% url 'shop:single_product' product.category.slug product.slug %}">
-                            <img src="{% static 'assets/banner_load_s.png'%}" data-src="{{product.image.url}}" class="attachment-home-thumb lazyload" onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';" loading="lazy" alt="{{product.name}} image">
+                            <img data-src="{{product.image.url}}" class="lazyload" loading="lazy" alt="{{product.name}} image">
                             <h6>{{product.name|truncatechars:23}}</h6>
                             <h6 class="item-card-title">UGX {{product.price|intcomma}}</h6>
                             {% if product.items_left < 40 %}
@@ -30,20 +30,6 @@
                         </div>
                     </div>
                     {% endfor %}
-                    <!--
-                    <div class="col-md-3 col-6 item mt-3">
-                        <div class="card item-card card-block">
-                            <img src="https://placehold.co/600x400">
-                            <h6>This is the item title</h6>
-                            <h6 class="item-card-title">UGX 450,000</h6>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="49"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <code>49 items left</code>
-                        </div>
-                    </div>
-                    -->
                 </div>
             </div>
         </div>

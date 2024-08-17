@@ -111,36 +111,31 @@
         <div class="container">
           <div class="main_view">
             {% if product.image %}
-            <img id="main" src="{% static 'assets/banner_load_s.png'%}"
-              onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';"
-              class="attachment-home-thumb img-fluid lazyload" data-src="{{product.image.url}}" loading="lazy"
+            <img id="main" 
+              class="img-fluid lazyload" data-src="{{product.image.url}}" loading="lazy"
               alt="{{product.name}} image">
             {% endif %}
           </div>
           <div class="side_view card-body">
             <h6>Other Images About This Product</h6>
             {% if product.image %}
-            <img src="{% static 'assets/banner_load_s.png'%}"
-              onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';"
-              class="attachment-home-thumb img-fluid border border-dark lazyload" data-src="{{product.image.url}}" loading="lazy"
+            <img 
+              class="img-fluid border border-dark lazyload" data-src="{{product.image.url}}" loading="lazy"
               alt="{{product.name}} image" onclick="change(this.src)">
             {% endif %}
             {% if product.image1 %}
-            <img src="{% static 'assets/banner_load_s.png'%}"
-              onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';"
-              class="attachment-home-thumb img-fluid border border-dark lazyload" data-src="{{product.image1.url}}" loading="lazy"
+            <img 
+              class="img-fluid border border-dark lazyload" data-src="{{product.image1.url}}" loading="lazy"
               alt="{{product.name}} image" onclick="change(this.src)">
             {% endif %}
             {% if product.image2 %}
-            <img src="{% static 'assets/banner_load_s.png'%}"
-              onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';"
-              class="attachment-home-thumb img-fluid border border-dark lazyload" data-src="{{product.image2.url}}" loading="lazy"
+            <img 
+              class="img-fluid border border-dark lazyload" data-src="{{product.image2.url}}" loading="lazy"
               alt="{{product.name}} image" onclick="change(this.src)">
             {% endif %}
             {% if product.image3 %}
-            <img src="{% static 'assets/banner_load_s.png'%}"
-              onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';"
-              class="attachment-home-thumb img-fluid border border-dark lazyload" data-src="{{product.image3.url}}" loading="lazy"
+            <img 
+              class="img-fluid border border-dark lazyload" data-src="{{product.image3.url}}" loading="lazy"
               alt="{{product.name}} image" onclick="change(this.src)">
             {% endif %}
           </div>
@@ -336,12 +331,9 @@
         <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
           <div class="accordion-body">
             <div class="col-10 align-self-center" style="font-size: small;">
-              <img src="{% static 'assets/banner_load_s.png'%}"
-          onerror="this.src='https://i.ibb.co/3rvxtzL/banner-load-s.png';this.onerror='';"
-          class="attachment-home-thumb img-fluid border border-dark lazyload" data-src="{% static 'assets/Payment-methods.png'%}" loading="lazy"
-          alt="Payment methods image"">
+              <img class="img-fluid border border-dark lazyload" data-src="{% static 'assets/Payment-methods.png'%}" loading="lazy" alt="Payment methods image"">
           <p style="font-size: larger;">The product ({{product.name}}) can be paid for via MTN Mobile Money, Airtel Money, Cash at the store, and Cash on Delivery.<br />
-          We advise you not to pay before talking to or informing us</p>
+          We advise you not to pay for it before talking to or informing us</p>
           </div>
         </div>
       </div>
@@ -441,41 +433,4 @@
   </div>
 </div>
  <!-- end product review -->
-<!--
-  <section>
-    <div class="card">
-    <div class="card-header">
-      Product Specifications
-    </div>
-    <div class="row card-body">
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                  Key Features
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">
-                    With supporting text below as a natural lead-in to additional content.
-                </p>
-                </div>
-              </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                  What is in the Box
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">
-                    With supporting text below as a natural lead-in to additional content.
-                </p>
-                </div>
-              </div>
-        </div>
-    </div>
-  </div>
-  </section>
--->
 {% endblock %}

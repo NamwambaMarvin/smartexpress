@@ -7,7 +7,7 @@
                     {% for category in category %}
                     <a href="{% url 'shop:products' category.slug %}" class="col-md-4 col-4 item mt-3">
                         <div class="card item-card card-block" style="font-size: small;">
-                            <img src="{% static 'assets/banner_load_s.png'%}" class="attachment-home-thumb lazyload" data-src="{{category.image.url}}" loading="lazy" alt="{{category.name}} image">
+                            <img class="lazyload" data-src="{{category.image.url}}" loading="lazy" alt="{{category.name}} image">
                             <h6 class="item-card-title my-2">{{category.name|truncatechars:12}}</h6>
                         </div>
                     </a>
