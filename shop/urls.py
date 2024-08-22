@@ -26,6 +26,7 @@ urlpatterns = [
     path('review_success/', views.review_success, name='review_success'),
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
     path('return_and_refunds/', views.return_and_refunds_policy, name='return_and_refunds'),
+    path('sign_up/', views.sign_up, name='sign_up'),
 ]
 
 if settings.DEBUG:

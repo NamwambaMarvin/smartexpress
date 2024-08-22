@@ -146,24 +146,17 @@
           <h5 class="card-title">{{product.name}}</h5>
           <h6>Brand: {{product.brand.name }}</h6>
           <div class="card border-danger">
-            <h5 class="card-header text-white bg-danger">
-              {% include 'flash_sales'%}
-            </h5>
+           
             <div class="card-body">
             <h3 class="card-title">UGX {{product.price|intcomma}}
-              <span class="badge bg-danger" style="font-size: small;">-{{percentage_discount|floatformat:2}}%</span>
+              {% if percentage_discount > 0 %}
+              <span class="badge bg-secondary" style="font-size: small;">-{{percentage_discount|floatformat:2}}%</span>
+              {% endif %}
             </h3>
-            <del style="color: grey;">UGX {{original_price|intcomma}}</del>    
+            {% if percentage_discount > 0 %}
+            <del style="color: grey;">UGX {{original_price|intcomma}}</del>
+            {% endif %} 
               <div class="row">
-                <code class="col">{{product.items_left}} items left</code>
-                <div class="col progress">
-                  <div class="row progress-bar" role="progressbar" style="width: {{product.items_left}}%"
-                    aria-valuenow="{{product.items_left}}" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <b style="color: rgb(10, 240, 41); font-size: small;">In stock</b>
-              <div>
-                <b style="color: red; font-size: small;">Product price does not include delivery fee</b>
               </div>
             </div>
           </div>
@@ -171,6 +164,20 @@
             Product Rating: ★★★★★ (0 verified rating)
           </p>
           <div class="d-grid gap-2">
+            <a class="d-grid gap-2 btn btn-secondary"
+              style="width: 100%;"
+              href="{% url 'shop:sign_up' %}">
+              <div class="row">
+                <div class="col-2" style="text-align: left;">
+                  <i class='fa fa-cart-plus' style="font-size: larger;"></i>
+                </div>
+                <div class="col-10">
+                 
+                <div class="d-inline"  style="font-size: small;">Add to Cart</div>
+             
+                </div>
+              </div>
+            </a>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               <div class="row">
                 <div class="col-2 align-self-start" style="text-align: left;">
@@ -189,18 +196,8 @@
                 </div>
                 <div class="col-10">
                  
-                <div class="d-inline"  style="font-size: small;">Chat on WhatsApp</div>
+                <div class="d-inline"  style="font-size: small;">Chat with us</div>
              
-                </div>
-              </div>
-            </a>
-            <a class="d-grid gap-2 btn btn-secondary" href="tel:+256700229775">
-              <div class="row">
-                <div class="col-2" style="text-align: left;">
-                  <i class='fa fa-phone'></i>
-                </div>
-                <div class="col-10">
-                  <div class="d-inline"  style="font-size: small;">Directly Call Us</div>
                 </div>
               </div>
             </a>
@@ -266,24 +263,14 @@
                   <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
                     <div class="card">
                       <div class="card-header">
-                        <h5 class="card-title">What to expect (Full Package)</h5>
-                      </div>
-                      <div class="card-body">
-                        {{product.name}}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
-                    <div class="card">
-                      <div class="card-header">
                         <h5 class="card-title">Technical Product information</h5>
                       </div>
                       <div class="card-body">
                         <p>Product ID: {{product.id}}</p>
-                        <p>Product UUID: {{product.secodary_id}}</p>
+                        <p>Product SKU: {{product.secodary_id}}</p>
                         <p>Product Slug: {{product.slug}}</p>
                         <p>Product Type: {{product.type}}</p>
-                        <p>Product Weight: {{product.weight}}</p>
+                        <p>Product Weight: {{product.weight}} kg</p>
                       </div>
                     </div>
                   </div>
@@ -332,8 +319,9 @@
           <div class="accordion-body">
             <div class="col-10 align-self-center" style="font-size: small;">
               <img class="img-fluid border border-dark lazyload" data-src="{% static 'assets/Payment-methods.png'%}" loading="lazy" alt="Payment methods image"">
-          <p style="font-size: larger;">The product ({{product.name}}) can be paid for via MTN Mobile Money, Airtel Money, Cash at the store, and Cash on Delivery.<br />
-          We advise you not to pay for it before talking to or informing us</p>
+          <p style="font-size: larger;">
+            The product ({{product.name}}) can be paid for via MTN Mobile Money, Airtel Money, Cash at the store, and Cash on Delivery.
+          </p>
           </div>
         </div>
       </div>

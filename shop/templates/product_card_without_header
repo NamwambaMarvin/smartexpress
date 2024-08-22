@@ -9,24 +9,12 @@
                     {% for product in products %}
                     <div class="col-md-4 col-6 item mt-3">
                         <div class="card item-card card-block position-relative">
-                            <div class="position-absolute top-0 end-0"><span class="badge bg-danger">-{% percentage_discount product.price product.discount %}%</span></div> 
+                            <div class="position-absolute top-0 end-0"><span class="badge bg-secondary">-{% percentage_discount product.price product.discount %}%</span></div> 
                             <a href="{% url 'shop:single_product' product.category.slug product.slug %}">
                             <img data-src="{{product.image.url}}" class="lazyload" loading="lazy" alt="{{product.name}} image">
                             <h6>{{product.name|truncatechars:23}}</h6>
                             <h6 class="item-card-title">UGX {{product.price|intcomma}}</h6>
-                            {% if product.items_left < 40 %}
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="background-color: red ;width: {{product.items_left}}%" aria-valuenow="{{product.items_left}}"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            {% else %}
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="background-color: orange; width: {{product.items_left}}%" aria-valuenow="{{product.items_left}}"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            {% endif %}
                             </a>
-                            <code>{{product.items_left}} items left</code>
                         </div>
                     </div>
                     {% endfor %}

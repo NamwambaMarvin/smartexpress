@@ -235,3 +235,9 @@ def terms_of_sale(request):
         'title': "Terms of Sale",
     }
     return render(request, 'terms_of_sale.html', context)
+
+def sign_up(request):
+    context = {
+        'title': "Sign Up",
+    }
+    return render(request, 'sign_up.html', context)

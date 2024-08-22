@@ -16,7 +16,7 @@ def percentage_discount( price, discount ):
             f = discount / price
             return round(f*100, 1)
     except: pass
-    return '0.0'
+    return 0
 
 @register.simple_tag
 def vat(price, discount):
