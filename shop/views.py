@@ -40,6 +40,7 @@ def index(request):
     c = category.objects.all()[:6]
     s = subcategory.objects.all()[:12]
     p = product.objects.all().order_by('-name')[12:44]
+    products_set_two = product.objects.all().order_by('-name')[44:56]
 
     category_update, created =  category.objects.get_or_create(name="uncategorised")
     for pr in p:
@@ -51,6 +52,7 @@ def index(request):
 
     context = {
         "products": _shuffle(p),
+        "products_set_two": _shuffle(products_set_two),
         "subcategories" : _shuffle(s),
         "category": _shuffle(c),
         "title"  : "shop",
