@@ -11,7 +11,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 {% for cat in category %}
-                                <a href="{% url 'shop:products' cat.slug %}" class="col-md-4 col-4 item mt-3">
+                                <a href="{% url 'shop:products' cat.slug %}" class="col-md-3 col-3 item mt-3">
                                     <div class="card item-card card-block" style="font-size: small;">
                                         <img class="lazyload" data-src="{{cat.image.url}}" loading="lazy" alt="{{category.name}} image">
                                         <h6 class="item-card-title my-2">{{cat.name|truncatechars:12}}</h6>

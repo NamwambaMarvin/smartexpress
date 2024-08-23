@@ -10,7 +10,7 @@
             <div class="container-fluid">
                 <div class="row">
                     {% for product in products %}
-                    <div class="col-md-4 col-6 item mt-3">
+                    <div class="col-lg-3 col-md-4 col-6 item mt-3">
                         <div class="card item-card card-block position-relative">
                         <div class="position-absolute top-0 end-0"><span class="badge bg-secondary">-{% percentage_discount product.price product.discount %}%</span></div>    
                             <a href="{% url 'shop:single_product' product.category.slug product.slug %}">
