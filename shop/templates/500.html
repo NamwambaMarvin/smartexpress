@@ -1,0 +1,58 @@
+{% extends 'layout' %}
+{% block content %}
+/* Style the page for a more user-friendly 404 experience */
+
+<style>
+    article {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.mcontainer {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+a.btn404 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #3e8e41;
+}
+
+</style>
+<article>
+  <div class="mcontainer">
+    <h1>Uh oh! Looks like the page you're looking for is lost.</h1>
+    <p>We apologize, but the web address you entered is incorrect or the page may no longer exist. Don't worry, we're here to help you find what you're looking for.</p>
+    <a class="btn404" href="{% url 'shop:index' %}">Go Back to Mzuri Express Homepage</a>
+  </div>
+</article>
+
+{% endblock %}
