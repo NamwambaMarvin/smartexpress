@@ -1,7 +1,7 @@
 {% load static %}
 <section>
     <div class="card">
-        <div class="card-header text-center" style="background-color: grey;">
+        <div class="card-header text-center">
             Top Categories
         </div>
         <div class="card-body">
