@@ -22,37 +22,49 @@ def _shuffle(query_set):
     random.shuffle(new_list)
     return new_list
 
+class section:
+    def __init__(self, category):
+        self.name = category.name
+        self.products = category.product_set.all()[:4]
+        self.products_set_two = category.product_set.all()[4:8]
+        self.id = category.id
+        self.slug = category.slug
+
 # Create your views here.
 def index(request):
     """
     View serving the home page logic
     """
-    user = None
-    if request.POST:
-        user_fetched = authenticate(username=request.POST['email'], password=request.POST['password'])
-        if user_fetched is not None:
-            login(request, user_fetched)
-        else:
-            pass
-    else:
-        pass
+#    user = None
+#    if request.POST:
+#        user_fetched = authenticate(username=request.POST['email'], password=request.POST['password'])
+#        if user_fetched is not None:
+#            login(request, user_fetched)
+#        else:
+#            pass
+#    else:
+#        pass
 
     c = category.objects.all()[:6]
-    s = subcategory.objects.all()[:12]
+    for i in c:
+        section(i)
+    s = subcategory.objects.all()[:6]
     p = product.objects.all().order_by('-name')[12:44]
     products_set_two = product.objects.all().order_by('-name')[44:56]
-
-    category_update, created =  category.objects.get_or_create(name="uncategorised")
-    for pr in p:
-        try:
-            m = pr.category.slug
-        except:
-            pr.category = category_update
-            pr.save()
+ 
+    #category_update, created =  category.objects.get_or_create(name="uncategorised")
+    #for pr in p:
+    #    try:
+    #        m = pr.category.slug
+    #    except:
+    #        pr.category = category_update
+    #        pr.save()
 
     context = {
-        "products": _shuffle(p),
-        "products_set_two": _shuffle(products_set_two),
+        "products_set_one": section(category.objects.get(name__icontains="tvs")),
+        "products_set_two": section(category.objects.get(name__icontains="appliances")),
+        "products_set_three": section(category.objects.get(name__icontains="washing")),
+        "products_set_four": section(category.objects.get(name__icontains="audio")),
         "subcategories" : _shuffle(s),
         "category": _shuffle(c),
         "title"  : "shop",

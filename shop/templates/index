@@ -10,18 +10,23 @@
 		{% include 'category_card_with_header' %}
 	{% endwith %}
 	
-	{% with subcategories as category %}
-		{% include 'category_card_without_header' %}
-	{% endwith %}
-
-	{% with products as products %}
-		{% include 'product_card_with_header' %}
+	{% with products_set_one as products %}
+		{% include 'carousel_three.html' %}
 	{% endwith %}
 
 	{% with products_set_two as products %}
-		{% include 'product_card_without_header' %}
+		{% include 'carousel_three.html' %}
+	{% endwith %}
+	
+	{% with products_set_three as products %}
+		{% include 'carousel_three.html' %}
 	{% endwith %}
 
-	{% include 'product_card_with_header' %}
+	{% with products_set_four as products %}
+		{% include 'carousel_three.html' %}
+	{% endwith %}
 
+	{% with subcategories as category %}
+		{% include 'category_card_without_header' %}
+	{% endwith %}
 {% endblock %}

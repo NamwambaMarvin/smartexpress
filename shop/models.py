@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from tinymce.models import HTMLField
 from django.contrib.auth.models import User
 import uuid
@@ -103,6 +104,7 @@ class product(models.Model):
     Store product information
     """
     id = models.AutoField(primary_key=True)
+    updated_at = models.DateTimeField(auto_now=True)
     secodary_id = models.UUIDField(default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=200)
     image = models.ImageField(upload_to='static/product_images')
@@ -131,6 +133,9 @@ class product(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         return super().save(*args, **kwargs)
+    
+    def get_absolute_url(self):
+        return reverse("shop:single_product", args=[str(self.category.slug), str(self.slug)])
 
 class category_front_page(models.Model):
     """

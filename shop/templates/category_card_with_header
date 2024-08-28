@@ -5,19 +5,17 @@
             Top Categories
         </div>
         <div class="card-body">
-            <div id="CardCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div id="223" class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="5000">
-                        <div class="container-fluid">
-                            <div class="row">
-                                {% for cat in category %}
-                                <a href="{% url 'shop:products' cat.slug %}" class="col-md-3 col-3 item mt-3">
-                                    <div class="card item-card card-block" style="font-size: small;">
-                                        <img class="lazyload" data-src="{{cat.image.url}}" loading="lazy" alt="{{category.name}} image">
-                                        <h6 class="item-card-title my-2">{{cat.name|truncatechars:12}}</h6>
-                                    </div>
-                                </a>
-                                {% endfor %}
+            <div class="container-fluid">
+                <div class="row">
+                    {% for cat in category %}
+                    <a href="{% url 'shop:products' cat.slug %}" class="col-lg-4 col-md-4 col-6 item mt-3">
+                        <div class="card item-card card-block" style="font-size: small;">
+                            <img class="lazyload" data-src="{{cat.image.url}}" loading="lazy"
+                                alt="{{category.name}} image">
+                            <h6 class="item-card-title my-2">{{cat.name|truncatechars:12}}</h6>
+                        </div>
+                    </a>
+                    {% endfor %}
                 </div>
             </div>
         </div>
