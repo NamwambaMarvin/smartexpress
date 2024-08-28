@@ -1,11 +1,19 @@
+from django.contrib.sitemaps import GenericSitemap
+from django.contrib.sitemaps.views import sitemap
 from django.conf import settings
 from django.conf.urls.static import static
+from shop.models import product
 # Import path
 from django.contrib import admin
 from django.urls import path
 from . import views
 
 app_name = "shop"
+
+products = {
+    "queryset": product.objects.all(),
+    "date_field": "updated_at",
+}
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -27,6 +35,11 @@ urlpatterns = [
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
     path('return_and_refunds/', views.return_and_refunds_policy, name='return_and_refunds'),
     path('sign_up/', views.sign_up, name='sign_up'),
+    path(
+        "sitemap.xml",
+        sitemap,
+        {"sitemaps": {"products": GenericSitemap(products)}},
+    ),
 ]
 
 if settings.DEBUG:
