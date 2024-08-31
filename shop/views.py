@@ -4,23 +4,12 @@ Webpages.
 """
 from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse
-import random
 from .forms import public_cart_form, public_review_form
 from .models import product, category, subcategory, public_reviews
 from django.db.models import Q
 import datetime
-import decimal
 from django.contrib.auth import authenticate, login
 from django.utils.html import strip_tags
-
-# Make query sets random
-# 1D query set
-def _shuffle(query_set):
-    new_list = []
-    for i in query_set:
-        new_list.append(i)
-    random.shuffle(new_list)
-    return new_list
 
 class section:
     def __init__(self, category):
@@ -65,9 +54,9 @@ def index(request):
         "products_set_two": section(category.objects.get(name__icontains="appliances")),
         "products_set_three": section(category.objects.get(name__icontains="washing")),
         "products_set_four": section(category.objects.get(name__icontains="audio")),
-        "subcategories" : _shuffle(s),
-        "category": _shuffle(c),
-        "title"  : "shop",
+        "subcategories" : s,
+        "category": c,
+        "title"  : "MZURI EXPRESS | ELECTRONICS STORE",
         'last_revised': datetime.datetime.today(),
         'meta_category': "PRODUCTS",
         'summary': "Shop home appliances, electronics and other products with mzuri express",
@@ -155,10 +144,17 @@ def products(request, category_slug):
     except:
         sc = subcategory.objects.get(slug=category_slug)
         p = product.objects.filter(subcategory=sc)
-
+        
     context = {
         "products" : p,
-        "title"  : category_slug,
+        "title"  : c.name,
+        "clean_description": f"Buy quality {c.name} from mzuri express, Enjoy shopping electronics \
+          at favorable prices in Uganda",
+        "keywords": f"{c.name}, mzuri, express, Uganda, electronics, wholesaler, online, shopping, \
+        Uganda, in, how, much, is, electronics, shop, Kampala, price, best, machine, delivery",
+        #"description": strip_tags(p.detail),
+        #"summary": strip_tags(p.detail),
+        "meta_category": c.name,
     }
     return render(request, 'products', context)
 
@@ -186,7 +182,7 @@ def search(request):
         'title' : "".join(search_query),
         'products' : search_package,
     }
-    return render(request, 'search_results', context)
+    return render(request, 'search_results.html', context)
 
 def shipping_and_delivery_policy(request):
     context = {
@@ -214,21 +210,25 @@ def about(request):
 
 def order_success(request):
     context = {
+        'title': 'Order Success'
     }
     return render(request, 'order_success.html', context)
 
 def order_failed(request):
     context = {
+        'title': 'Order Failed'
     }
     return render(request, 'order_failed.html', context)
 
 def review_success(request):
     context = {
+        'title': 'Review Success'
     }
     return render(request, 'review_success.html', context)
 
 def review_failed(request):
     context = {
+        'title': 'Review Failed'
     }
     return render(request, 'review_failed.html', context)
 
@@ -255,3 +255,71 @@ def sign_up(request):
         'title': "Sign Up",
     }
     return render(request, 'sign_up.html', context)
+
+# Fetches the product using its uuid
+def uuid_product_single(request, product_uuid):
+    """
+    This displays details of a product in a particular category
+    """
+    form = public_cart_form()
+    review_form = public_review_form()
+    try:
+        p = product.objects.get(secodary_id=product_uuid)
+        title = p.name
+    except:
+        c = None
+        p = product.objects.get(secodary_id=product_uuid)
+        title = "No Product Found"
+
+    percentage_discount = p.discount*100
+    percentage_discount = percentage_discount/p.price
+    original_price = p.price+p.discount
+
+    context = {
+        "title"  : title,
+        "product" : p,
+        "original_price": original_price,
+        "form": form,
+        "review_form": review_form,
+        "percentage_discount": percentage_discount,
+        "clean_description": strip_tags(p.detail),
+        "keywords": p.name.replace(' ', ',').split(),
+        "description": strip_tags(p.detail),
+        "summary": strip_tags(p.detail),
+        "meta_category": p.category.name,
+    }
+    return render(request, 'product', context)
+
+# Fetches the product using its slug
+def single_product_slug(request, product_slug):
+    """
+    This displays details of a product in a particular category
+    """
+    form = public_cart_form()
+    review_form = public_review_form()
+    try:
+        p = product.objects.get(slug=product_slug)
+        title = p.name
+    except:
+        c = None
+        p = product.objects.get(slug=product_slug)
+        title = "No Product Found"
+
+    percentage_discount = p.discount*100
+    percentage_discount = percentage_discount/p.price
+    original_price = p.price+p.discount
+
+    context = {
+        "title"  : title,
+        "product" : p,
+        "original_price": original_price,
+        "form": form,
+        "review_form": review_form,
+        "percentage_discount": percentage_discount,
+        "clean_description": strip_tags(p.detail),
+        "keywords": p.name.replace(' ', ',').split(),
+        "description": strip_tags(p.detail),
+        "summary": strip_tags(p.detail),
+        "meta_category": p.category.name,
+    }
+    return render(request, 'product', context)

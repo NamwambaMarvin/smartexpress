@@ -1,7 +1,8 @@
+  {% load humanize %}
   <!--META TAGS -->
   <meta charset="UTF-8">
   <meta name="keywords" content="{{keywords|safe}}"/>
-  <meta name="description" content="{{description}}"/>
+  <meta name="description" content="{{description | truncatechars:180}}"/>
   <meta name="subject" content="MZURI EXPRESS online shopping, Get products at favourable prices">
   <meta name="copyright"content="MZURI EXPRESS">
   <meta name="language" content="EN">
@@ -21,18 +22,19 @@
   <meta name="distribution" content="Global">
   <meta name="rating" content="General">
   <meta name="revisit-after" content="2 days">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta http-equiv="Expires" content="0">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Cache-Control" content="no-cache">
   
   
   <!--Open Graph meta tags -->
-  <meta name="og:title" content="MZURI EXPRESS | {{title}}"/>
+  <meta name="og:title" content="{{title}}"/>
   <meta name="og:type" content="product"/>
   <meta name="og:url" content="https://www.mzuriexpress.com{{request.path}}"/>
   <meta name="og:image" content="https://www.mzuriexpress.com{{product.image.url}}"/>
   <meta name="og:site_name" content="MZURI EXPRESS"/>
   <meta name="og:description" content="{{description}}"/>
   <meta name="og:email" content="marvinnamwamba@gmail.com"/>
-  <meta name="og:phone_number" content="256 774 880 026"/>
+  <meta name="og:phone_number" content="256 70 0229 775"/>
     <!--END META TAGS-->
