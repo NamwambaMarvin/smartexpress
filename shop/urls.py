@@ -35,7 +35,7 @@ urlpatterns = [
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
     path('return_and_refunds/', views.return_and_refunds_policy, name='return_and_refunds'),
     path('sign_up/', views.sign_up, name='sign_up'),
-    path('<slug:product_slug>/', views.single_product_slug, name='single_product_slug'),
+    #path('<slug:product_slug>/', views.single_product_slug, name='single_product_slug'),
     path('product/<uuid:product_uuid>/', views.uuid_product_single, name='uuid_product_single'),
     path('category/<slug:category_slug>/', views.products, name='products'),
     # Site map
