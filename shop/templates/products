@@ -1,4 +1,9 @@
 {% extends 'layout' %}
+
+{% block meta_tags %}
+  {% include 'category_metatags.html' %}
+{% endblock %}
+
 {% block content %}
 
 {% with products as products %}
