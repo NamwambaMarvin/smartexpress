@@ -31,11 +31,6 @@
       "@type": "Brand",
       "name": "{{product.brand.name}}"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": 4.9,
-      "reviewCount": {% rating %}
-    },
     "offers": {
       "@type": "Offer",
       "url": "https://mzuriexpress.com{{request.path}}",
