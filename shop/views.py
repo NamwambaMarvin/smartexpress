@@ -142,9 +142,9 @@ def products(request, category_slug):
         c = category.objects.get(slug=category_slug)
         p = product.objects.filter(category=c)
     except:
-        sc = subcategory.objects.get(slug=category_slug)
+        sc = c = subcategory.objects.get(slug=category_slug)
         p = product.objects.filter(subcategory=sc)
-        
+
     context = {
         "products" : p,
         "title"  : c.name,
