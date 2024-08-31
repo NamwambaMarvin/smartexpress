@@ -272,7 +272,6 @@
                         <p>Product SKU: {{product.secodary_id}}</p>
                         <p>Product Slug: {{product.slug}}</p>
                         <p>Product Type: {{product.type}}</p>
-                        <p>Product Weight: {{product.weight}} kg</p>
                       </div>
                     </div>
                   </div>
