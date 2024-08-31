@@ -50,7 +50,7 @@ def index(request):
     #        pr.save()
 
     context = {
-        "products_set_one": section(category.objects.get(name__icontains="tvs")),
+        "products_set_one": section(category.objects.get(name__icontains="tele")),
         "products_set_two": section(category.objects.get(name__icontains="appliances")),
         "products_set_three": section(category.objects.get(name__icontains="washing")),
         "products_set_four": section(category.objects.get(name__icontains="audio")),
