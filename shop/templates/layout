@@ -1,23 +1,35 @@
 <!DOCTYPE html>
-        <html lang="en">
-            <head>
-                <title>
-                  {{title}}
-                </title>
-                {% block rich_results %}
-                {% endblock %}
-                {% block meta_tags %}
-                {% endblock %}
-                {% include 'header.html' %}
-            </head>
-        <!-- header section -->
-        <!-- End header section-->
-        <body>
-                {% include 'navigation_bar.html' %}
-                <div class="body">
-                     {% block content %}
-                     {% endblock %}   
-                </div>
-        </body>
-            {% include 'footer' %}
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-313562256"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-313562256');
+    </script>
+    <title>
+        {{title}}
+    </title>
+    {% block rich_results %}
+    {% endblock %}
+    {% block meta_tags %}
+    {% endblock %}
+    {% include 'header.html' %}
+</head>
+<!-- header section -->
+<!-- End header section-->
+
+<body>
+    {% include 'navigation_bar.html' %}
+    <div class="body">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+{% include 'footer' %}
+
 </html>
