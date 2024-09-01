@@ -3,6 +3,22 @@
 {% load discount %}
 {% load static %}
 {% block meta_tags %}
+  <!-- Event snippet for Contact conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-313562256/DszqCK77g88ZEJCpwpUB',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>  
   {% include 'product_metatags.html' %}
 {% endblock %}
 {% block rich_results %}
@@ -185,7 +201,7 @@
                 </div>
               </div>
             </button>
-            <a class="d-grid gap-2 btn btn-success" href="https://wa.me/256700229775?text=I'm%20interested%20in%20{{product.name}}"
+            <a class="d-grid gap-2 btn btn-success" onclick="gtag_report_conversion('https://wa.me/256700229775?text=I am%20interested%20in%20{{product.name}}')" href="https://wa.me/256700229775?text=I am%20interested%20in%20{{product.name}}"
               style="width: 100%;">
               <div class="row">
                 <div class="col-2" style="text-align: left;">
