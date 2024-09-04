@@ -16,7 +16,7 @@
     </div>
    </div>
 </div>
-<div id="carouselExampleIndicators{{products.id}}" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleIndicators{{products.id}}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
     <div class="carousel-inner">
         {% for p in "12"|make_list %}
         <div class="carousel-item{% if forloop.first %} active{% endif %}">
