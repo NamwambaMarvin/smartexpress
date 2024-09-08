@@ -2,7 +2,7 @@
 <header>
 </header>
 <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid nav-r row"> <!--Big row-->
+    <div class="nav-r row"> <!--Big row-->
       <div class="col"> <!--columnn-->
         <a class="btn btn-white" data-bs-display="static" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
           <span class="">
@@ -21,108 +21,13 @@
                 <!-- Button trigger profile modal -->
                <!-- <i type="button" class="fa fa-user" data-bs-toggle="modal" data-bs-target="#profileModal" style="margin-right: 5px; font-size: x-large;"></i> -->
                 <!-- Button trigger cart modal -->
-                <i type="button" class="fa fa-search position-relative" data-bs-toggle="modal" data-bs-target="#cartModal" style="margin-right: 5px; font-size: x-large;">
-                </i>
         </div>
         <!-- End of profile and cart -->
       </div>
-      <div class="col-5 d-none d-md-inline d-lg-inline">
+      <div class="col-12 col-md-6 col-lg-6 d-md-inline d-lg-inline">
         {% include 'search_form.html' %}
       </div>
-      <div class="col d-none d-md-none d-lg-inline">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle disabled" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa fa-user"> Account</i>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Create Account</a></li>
-            <li><a class="dropdown-item" href="#">Log In</a></li>
-            <li><a class="dropdown-item" href="#">View Orders</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col d-none d-md-none d-lg-inline">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa fa-question-circle-o"> Help</i>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="{% url 'shop:contact' %}">Contact Us</a></li>
-            <!--<li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
-          </ul>
-        </div>
-      </div>
     </div>
-
-  <!-- Profile Modal -->
-  <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true" data-bs-backdrop="false">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-        {% if user.is_authenticated %}
-          <h6 class="modal-title" id="profileModalLabel">Your Profile</h6>
-        {% else %}
-          <h6 class="modal-title" id="profileModalLabel">Log In into your account</h6>
-        {% endif %}
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          {% if user.is_authenticated %}
-          Hello {{user.username}}
-          {% else %}
-          <div id="content" class="flex">
-   <div class="">
-      <div class="page-content page-container" id="page-content">
-         <div class="padding">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="card">
-                     <div class="card-body">
-                        <form method="POST" action="{% url 'shop:index' %}">
-                           <div class="form-group"><label class="text-muted" for="exampleInputEmail1">user name:</label><input type="text" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username"> <small id="emailHelp" class="form-text text-muted">We don't share email with anyone</small></div>
-                           <div class="form-group"><label class="text-muted" for="exampleInputPassword1">Password</label><input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password"> <small id="passwordHelp" class="form-text text-muted">your password is saved in encrypted form</small></div>
-                           <!--
-                           <div class="form-group">
-                              <div class="form-check"><input type="checkbox" class="form-check-input"><label class="form-check-label">Check me out</label></div>
-                           </div>
-                           -->
-                           <button type="submit" class="btn btn-primary">Submit</button>
-                           {% csrf_token %}
-                        </form>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-          {% endif %}
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- End profile model -->
-<!-- Cart Modal -->
-<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true" data-bs-backdrop="false">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="cartModalLabel">Mzuri Search (10,000+ products)</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          {% include 'search_form_two.html' %}
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- End cart model -->
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
@@ -189,23 +94,6 @@
       
   </ul>
 </li>
-        <li class="nav-item d-sm-inline d-md-inline dropdown">
-            <a class="nav-link dropdown-toggle disabled" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Other Products
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <!--any additional -->
-        </li>
         <li class="nav-item">
         
         </li>
