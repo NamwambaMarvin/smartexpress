@@ -50,7 +50,7 @@ def index(request):
     #        pr.save()
 
     context = {
-        "products_set_one": section(category.objects.get(name__icontains="tele")),
+        "products_set_one": section(category.objects.get(name__icontains="tv")),
         "products_set_two": section(category.objects.get(name__icontains="appliances")),
         "products_set_three": section(category.objects.get(name__icontains="washing")),
         "products_set_four": section(category.objects.get(name__icontains="audio")),
@@ -323,3 +323,34 @@ def single_product_slug(request, product_slug):
         "meta_category": p.category.name,
     }
     return render(request, 'product', context)
+
+
+def request_call(request, product_slug):
+    form = public_cart_form()
+    try:
+        p = product.objects.get(slug=product_slug)
+        title = p.name
+    except:
+        c = None
+        p = product.objects.get(slug=product_slug)
+
+    context = {
+        "product" : p,
+        "form": form,
+    }
+    return render(request, 'request_call.html', context)
+
+def review(request, product_slug):
+    review_form = public_review_form()
+    try:
+        p = product.objects.get(slug=product_slug)
+        title = p.name
+    except:
+        c = None
+        p = product.objects.get(slug=product_slug)
+
+    context = {
+    "product" : p,
+    "review_form": review_form,
+}
+    return render(request, 'review_product.html', context)

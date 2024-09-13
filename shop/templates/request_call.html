@@ -1,0 +1,38 @@
+{% extends 'layout' %}
+{% block content %}
+<style>
+      /* Example styles (customize as needed) */
+  form.user_data {
+    max-width: 400px;
+    /* Adjust the maximum width based on your design */
+    margin: 0 auto;
+    /* Center the form horizontally */
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+</style>
+<div  class="container text-center"><b>Order for {{product.name}}</b></div>
+<form class="user_data" action="{% url 'shop:public_cart' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="hidden" name="product_id" value="{{product.secodary_id}}" id="id_product_id" />
+    <input type="hidden" name="product_name" value="{{product.name}}" id="id_product_name" />
+    <input type="submit" value="Submit" class="btn btn-success w-100">
+  </form>
+{% endblock %}

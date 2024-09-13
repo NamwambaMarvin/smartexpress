@@ -102,3 +102,33 @@ text-anchor: middle;
           </ul>
         </div>
       </div>
+
+
+
+
+  <!-- Modal -->
+<!-- Request call back Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Request a call back</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="user_data" action="{% url 'shop:public_cart' %}" method="post">
+          {% csrf_token %}
+          {{ form }}
+          <input type="hidden" name="product_id" value="{{product.secodary_id}}" id="id_product_id" />
+          <input type="hidden" name="product_name" value="{{product.name}}" id="id_product_name" />
+          <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end modal-->

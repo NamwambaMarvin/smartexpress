@@ -1,0 +1,41 @@
+{% extends 'layout' %}
+{% block content %}
+<style>
+    /* Example styles (customize as needed) */
+form.user_data {
+  max-width: 400px;
+  /* Adjust the maximum width based on your design */
+  margin: 0 auto;
+  /* Center the form horizontally */
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+</style>
+<div  class="container text-center"><b>Review {{product.name}}</b></div>
+<form class="user_data" id="review_form" method="post" action="{% url 'shop:public_review' %}">
+    <div class="rating-form">
+      {{review_form}}
+      <input type="hidden" name="product_sec_id" value="{{product.secodary_id}}" />
+      <input type="hidden" name="product_id" value="{{product.id}}" />
+      <input type="hidden" name="product_name" value="{{product.name}}" />
+      <button class="btn btn-success mt-2" type="submit" style="width: 100%;">Submit Review</button>
+    </div>
+    {% csrf_token %}
+  </form>
+{% endblock %}
