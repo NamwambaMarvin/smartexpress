@@ -344,7 +344,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
   <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEight">
     <div class="accordion-body">
       <div class="mx-auto" style="font-size: small;">
-        <p>Mzuri Express is located at Burton Street Aponye Mall Shop number MA 22, Kampala Uganda</p>
+        <p>Mzuri Express is located at Aponye Mall, Burton Street, Shop number MA 22, Kampala Uganda</p>
     </div>
   </div>
 </div>
