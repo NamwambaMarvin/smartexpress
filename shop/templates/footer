@@ -34,6 +34,7 @@
           <li class="nav-item mb-2"><a href="{% url 'shop:index' %}">Home</a></li>
           <li class="nav-item mb-2"><a href="{% url 'shop:shipping' %}">Shipping and Delivery Policy</a></li>
           <li class="nav-item mb-2"><a href="{% url 'shop:return_and_refunds' %}">Return and Refunds Policy</a></li>
+          <li class="nav-item mb-2"><a href="{% url 'shop:cookie_policy' %}">Cookie Policy</a>
           <li class="nav-item mb-2"><a href="{% url 'shop:contact' %}">Contact Us</a></li>
         </ul>
       </div>
@@ -62,11 +63,48 @@
 <a href="https://www.tiktok.com/@mzuriexpress.com"><i class="fa-brands fa-tiktok"></i></a>      
 </div>
     </div>
-      <div class="d-flex border-top justify-content-center">
+      <div class="d-flex border-top justify-content-center w-100">
       <div class="d-block">
-        <p>&copy; 2024 Mzuri Express, All rights reserved.</p>
-        <img alt="Payment methods" class="lazyload" data-src="{% static 'assets/Payment-methods-s.png' %}" loading="lazy"/>
+        <p>
+          <b>Copyright © 2024 Mzuri Express.</b> All rights reserved. <br>
+          Logos displayed here belong to their respective owners. "Mzuri Express Uganda," "mzuriexpress.com," and "Mzuri Express Appliances Uganda" are business names used by Mzuri Express Appliances Uganda, a registered Ugandan business located at P.O. Box 656311, Kampala.
+        </p>
+        
       </div>
+      
     </div>
+    <div class="w-100 mx-auto">
+      <img alt="Payment methods" class="lazyload w-50 mx-auto d-block" data-src="{% static 'assets/Payment-methods-s.png' %}" loading="lazy"/>
+    </div>
+    <div id="cb-cookie-banner" class="alert alert-success text-center mb-0" role="alert">
+  &#x1F36A; This website uses cookies to ensure you get the best experience on our website.
+  <button type="button" class="btn btn-primary btn-sm ms-3" onclick="window.cb_hideCookieBanner()">
+    I Got It
+  </button>
+</div>
   </footer>
 </div>
+<script type="text/javascript">
+function showCookieBanner(){
+ let cookieBanner = document.getElementById("cb-cookie-banner");
+ cookieBanner.style.display = "block";
+}
+function hideCookieBanner(){
+ localStorage.setItem("cb_isCookieAccepted", "yes");
+ let cookieBanner = document.getElementById("cb-cookie-banner");
+ cookieBanner.style.display = "none";
+}
+function initializeCookieBanner(){
+ let isCookieAccepted = localStorage.getItem("cb_isCookieAccepted");
+ if(isCookieAccepted === null)
+ {
+  localStorage.setItem("cb_isCookieAccepted", "no");
+  showCookieBanner();
+ }
+ if(isCookieAccepted === "no"){
+  showCookieBanner();
+ }
+}
+window.onload = initializeCookieBanner();
+window.cb_hideCookieBanner = hideCookieBanner;
+</script>

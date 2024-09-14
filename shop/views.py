@@ -172,7 +172,7 @@ def search(request):
     To search products from the database
     """
     search_query = list(str(request.POST['search_query']))
-    if request.POST and len(search_query) < 10 and product.objects.filter(name__icontains="".join(search_query)).count() == 0:
+    if request.POST and len(search_query) < 30 and product.objects.filter(name__icontains="".join(search_query)).count() == 0:
         search_package = product.objects.filter(Q(name__icontains=""))
         for q in search_query:
             search_package &= product.objects.filter(Q(name__icontains=str(q)))
@@ -243,6 +243,12 @@ def privacy_policy(request):
         'title': "Privacy policy",
     }
     return render(request, 'privacy_policy.html', context)
+
+def cookie_policy(request):
+    context = {
+        'title': "Cookie policy",
+    }
+    return render(request, 'cookie_policy.html', context)
 
 def terms_of_sale(request):
     context = {
