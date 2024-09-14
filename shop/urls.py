@@ -38,7 +38,7 @@ urlpatterns = [
     #path('<slug:product_slug>/', views.single_product_slug, name='single_product_slug'),
     path('product/<uuid:product_uuid>/', views.uuid_product_single, name='uuid_product_single'),
     path('category/<slug:category_slug>/', views.products, name='products'),
-    path('request-call/<slug:product_slug>/', views.request_call, name='request_call'),
+    path('place-order/<slug:product_slug>/', views.request_call, name='request_call'),
      path('review/<slug:product_slug>/', views.review, name='review'),
     # Site map
     path(

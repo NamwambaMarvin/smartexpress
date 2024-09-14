@@ -168,7 +168,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <a type="button" href="{% url 'shop:request_call' product.slug %}" class="btn btn-primary">
               <div class="row">
                 <div class="col-2 align-self-start" style="text-align: left;">
-                  <i class='fa fa-volume-control-phone'></i>
+                  <i class="fa-solid fa-cart-shopping"></i>
                 </div>
                 <div class="col-10 align-self-center" style="font-size: small;">
                   Place an Order
@@ -179,7 +179,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
               style="width: 100%;">
               <div class="row">
                 <div class="col-2" style="text-align: left;">
-                  <i class='fa fa-whatsapp' style="font-size: larger;"></i>
+                  <i class='fa-brands fa-whatsapp' style="font-size: larger;"></i>
                 </div>
                 <div class="col-10">
                  
@@ -191,7 +191,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <a type="button" href="{% url 'shop:review' product.slug %}" class="btn btn-info">
               <div class="row">
                 <div class="col-2 align-self-start" style="text-align: left;">
-                  <i class='fa fa-commenting-o'></i>
+                  <i class="fa-regular fa-comment"></i>
                 </div>
                 <div class="col-10">
                   <div class="d-inline"  style="font-size: small;">Review Product</div>
