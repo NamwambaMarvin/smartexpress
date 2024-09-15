@@ -146,6 +146,11 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             {% if percentage_discount > 0 %}
             <del style="color: grey;">UGX {{original_price|intcomma}}</del>
             {% endif %}
+            {% if product.items_left > 0 %}
+            <p class="text-success">In Stock</p>
+            {% else %}
+            <p class="text-danger">Out of Stock</p>
+            {%  endif %}
               <div class="row">
               </div>
             </div>
