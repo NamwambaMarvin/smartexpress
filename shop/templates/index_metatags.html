@@ -2,7 +2,7 @@
   <!--META TAGS -->
   <meta charset="UTF-8">
   <meta name="keywords" content="{{keywords}}"/>
-  <meta name="description" content="{{description}}"/>
+  <meta name="description" content="{{description | truncatewords:180}}"/>
   <meta name="subject" content="MZURI EXPRESS online shopping, Get products at favourable prices">
   <meta name="copyright"content="MZURI EXPRESS">
   <meta name="language" content="EN">
@@ -35,7 +35,7 @@
   <meta name="og:url" content="https://www.mzuriexpress.com{{request.path}}"/>
   <meta name="og:image" content="{% static 'assets/banner_load_l.png'%}"/>
   <meta name="og:site_name" content="MZURI EXPRESS"/>
-  <meta name="og:description" content="{{description | truncatechars:180}}"/>
+  <meta name="og:description" content="{{description | truncatewords:180}}"/>
   <meta name="og:email" content="contact@mzuriexpress.com"/>
   <meta name="og:phone_number" content="256 700 229 775"/>
     <!--END META TAGS-->
