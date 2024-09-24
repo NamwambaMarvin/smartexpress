@@ -12,14 +12,6 @@
                         </div>
                     </a>
                     {% endfor %}
-                    <!--
-                    <div class="col-md-3 col-6 item mt-3">
-                        <div class="card item-card card-block">
-                            <img src="https://placehold.co/600x400">
-                            <h5 class="item-card-title my-2">Dentistry</h5>
-                        </div>
-                    </div>
-                    -->
                 </div>
             </div>
         </div>

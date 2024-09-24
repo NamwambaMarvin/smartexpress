@@ -45,7 +45,7 @@
 
 <div class="container">
     <h1>Shipping and Delivery Policy</h1>
-    <h2>How does Mzuri Express deliver?</h2>
+    <h2>How does Mzuri Express Appliances Uganda deliver?</h2>
     <p>For all deliveries around Uganda, we use our local delivery agents. Our delivery means include a motorcycle, tricycle, or a truck.</p>
 
     <h2>How much is the delivery?</h2>
@@ -64,7 +64,7 @@
         It takes a maximum of 1 business day to get your ordered item delivered to you.
     </p>
 
-    <h2>Does Mzuri Express ship internationally?</h2>
+    <h2>Does Mzuri Express Appliances Uganda ship internationally?</h2>
     <p>No, we do not ship internationally. We deliver only within Uganda. You can order an item from anywhere in the world but the delivery location should be within Uganda.</p>
 
     <h2>Are there delivery restrictions?</h2>
@@ -72,7 +72,7 @@
 
     <h2>How can I track my order?</h2>
     <p>
-        You can track your order at Mzuri Express by contacting us.
+        You can track your order at Mzuri Express Appliances Uganda by contacting us.
         Visit out contact page at <a href="{% url 'shop:contact' %}">www.mzuriexpress.com/contact/</a>
     </p>
 
