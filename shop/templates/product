@@ -176,7 +176,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                   <i class="fa-solid fa-cart-shopping"></i>
                 </div>
                 <div class="col-10 align-self-center" style="font-size: small;">
-                  Place an Order
+                  Check Out
                 </div>
               </div>
             </a>

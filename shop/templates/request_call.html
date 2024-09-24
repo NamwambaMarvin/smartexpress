@@ -24,7 +24,7 @@
     font-size: 14px;
   }
 </style>
-<div  class="container text-center"><b>Order for {{product.name}}</b></div>
+<div  class="container text-center"><b>Check Out {{product.name}}</b></div>
 <form class="user_data" action="{% url 'shop:public_cart' %}" method="post">
     {% csrf_token %}
     {{ form }}
