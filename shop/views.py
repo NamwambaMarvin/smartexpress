@@ -56,12 +56,12 @@ def index(request):
         "products_set_four": section(category.objects.get(name__icontains="audio")),
         "subcategories" : s,
         "category": c,
-        "title"  : "MZURI EXPRESS | ELECTRONICS STORE",
+        "title"  : "Mzuri Express Appliances Uganda",
         'last_revised': datetime.datetime.today(),
         'meta_category': "PRODUCTS",
-        'summary': "Shop home appliances, electronics and other products with mzuri express",
+        'summary': "Shop home appliances, electronics and other products with Mzuri Express Appliances Uganda",
         'keywords': "shopping, mzuriexpress, mzuri, express, online store, uganda, online shopping",
-        'description': "Mzuri Express offers a variety of electronic products. Buy Televisions, fridges, cookers, Ovens, Dispensers, Washing machines, freezers, Blenders, Air Conditioners, Sound Bars, Electronic Kettles and many more",
+        'description': "Mzuri Express Appliances Uganda offers a variety of electronic products. Buy Televisions, fridges, cookers, Ovens, Dispensers, Washing machines, freezers, Blenders, Air Conditioners, Sound Bars, Electronic Kettles and many more",
     }
     return render(request, 'index', context)
 
@@ -148,7 +148,7 @@ def products(request, category_slug):
     context = {
         "products" : p,
         "title"  : c.name,
-        "clean_description": f"Buy quality {c.name} from mzuri express, Enjoy shopping electronics \
+        "clean_description": f"Buy quality {c.name} from Mzuri Express Appliances Uganda, Enjoy shopping electronics \
           at favorable prices in Uganda",
         "keywords": f"{c.name}, mzuri, express, Uganda, electronics, wholesaler, online, shopping, \
         Uganda, in, how, much, is, electronics, shop, Kampala, price, best, machine, delivery",
@@ -204,7 +204,7 @@ def terms(request):
 
 def about(request):
     context = {
-        'title': 'About Mzuri Express'
+        'title': 'About Mzuri Express Appliances Uganda'
     }
     return render(request, 'about.html', context)
 
