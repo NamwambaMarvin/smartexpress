@@ -3,7 +3,7 @@
 {% load humanize %}
 {% load discount %}
 {% block content %}
-<section style="margin-top: 5px;">
+<section style="margin-top: 5px;" class="container-fluid">
     <div class="card border-danger">
         <div class="card-header" style="background-color: #FFD700;">
             {% if products.count == 0 %}
@@ -13,6 +13,7 @@
             {% endif %}
             
         </div>
+        {% if products.count > 0 %}
         <div class="card-body">
             <div class="container-fluid">
                 <div class="row">
@@ -30,6 +31,14 @@
                 </div>
             </div>
         </div>
+        {% else %}
+        <div class="mx-auto">
+            <p>There are no results for “{{ title }}”.</p>
+            <p>- Check your spelling for typing errors</p>
+            <p>- Try searching with short and simple keywords</p>
+            <p>- Try searching more general terms - you can then filter the search results</p>
+        </div>
+        {% endif %}
     </div>
 </section>
 {% endblock %}

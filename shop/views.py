@@ -2,6 +2,7 @@
 Render function used to serve context to
 Webpages.
 """
+from functools import reduce
 from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse
 from .forms import public_cart_form, public_review_form
@@ -24,30 +25,12 @@ def index(request):
     """
     View serving the home page logic
     """
-#    user = None
-#    if request.POST:
-#        user_fetched = authenticate(username=request.POST['email'], password=request.POST['password'])
-#        if user_fetched is not None:
-#            login(request, user_fetched)
-#        else:
-#            pass
-#    else:
-#        pass
-
     c = category.objects.all()[:6]
     for i in c:
         section(i)
     s = subcategory.objects.all()[:6]
     p = product.objects.all().order_by('-name')[12:44]
     products_set_two = product.objects.all().order_by('-name')[44:56]
- 
-    #category_update, created =  category.objects.get_or_create(name="uncategorised")
-    #for pr in p:
-    #    try:
-    #        m = pr.category.slug
-    #    except:
-    #        pr.category = category_update
-    #        pr.save()
 
     context = {
         "products_set_one": section(category.objects.get(name__icontains="tele")),
@@ -171,13 +154,32 @@ def search(request):
     """
     To search products from the database
     """
-    search_query = list(str(request.POST['search_query']))
-    if request.POST and len(search_query) < 30 and product.objects.filter(name__icontains="".join(search_query)).count() == 0:
-        search_package = product.objects.filter(Q(name__icontains=""))
-        for q in search_query:
-            search_package &= product.objects.filter(Q(name__icontains=str(q)))
+    # Turn everything in the search query into a string
+    search_query = str(request.GET['search_query'])
+
+    if len(search_query) > 300:
+        search_query = ""
+
+    # Remove all delimiters from the string
+    # and make it a list
+    no_space = search_query.split()
+
+    # Strip the number of search words to 30
+    if len(no_space) > 30:
+        no_space = no_space[:30]
+
+    search_package = product.objects.filter(name="APPLE")
+    if len(no_space) <= 1:
+       search_package = product.objects.filter(
+            Q(name__icontains=no_space[0])
+        )
     else:
-        search_package = product.objects.filter(Q(name__icontains="".join(search_query)))
+        search_package = product.objects.filter(
+            reduce(
+                lambda x, y: x & y, [Q(name__icontains=word) for word in no_space]
+                )
+            )
+
     context = {
         'title' : "".join(search_query),
         'products' : search_package,
