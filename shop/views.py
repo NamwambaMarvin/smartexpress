@@ -28,7 +28,7 @@ def index(request):
     c = subcategory.objects.all()[6:12]
     for i in c:
         section(i)
-    s = category.objects.all()[:6]
+    s = subcategory.objects.all()[:6]
     p = product.objects.all().order_by('-name')[12:44]
     products_set_two = product.objects.all().order_by('-name')[44:56]
 
