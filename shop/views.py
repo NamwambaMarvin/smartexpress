@@ -25,18 +25,18 @@ def index(request):
     """
     View serving the home page logic
     """
-    c = category.objects.all()[:6]
+    c = subcategory.objects.all()[6:12]
     for i in c:
         section(i)
-    s = subcategory.objects.all()[:6]
+    s = category.objects.all()[:6]
     p = product.objects.all().order_by('-name')[12:44]
     products_set_two = product.objects.all().order_by('-name')[44:56]
 
     context = {
-        "products_set_one": section(category.objects.get(name__icontains="tele")),
-        "products_set_two": section(category.objects.get(name__icontains="appliances")),
-        "products_set_three": section(category.objects.get(name__icontains="washing")),
-        "products_set_four": section(category.objects.get(name__icontains="audio")),
+        "products_set_one": section(subcategory.objects.get(id=1)),
+        "products_set_two": section(subcategory.objects.get(id=2)),
+        "products_set_three": section(subcategory.objects.get(id=3)),
+        "products_set_four": section(subcategory.objects.get(id=4)),
         "subcategories" : s,
         "category": c,
         "title"  : "Mzuri Express Appliances Uganda",
@@ -88,6 +88,67 @@ def single_product(request, category_slug, product_slug):
     try:
         c = category.objects.get(slug=category_slug)
         p = product.objects.get(slug=product_slug, category=c)
+        title = p.name
+    except:
+        c = None
+        p = product.objects.get(slug=product_slug)
+        title = p.name
+
+    percentage_discount = p.discount*100
+    percentage_discount = percentage_discount/p.price
+    original_price = p.price+p.discount
+
+    context = {
+        "title"  : title,
+        "product" : p,
+        "original_price": original_price,
+        "form": form,
+        "review_form": review_form,
+        "percentage_discount": percentage_discount,
+        "clean_description": strip_tags(p.detail),
+        "keywords": p.name.replace(' ', ',').split(),
+        "description": strip_tags(p.detail),
+        "summary": strip_tags(p.detail),
+        "meta_category": p.category.name,
+    }
+    return render(request, 'product', context)
+
+def products(request, category_slug):
+    """
+    This displays products in a particular category
+    """
+    # Try to fetch products in
+    # either a category or sub category
+    try:
+        c = subcategory.objects.get(slug=category_slug)
+        p = product.objects.filter(subcategory=c)
+    except:
+        sc = c = category.objects.get(slug=category_slug)
+        p = product.objects.filter(category=sc)
+
+    context = {
+        "products" : p,
+        "title"  : c.name,
+        "description": f"Buy quality {c.name} from Mzuri Express Appliances Uganda, Enjoy shopping electronics at favorable prices in Uganda",
+        "keywords": f"{c.name}, mzuri, express, Uganda, electronics, wholesaler, online, shopping, Uganda, in, how, much, is, electronics, shop, Kampala, price, best, machine, delivery",
+        #"description": strip_tags(p.detail),
+        #"summary": strip_tags(p.detail),
+        "meta_category": c.name,
+    }
+    return render(request, 'products', context)
+
+def subproducts(request, subcategory_slug, product_slug):
+    """
+    This displays products in a subcategory
+    """
+    """
+    This displays details of a product in a particular category
+    """
+    form = public_cart_form()
+    review_form = public_review_form()
+    try:
+        c = subcategory.objects.get(slug=subcategory_slug)
+        p = product.objects.get(slug=product_slug, subcategory=c)
         similar_products =  product.objects.filter(brand=p.brand)
         title = p.name
     except:
@@ -113,38 +174,6 @@ def single_product(request, category_slug, product_slug):
         "similar_products": similar_products,
         "meta_category": p.category.name,
     }
-    return render(request, 'product', context)
-
-def products(request, category_slug):
-    """
-    This displays products in a particular category
-    """
-    # Try to fetch products in
-    # either a category or sub category
-    try:
-        c = category.objects.get(slug=category_slug)
-        p = product.objects.filter(category=c)
-    except:
-        sc = c = subcategory.objects.get(slug=category_slug)
-        p = product.objects.filter(subcategory=sc)
-
-    context = {
-        "products" : p,
-        "title"  : c.name,
-        "clean_description": f"Buy quality {c.name} from Mzuri Express Appliances Uganda, Enjoy shopping electronics \
-          at favorable prices in Uganda",
-        "keywords": f"{c.name}, mzuri, express, Uganda, electronics, wholesaler, online, shopping, \
-        Uganda, in, how, much, is, electronics, shop, Kampala, price, best, machine, delivery",
-        #"description": strip_tags(p.detail),
-        #"summary": strip_tags(p.detail),
-        "meta_category": c.name,
-    }
-    return render(request, 'products', context)
-
-def subproducts(request, category_slug, subcategory_slug, product_slug):
-    """
-    This displays products in a subcategory
-    """
     context = {
         "title" : "product_detail",
     }
@@ -188,7 +217,7 @@ def search(request):
 
 def shipping_and_delivery_policy(request):
     context = {
-        'title': 'Shipping and Delivery Policy'
+        'title': 'Shipping Policy'
     }
     return render(request, 'shipping_and_delivery_policy.html', context)
 
@@ -236,7 +265,7 @@ def review_failed(request):
 
 def return_and_refunds_policy(request):
     context = {
-        "title": "Return and Refunds",
+        "title": "Return Policy",
     }
     return render(request, 'return_and_refund.html', context)
 
@@ -254,7 +283,7 @@ def cookie_policy(request):
 
 def terms_of_sale(request):
     context = {
-        'title': "Terms of Sale",
+        'title': "Terms and Conditions",
     }
     return render(request, 'terms_of_sale.html', context)
 

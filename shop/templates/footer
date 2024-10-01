@@ -32,8 +32,8 @@
         <h5>Information</h5>
         <ul class="nav flex-column" style="text-decoration: white;">
           <li class="nav-item mb-2"><a href="{% url 'shop:index' %}">Home</a></li>
-          <li class="nav-item mb-2"><a href="{% url 'shop:shipping' %}">Shipping and Delivery Policy</a></li>
-          <li class="nav-item mb-2"><a href="{% url 'shop:return_and_refunds' %}">Return and Refunds Policy</a></li>
+          <li class="nav-item mb-2"><a href="{% url 'shop:shipping_policy' %}">Shipping Policy</a></li>
+          <li class="nav-item mb-2"><a href="{% url 'shop:return_policy' %}">Return Policy</a></li>
           <li class="nav-item mb-2"><a href="{% url 'shop:cookie_policy' %}">Cookie Policy</a>
           <li class="nav-item mb-2"><a href="{% url 'shop:contact' %}">Contact Us</a></li>
         </ul>

@@ -86,7 +86,7 @@ class subcategory(models.Model):
     """
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=150)
-    slug = models.SlugField(unique=True, editable=False)
+    slug = models.SlugField(unique=True)
     image = models.ImageField(upload_to="static/subcat_images", null=True, blank=True)
     category = models.ForeignKey(category, on_delete=models.PROTECT)
 
