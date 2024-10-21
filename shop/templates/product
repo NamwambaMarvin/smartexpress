@@ -291,24 +291,24 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       <div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingFour">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
-            <h5 class="card-title">Shipping and Delivery policy</h5>
+            <h5 class="card-title">Shipping policy</h5>
           </button>
         </h2>
         <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
           <div class="accordion-body">
-             {% include 'shipping_info' %}
+             <a class="btn btn-info" href="{% url 'shop:shipping' %}">Read the Shipping policy</a>
           </div>
         </div>
       </div>
       <div class="accordion-item">
         <h2 class="accordion-header" id="panelsStayOpen-headingqrew">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseqrew" aria-expanded="false" aria-controls="panelsStayOpen-collapseqrew">
-            <h5 class="card-title">Return and Refunds policy</h5>
+            <h5 class="card-title">Return policy</h5>
           </button>
         </h2>
         <div id="panelsStayOpen-collapseqrew" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingqrew">
           <div class="accordion-body">
-             {% include 'return_info.html' %}
+            <a class="btn btn-info" href="{% url 'shop:return_and_refunds' %}">Read the Return policy</a>
           </div>
         </div>
       </div>
@@ -338,7 +338,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
     <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSeven">
       <div class="accordion-body">
         <div class="mx-auto" style="font-size: small;">
-          {% include 'terms_and_conditions_template.html' %}
+          <a class="btn btn-info" href="{% url 'shop:terms' %}">Read the Terms And Conditions</a>
       </div>
     </div>
   </div>
