@@ -76,7 +76,7 @@
     <div class="w-100 mx-auto">
       <img alt="Payment methods" class="lazyload w-50 mx-auto d-block" data-src="{% static 'assets/Payment-methods-s.png' %}" loading="lazy"/>
     </div>
-    <div id="cb-cookie-banner" class="alert alert-success text-center mb-0 container" role="alert">
+    <div id="cb-cookie-banner" class="alert alert-success text-center mb-0 container w-100" role="alert">
   &#x1F36A; This website uses cookies to ensure you get the best experience on our website.
   <button type="button" class="btn btn-primary btn-sm ms-3" onclick="window.cb_hideCookieBanner()">
     I Got It
