@@ -165,7 +165,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
               href="{% url 'shop:sign_up' %}">
               <div class="row">
                 <div class="col-2" style="text-align: left;">
-                  <i class='fa fa-cart-plus' style="font-size: larger;"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-600v-120H320v-80h120v-120h80v120h120v80H520v120h-80ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"/></svg>
                 </div>
                 <div class="col-10">
                  
@@ -177,18 +177,18 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <a type="button" href="{% url 'shop:request_call' product.slug %}" class="btn btn-primary">
               <div class="row">
                 <div class="col-2 align-self-start" style="text-align: left;">
-                  <i class="fa-solid fa-cart-shopping"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m480-560-56-56 63-64H320v-80h167l-64-64 57-56 160 160-160 160ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"/></svg>
                 </div>
                 <div class="col-10 align-self-center" style="font-size: small;">
                   Check Out
                 </div>
               </div>
             </a>
-            <a class="d-grid gap-2 btn btn-success" onclick="gtag_report_conversion('https://wa.me/256700229775?text=I am%20interested%20in%20{{product.name}}')" href="https://wa.me/256700229775?text=I am%20interested%20in%20{{product.name}}"
+            <a class="d-grid gap-2 btn btn-success" href="https://wa.me/256700229775?text=I am%20interested%20in%20{{product.name}}"
               style="width: 100%;">
               <div class="row">
                 <div class="col-2" style="text-align: left;">
-                  <i class='fa-brands fa-whatsapp' style="font-size: larger;"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg>
                 </div>
                 <div class="col-10">
                  
@@ -200,7 +200,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             <a type="button" href="{% url 'shop:review' product.slug %}" class="btn btn-info">
               <div class="row">
                 <div class="col-2 align-self-start" style="text-align: left;">
-                  <i class="fa-regular fa-comment"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-400h122l200-200q9-9 13.5-20.5T580-643q0-11-5-21.5T562-684l-36-38q-9-9-20-13.5t-23-4.5q-11 0-22.5 4.5T440-722L240-522v122Zm280-243-37-37 37 37ZM300-460v-38l101-101 20 18 18 20-101 101h-38Zm121-121 18 20-38-38 20 18Zm26 181h273v-80H527l-80 80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg>
                 </div>
                 <div class="col-10">
                   <div class="d-inline"  style="font-size: small;">Review Product</div>

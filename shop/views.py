@@ -121,10 +121,10 @@ def products(request, category_slug):
     # either a category or sub category
     try:
         c = subcategory.objects.get(slug=category_slug)
-        p = product.objects.filter(subcategory=c)
+        p = product.objects.filter(subcategory=c)[:13]
     except:
         sc = c = category.objects.get(slug=category_slug)
-        p = product.objects.filter(category=sc)
+        p = product.objects.filter(category=sc)[:13]
 
     context = {
         "products" : p,
