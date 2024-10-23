@@ -11,7 +11,7 @@
                         <div class="card item-card card-block position-relative">
                             <div class="position-absolute top-0 end-0"><span class="badge bg-secondary">-{% percentage_discount product.price product.discount %}%</span></div> 
                             <a href="{% url 'shop:single_product' product.category.slug product.slug %}">
-                            <img data-src="{{product.image.url}}" class="lazyload" loading="lazy" alt="{{product.name}} image">
+                            <img width="500" height="500" src="{% static 'assets/banner_load_l.png' %}" data-src="{{product.image.url}}" class="img-fluid lazyload" loading="lazy" alt="{{product.name}} image">
                             <h6>{{product.name|truncatechars:23}}</h6>
                             <h6 class="item-card-title">UGX {{product.price|intcomma}}</h6>
                             </a>

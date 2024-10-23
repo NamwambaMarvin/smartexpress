@@ -3,23 +3,7 @@
 {% load discount %}
 {% load static %}
 {% block meta_tags %}
-  <!-- Event snippet for Contact conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-  function gtag_report_conversion(url) {
-    var callback = function () {
-      if (typeof(url) != 'undefined') {
-        window.location = url;
-      }
-    };
-    gtag('event', 'conversion', {
-        'send_to': 'AW-313562256/DszqCK77g88ZEJCpwpUB',
-        'event_callback': callback
-    });
-    return false;
-  }
-  </script>  
-  {% include 'product_metatags.html' %}
+{% include 'product_metatags.html' %}
 {% endblock %}
 {% block rich_results %}
 <script type="application/ld+json">
@@ -105,31 +89,28 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
         <div class="container">
           <div class="main_view">
             {% if product.image %}
-            <img id="main" 
-              class="img-fluid lazyload" data-src="{{product.image.url}}" loading="lazy"
-              alt="{{product.name}} image">
+            <img id="main" width="500" height="500" class="img-fluid lazyload" src="{% static 'assets/banner_load_l.png' %}" data-src="{{product.image.url}}" loading="lazy" alt="{{product.name}} image">
             {% endif %}
           </div>
           <div class="side_view card-body">
             <h6>Other Images About This Product</h6>
             {% if product.image %}
-            <img 
-              class="img-fluid border border-dark lazyload" data-src="{{product.image.url}}" loading="lazy"
+            <img width="500" height="500" class="img-fluid border border-dark lazyload" src="{% static 'assets/banner_load_l.png' %}" data-src="{{product.image.url}}" loading="lazy"
               alt="{{product.name}} image" onclick="change(this.src)">
             {% endif %}
             {% if product.image1 %}
-            <img 
-              class="img-fluid border border-dark lazyload" data-src="{{product.image1.url}}" loading="lazy"
+            <img width="500" height="500"
+              class="img-fluid border border-dark lazyload" src="{% static 'assets/banner_load_l.png' %}" data-src="{{product.image1.url}}" loading="lazy"
               alt="{{product.name}} image" onclick="change(this.src)">
             {% endif %}
             {% if product.image2 %}
-            <img 
-              class="img-fluid border border-dark lazyload" data-src="{{product.image2.url}}" loading="lazy"
+            <img width="500" height="500"
+              class="img-fluid border border-dark lazyload" src="{% static 'assets/banner_load_l.png' %}" data-src="{{product.image2.url}}" loading="lazy"
               alt="{{product.name}} image" onclick="change(this.src)">
             {% endif %}
             {% if product.image3 %}
-            <img 
-              class="img-fluid border border-dark lazyload" data-src="{{product.image3.url}}" loading="lazy"
+            <img width="500" height="500"
+              class="img-fluid border border-dark lazyload" src="{% static 'assets/banner_load_l.png' %}" data-src="{{product.image3.url}}" loading="lazy"
               alt="{{product.name}} image" onclick="change(this.src)">
             {% endif %}
           </div>

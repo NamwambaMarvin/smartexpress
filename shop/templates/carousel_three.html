@@ -26,7 +26,7 @@
                 {% for product in products.products %}
                 <div class="col-lg-3 col-6">
                     <div class="card">
-                        <img data-src="{{product.image.url}}" loading="lazy" class="card-img-top lazyload" alt="{{product.name}} image">
+                        <img width="500" height="500" src="{% static 'assets/banner_load_l.png' %}" data-src="{{product.image.url}}" loading="lazy" class="card-img-top img-fluid lazyload" alt="{{product.name}} image">
                         <div class="card-body">
                             <p class="card-title">{{product.name|truncatechars:23}}</p>
                             <p class="card-text">UGX {{product.price|intcomma}}</p>

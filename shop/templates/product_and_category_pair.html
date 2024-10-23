@@ -20,7 +20,7 @@
                         </div>  
                         {% endif %}  
                             <a href="{% url 'shop:single_product' product.category.slug product.slug %}">
-                            <img data-src="{{product.image.url}}" class="lazyload" loading="lazy" alt="{{product.name}} image">
+                            <img width="500" height="500" src="{% static 'assets/banner_load_l.png' %}" data-src="{{product.image.url}}" class="img-fluid lazyload" loading="lazy" alt="{{product.name}} image">
                             <h6>{{product.name|truncatechars:23}}</h6>
                             <h6 class="item-card-title">UGX {{product.price|intcomma}}</h6>
                             </a>
