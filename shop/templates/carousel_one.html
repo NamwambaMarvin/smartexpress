@@ -12,7 +12,7 @@ This is the product carousel
                     <div class="item mt-3 m-2">
                         <div class="card item-card card-block position-relative">
                         <div class="position-absolute top-0 end-0"><span class="badge bg-secondary">-{% percentage_discount product.price product.discount %}%</span></div>    
-                            <a href="{% url 'shop:single_product' product.category.slug product.slug %}">
+                            <a href="{% url 'shop:single_product' product.category.slug product.slug %}" aria-label="Go to {{product.name}}">
                             <img width="500px" height="500px" src="{% static 'assets/banner_load_l.png' %}" data-src="{{product.image.url}}" class="lazyload" loading="lazy" alt="{{product.name}} image">
                             <h6>{{product.name|truncatechars:23}}</h6>
                             <h6 class="item-card-title">UGX {{product.price|intcomma}}</h6>

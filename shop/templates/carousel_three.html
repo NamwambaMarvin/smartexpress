@@ -30,7 +30,7 @@
                         <div class="card-body">
                             <p class="card-title">{{product.name|truncatechars:23}}</p>
                             <p class="card-text">UGX {{product.price|intcomma}}</p>
-                            <a href="{% url 'shop:single_product' products.slug product.slug %}" class="btn border border-dark w-100">View</a>
+                            <a href="{% url 'shop:single_product' products.slug product.slug %}" class="btn border border-dark w-100" aria-label="View {{product.name}}">View</a>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                         <div class="card-body">
                             <p class="card-title">{{product.name|truncatechars:23}}</p>
                             <p class="card-text">UGX {{product.price|intcomma}}</p>
-                            <a href="{% url 'shop:single_product' products.slug product.slug %}" class="btn border border-dark w-100">View</a>
+                            <a href="{% url 'shop:single_product' products.slug product.slug %}" class="btn border border-dark w-100" aria-label="View {{product.name}}">View</a>
                         </div>
                     </div>
                 </div>
@@ -54,12 +54,12 @@
         {% endfor %}
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators{{products.id}}"
-        data-bs-slide="prev">
+        data-bs-slide="prev" aria-label="Previous slide in {{products.name}}">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators{{products.id}}"
-        data-bs-slide="next">
+        data-bs-slide="next" aria-label="Next slide in {{products.name}}">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>

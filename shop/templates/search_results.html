@@ -20,7 +20,7 @@
                     {% for product in products %}
                     <div class="col-md-4 col-6 col-lg-3 item mt-3">
                         <div class="card item-card card-block position-relative">
-                            <a href="{% url 'shop:single_product' product.category.slug product.slug %}">
+                            <a href="{% url 'shop:single_product' product.category.slug product.slug %}" aria-label="View {{product.name}}">
                             <img width="500" height="500" src="{% static 'assets/banner_load_l.png' %}" data-src="{{product.image.url}}" loading="lazy" class="img-fluid lazyload">
                             <h6>{{product.name|truncatechars:23}}</h6>
                             <h6 class="item-card-title">UGX {{product.price|intcomma}}</h6>

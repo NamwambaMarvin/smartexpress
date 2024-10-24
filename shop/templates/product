@@ -143,7 +143,8 @@
           <div class="d-grid gap-2">
             <a class="d-grid gap-2 btn btn-secondary"
               style="width: 100%;"
-              href="{% url 'shop:sign_up' %}">
+              href="{% url 'shop:sign_up' %}"
+              aria-label="Add to Cart">
               <div class="row">
                 <div class="col-2" style="text-align: left;">
                   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-600v-120H320v-80h120v-120h80v120h120v80H520v120h-80ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"/></svg>
@@ -155,7 +156,7 @@
                 </div>
               </div>
             </a>
-            <a type="button" href="{% url 'shop:request_call' product.slug %}" class="btn btn-primary">
+            <a type="button" href="{% url 'shop:request_call' product.slug %}" class="btn btn-primary" aria-label="Check Out">
               <div class="row">
                 <div class="col-2 align-self-start" style="text-align: left;">
                   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m480-560-56-56 63-64H320v-80h167l-64-64 57-56 160 160-160 160ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"/></svg>
@@ -166,7 +167,7 @@
               </div>
             </a>
             <a class="d-grid gap-2 btn btn-success" href="https://wa.me/256700229775?text=I am%20interested%20in%20{{product.name}}"
-              style="width: 100%;">
+              style="width: 100%;" aria-label="Chat With Us">
               <div class="row">
                 <div class="col-2" style="text-align: left;">
                   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg>
@@ -178,7 +179,7 @@
                 </div>
               </div>
             </a>
-            <a type="button" href="{% url 'shop:review' product.slug %}" class="btn btn-info">
+            <a type="button" href="{% url 'shop:review' product.slug %}" class="btn btn-info" aria-label="Review Product">
               <div class="row">
                 <div class="col-2 align-self-start" style="text-align: left;">
                   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-400h122l200-200q9-9 13.5-20.5T580-643q0-11-5-21.5T562-684l-36-38q-9-9-20-13.5t-23-4.5q-11 0-22.5 4.5T440-722L240-522v122Zm280-243-37-37 37 37ZM300-460v-38l101-101 20 18 18 20-101 101h-38Zm121-121 18 20-38-38 20 18Zm26 181h273v-80H527l-80 80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg>
@@ -204,7 +205,7 @@
             <h5 class="card-title">Product Details</h5>
           </button>
         </h2>
-        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="Important information about {{product.name}}">
           <div class="accordion-body">
             {{product.detail|safe}}
           </div>
@@ -216,7 +217,7 @@
             <h5 class="card-title">Product Specifications</h5>
           </button>
         </h2>
-        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="Specifications for {{product.name}}">
           <div class="accordion-body">
             <!-- Create an outer card -->
             <div class="card">
@@ -263,7 +264,7 @@
             <h5 class="card-title">Product Reviews (0)</h5>
           </button>
         </h2>
-        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="Product Reviews">
           <div class="accordion-body">
             <p>No reviews yet</p>
           </div>
@@ -275,7 +276,7 @@
             <h5 class="card-title">Shipping policy</h5>
           </button>
         </h2>
-        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="Shipping policy">
           <div class="accordion-body">
              <a class="btn btn-info" href="{% url 'shop:shipping' %}">Read the Shipping policy</a>
           </div>
@@ -287,7 +288,7 @@
             <h5 class="card-title">Return policy</h5>
           </button>
         </h2>
-        <div id="panelsStayOpen-collapseqrew" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingqrew">
+        <div id="panelsStayOpen-collapseqrew" class="accordion-collapse collapse" aria-labelledby="Return policy">
           <div class="accordion-body">
             <a class="btn btn-info" href="{% url 'shop:return_and_refunds' %}">Read the Return policy</a>
           </div>
@@ -299,7 +300,7 @@
             <h5 class="card-title">Payment Methods</h5>
           </button>
         </h2>
-        <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
+        <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="Payment Methods">
           <div class="accordion-body">
             <div class="col-10 align-self-center" style="font-size: small;">
               <img class="img-fluid border border-dark lazyload" data-src="{% static 'assets/Payment-methods.png'%}" loading="lazy" alt="Payment methods image"">
@@ -316,7 +317,7 @@
         <h5 class="card-title">Terms And Conditions</h5>
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSeven">
+    <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse" aria-labelledby="Terms And Conditions">
       <div class="accordion-body">
         <div class="mx-auto" style="font-size: small;">
           <a class="btn btn-info" href="{% url 'shop:terms' %}">Read the Terms And Conditions</a>
@@ -331,7 +332,7 @@
       <h5 class="card-title">Physical Store Location</h5>
     </button>
   </h2>
-  <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingEight">
+  <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse" aria-labelledby="Physical Store Location">
     <div class="accordion-body">
       <div class="mx-auto" style="font-size: small;">
         <p>Mzuri Express is located at Aponye Mall, Burton Street, Shop number MA 22, Kampala Uganda</p>
