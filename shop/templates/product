@@ -343,4 +343,9 @@
   </div>
 </div>
 </div>
+{% if similar_products %}
+  {% with similar_products as products %}
+    {% include 'carousel_three.html' %}
+  {% endwith %}
+{% endif %}
 {% endblock %}

@@ -9,8 +9,10 @@ from .forms import public_cart_form, public_review_form
 from .models import product, category, subcategory, public_reviews
 from django.db.models import Q
 import datetime
+import random
 from django.contrib.auth import authenticate, login
 from django.utils.html import strip_tags
+from .forms import RegisterForm
 
 class section:
     def __init__(self, category):
@@ -77,22 +79,48 @@ def public_review(request):
              return redirect(reverse("shop:review_failed"))
     else:
         pass
-        
+    
+class psection:
+    def __init__(self, subject_product):
+        """
+        Accept a product, and get related products using
+        its properties
+        """
+        self.name = "Other " + subject_product.subcategory.name
+        products = product.objects.filter(subcategory=subject_product.subcategory)
+        starting_point = random.randint(0, products.count()-4)
+        self.products = products[starting_point:starting_point+4]
+        self.products_set_two = product.objects.filter(subcategory=subject_product.subcategory)[4:8]
+        self.id = subject_product.slug
+        self.slug = subject_product.subcategory.slug
 
 def single_product(request, category_slug, product_slug):
     """
     This displays details of a product in a particular category
     """
+
     form = public_cart_form()
     review_form = public_review_form()
+    similar_products = None
     try:
         c = category.objects.get(slug=category_slug)
         p = product.objects.get(slug=product_slug, category=c)
         title = p.name
+        # Get a product that is in the same category and brand as the current product
+        try:
+            similar_products = psection(p)
+        except:
+            similar_products = None
+        
     except:
         c = None
         p = product.objects.get(slug=product_slug)
         title = p.name
+        # Get a product that is in the same category and brand as the current product
+        try:
+            similar_products = psection(p)
+        except:
+            similar_products = None
 
     percentage_discount = p.discount*100
     percentage_discount = percentage_discount/p.price
@@ -110,6 +138,7 @@ def single_product(request, category_slug, product_slug):
         "description": strip_tags(p.detail),
         "summary": strip_tags(p.detail),
         "meta_category": p.category.name,
+        "similar_products": similar_products,
     }
     return render(request, 'product', context)
 
@@ -391,3 +420,14 @@ def review(request, product_slug):
     "review_form": review_form,
 }
     return render(request, 'review_product.html', context)
+
+def register(response):
+    if response.method == "POST":
+        form = RegisterForm(response.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/category/blenders/")
+    else:
+        form = RegisterForm()
+
+    return render(response, "registration/register.html", {"form":form})
