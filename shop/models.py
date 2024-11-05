@@ -135,7 +135,13 @@ class product(models.Model):
         return super().save(*args, **kwargs)
     
     def get_absolute_url(self):
-        return reverse("shop:single_product", args=[str(self.category.slug), str(self.slug)])
+        category_slug = "blenders"
+        try:
+           category_slug = self.subcategory.slug
+        except:
+            category_slug = self.category.slug
+
+        return reverse("shop:single_product", args=[str(category_slug), str(self.slug)])
 
 class category_front_page(models.Model):
     """

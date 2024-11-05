@@ -47,7 +47,7 @@ urlpatterns = [
     path(
         "sitemap.xml",
         sitemap,
-        {"sitemaps": {"products": GenericSitemap(products)}},
+        {"sitemaps": {"products": GenericSitemap(products, priority=0.8, changefreq="weekly")}},
     ),
 ]
 
