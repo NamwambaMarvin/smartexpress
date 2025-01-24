@@ -30,7 +30,7 @@
                         <div class="card-body">
                             <p class="card-title">{{product.name|truncatechars:23}}</p>
                             <p class="card-text">UGX {{product.price|intcomma}}</p>
-                            <a href="{% url 'shop:single_product' products.slug product.slug %}" class="btn border border-dark w-100" aria-label="View {{product.name}}">View</a>
+                            <a href="{% url 'shop:single_product_slug' product.slug %}" class="btn border border-dark w-100" aria-label="View {{product.name}}">View</a>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                         <div class="card-body">
                             <p class="card-title">{{product.name|truncatechars:23}}</p>
                             <p class="card-text">UGX {{product.price|intcomma}}</p>
-                            <a href="{% url 'shop:single_product' products.slug product.slug %}" class="btn border border-dark w-100" aria-label="View {{product.name}}">View</a>
+                            <a href="{% url 'shop:single_product_slug' product.slug %}" class="btn border border-dark w-100" aria-label="View {{product.name}}">View</a>
                         </div>
                     </div>
                 </div>
