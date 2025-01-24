@@ -13,6 +13,7 @@ import random
 from django.contrib.auth import authenticate, login
 from django.utils.html import strip_tags
 from .forms import RegisterForm
+from django.utils.text import slugify
 
 class section:
     def __init__(self, category):
@@ -134,7 +135,7 @@ def single_product(request, category_slug, product_slug):
         "review_form": review_form,
         "percentage_discount": percentage_discount,
         "clean_description": strip_tags(p.detail),
-        "keywords": p.name.replace(' ', ',').split(),
+        "keywords": ", ".join(slugify(p.name).split("-")),
         "description": strip_tags(p.detail),
         "summary": strip_tags(p.detail),
         "meta_category": p.category.name,
@@ -197,7 +198,7 @@ def subproducts(request, subcategory_slug, product_slug):
         "review_form": review_form,
         "percentage_discount": percentage_discount,
         "clean_description": strip_tags(p.detail),
-        "keywords": p.name.replace(' ', ',').split(),
+        "keywords": ", ".join(slugify(p.name).split("-")),
         "description": strip_tags(p.detail),
         "summary": strip_tags(p.detail),
         "similar_products": similar_products,
@@ -349,7 +350,7 @@ def uuid_product_single(request, product_uuid):
         "review_form": review_form,
         "percentage_discount": percentage_discount,
         "clean_description": strip_tags(p.detail),
-        "keywords": p.name.replace(' ', ',').split(),
+        "keywords": ", ".join(slugify(p.name).split("-")),
         "description": strip_tags(p.detail),
         "summary": strip_tags(p.detail),
         "meta_category": p.category.name,
@@ -383,7 +384,7 @@ def single_product_slug(request, product_slug):
         "review_form": review_form,
         "percentage_discount": percentage_discount,
         "clean_description": strip_tags(p.detail),
-        "keywords": p.name.replace(' ', ',').split(),
+        "keywords": ", ".join(slugify(p.name).split("-")),
         "description": strip_tags(p.detail),
         "summary": strip_tags(p.detail),
         "meta_category": p.category.name,
@@ -431,3 +432,28 @@ def register(response):
         form = RegisterForm()
 
     return render(response, "registration/register.html", {"form":form})
+
+
+def other_products(request, category_slug):
+    """
+    This displays products in a particular category
+    """
+    # Try to fetch products in
+    # either a category or sub category
+    try:
+        c = subcategory.objects.get(slug=category_slug)
+        p = product.objects.filter(subcategory=c)[:13]
+    except:
+        sc = c = category.objects.get(slug=category_slug)
+        p = product.objects.filter(category=sc)[:13]
+
+    context = {
+        "products" : p,
+        "title"  : c.name,
+        "description": f"Buy quality {c.name} from Mzuri Express Appliances Uganda, Enjoy shopping electronics at favorable prices in Uganda",
+        "keywords": f"{c.name}, mzuri, express, Uganda, electronics, online, shopping, Uganda, in, how, much, is, electronics, shop, Kampala, price, best, machine, delivery",
+        #"description": strip_tags(p.detail),
+        #"summary": strip_tags(p.detail),
+        "meta_category": c.name,
+    }
+    return render(request, 'products', context)

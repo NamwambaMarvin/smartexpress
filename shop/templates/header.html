@@ -1,7 +1,11 @@
 {% load static %}
 {% load humanize %}
   <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}">
+  {% if product %}
+  <link rel="canonical" href="https://www.mzuriexpress.com/product/{{product.slug}}/" />
+  {% else %}
   <link rel="canonical" href="https://www.mzuriexpress.com{{request.path}}" />
+  {% endif %}
   <!-- For iOS -->
   <link rel="apple-touch-icon" href="{% static 'assets/favicon.ico' %}">
   <!-- For Chrome on Android -->

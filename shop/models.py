@@ -141,7 +141,7 @@ class product(models.Model):
         except:
             category_slug = self.category.slug
 
-        return reverse("shop:single_product", args=[str(category_slug), str(self.slug)])
+        return reverse("shop:single_product_slug", args=[str(self.slug)])
 
 class category_front_page(models.Model):
     """

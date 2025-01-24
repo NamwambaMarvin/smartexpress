@@ -17,6 +17,7 @@ products = {
 urlpatterns = [
     path('products/<slug:category_slug>/', views.products, name='products'),
     path('product/<slug:category_slug>/<slug:product_slug>/', views.single_product, name='single_product'),
+    path('product/<slug:product_slug>/', views.single_product_slug, name='single_product_slug'),
     path('product/<slug:subcategory_slug>/<slug:product_slug>/', views.subproducts, name='subproducts'),
     # Cleaner URL remapping
     path('', views.index, name='index'),
