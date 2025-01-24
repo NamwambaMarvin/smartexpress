@@ -364,13 +364,24 @@ def single_product_slug(request, product_slug):
     """
     form = public_cart_form()
     review_form = public_review_form()
+    similar_products = None
     try:
         p = product.objects.get(slug=product_slug)
         title = p.name
+        # Get a product that is in the same category and brand as the current product
+        try:
+            similar_products = psection(p)
+        except:
+            similar_products = None
     except:
         c = None
         p = product.objects.get(slug=product_slug)
         title = "No Product Found"
+        # Get a product that is in the same category and brand as the current product
+        try:
+            similar_products = psection(p)
+        except:
+            similar_products = None
 
     percentage_discount = p.discount*100
     percentage_discount = percentage_discount/p.price
@@ -388,6 +399,7 @@ def single_product_slug(request, product_slug):
         "description": strip_tags(p.detail),
         "summary": strip_tags(p.detail),
         "meta_category": p.category.name,
+        "similar_products": similar_products,
     }
     return render(request, 'product', context)
 
