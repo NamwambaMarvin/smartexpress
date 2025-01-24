@@ -11,7 +11,7 @@ class shop(models.Model):
     owner = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=150)
-    slug = models.SlugField(unique=True, editable=False)
+    slug = models.SlugField(unique=True, editable=True)
     location = models.CharField(max_length=255)
     def __str__(self) -> str:
         return f'{self.name}'
@@ -28,7 +28,7 @@ class brand(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='static/brand_images', null=True, blank=True)
-    slug = slug = models.SlugField(unique=True, editable=False)
+    slug = slug = models.SlugField(unique=True, editable=True)
 
     def __str__(self) -> str:
         return f'{self.name}'
@@ -69,7 +69,7 @@ class category(models.Model):
     """
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
-    slug = models.SlugField(unique=True, editable=False)
+    slug = models.SlugField(unique=True, editable=True)
     image = models.ImageField(upload_to="static/category_images", null=True, blank=True)
 
     def __str__(self) -> str:
@@ -111,7 +111,7 @@ class product(models.Model):
     image1 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
     image2 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
     image3 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
-    slug = models.SlugField(unique=True, editable=False)
+    slug = models.SlugField(unique=True, editable=True)
     price = models.PositiveIntegerField()
     discount = models.PositiveIntegerField()
     brand = models.ForeignKey(brand, on_delete=models.PROTECT, null=True, blank=True)
@@ -229,3 +229,26 @@ class public_reviews(models.Model):
 
     def __str__(self) -> str:
         return f"{self.product_name}"
+
+
+"""
+class other_products(models.Model):
+    name = models.CharField(max_length=2000)
+    brand = models.CharField(max_length=500)
+    discount = models.CharField(max_length=100)
+    category = models.CharField(max_length=999)
+    category2 = models.CharField(max_length=999)
+    category3 = models.CharField(max_length=999)
+    category4 = models.CharField(max_length=999)
+    category5 = models.CharField(max_length=999)
+    price = models.CharField(max_length=100)
+    description = models.TextField(max_length=20000)
+    image = models.ImageField(upload_to='static/product_images')
+    image1 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
+    image2 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
+    image3 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
+
+    def __str__(self) -> str:
+        return f"{self.name}"
+    
+"""
