@@ -240,13 +240,10 @@
                   <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
                     <div class="card">
                       <div class="card-header">
-                        <h5 class="card-title">Technical Product information</h5>
+                        <h5 class="card-title">Other Product information</h5>
                       </div>
                       <div class="card-body">
                         <p>Product ID: {{product.id}}</p>
-                        <p>Product SKU: {{product.secodary_id}}</p>
-                        <p>Product Slug: {{product.slug}}</p>
-                        <p>Product Type: {{product.type}}</p>
                       </div>
                     </div>
                   </div>

@@ -145,7 +145,7 @@ def single_product(request, category_slug, product_slug):
 
 def products(request, category_slug):
     """
-    This displays products in a particular category
+    This displays products in a particular category.
     """
     # Try to fetch products in
     # either a category or sub category
