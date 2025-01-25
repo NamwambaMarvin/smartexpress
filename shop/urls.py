@@ -3,6 +3,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.conf import settings
 from django.conf.urls.static import static
 from shop.models import product
+from django.views.generic.base import TemplateView
 # Import path
 from django.urls import path
 from . import views
@@ -49,6 +50,11 @@ urlpatterns = [
         "sitemap.xml",
         sitemap,
         {"sitemaps": {"products": GenericSitemap(products, priority=0.8, changefreq="weekly")}},
+    ),
+    # robots.txt file
+    path(
+        "robots.txt",
+        TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
     ),
 ]
 # debug settings

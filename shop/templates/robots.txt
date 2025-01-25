@@ -1,0 +1,9 @@
+# robots.txt
+# Block All Agents from crawling review and place-order pages
+User-Agent: *
+Disallow: /review/
+
+User-Agent: *
+Disallow: /place-order/
+
+Sitemap: https://www.mzuriexpress.com/sitemap.xml
