@@ -14,6 +14,7 @@ from django.contrib.auth import authenticate, login
 from django.utils.html import strip_tags
 from .forms import RegisterForm
 from django.utils.text import slugify
+from django.core.paginator import Paginator
 
 class section:
     def __init__(self, category):
@@ -23,7 +24,7 @@ class section:
         self.id = category.id
         self.slug = category.slug
 
-# Create your views here.
+# Home Page View
 def index(request):
     """
     View serving the home page logic
@@ -151,10 +152,14 @@ def products(request, category_slug):
     # either a category or sub category
     try:
         c = subcategory.objects.get(slug=category_slug)
-        p = product.objects.filter(subcategory=c)[:13]
+        p = Paginator(product.objects.filter(subcategory=c), 10)
+        page_number = request.GET.get("page")
+        p = p.get_page(page_number)
     except:
         sc = c = category.objects.get(slug=category_slug)
-        p = product.objects.filter(category=sc)[:13]
+        p = Paginator(product.objects.filter(category=sc), 10)
+        page_number = request.GET.get("page")
+        p = p.get_page(page_number)
 
     context = {
         "products" : p,

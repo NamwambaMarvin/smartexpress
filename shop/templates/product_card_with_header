@@ -30,5 +30,16 @@
                 </div>
             </div>
         </div>
+        <nav class="mx-auto" aria-label="Page Navigation">
+            <ul class="pagination">
+            {% if products.has_previous %}
+              <li class="page-item"><a class="page-link" href="?page={{products.previous_page_number}}">Prev</a></li>
+              {% endif %}
+              <li class="page-item active"><a class="page-link" href="#">{{ products.number }}</a></li>
+              {% if products.has_next %}
+              <li class="page-item"><a class="page-link" href="?page={{products.next_page_number}}">Next</a></li>
+              {% endif %}
+            </ul>
+          </nav>
     </div>
 </section>
