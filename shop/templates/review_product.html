@@ -33,7 +33,7 @@ select {
     <div  class="container text-center"><b>Review {{product.name}}</b></div>
   </div>
   <img width="500" height="500" src="{% static 'assets/banner_load_l.png' %}" data-src="{{product.image.url}}" class="img-fluid card-img-top lazyload" loading="lazy" alt="{{product.name}} image">
-  <a href="{% url 'shop:single_product' product.subcategory.slug product.slug %}" class="btn btn-warning">Visit Product</a>
+  <a href="{% url 'shop:single_product_slug' product.slug %}" class="btn btn-warning">Visit Product</a>
   <div class="card-body">
     <div class="card-text">
       <div class="accordion" id="accordionFlushExample">

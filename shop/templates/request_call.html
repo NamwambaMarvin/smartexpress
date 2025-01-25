@@ -35,5 +35,5 @@
     <input type="hidden" name="product_name" value="{{product.name}}" id="id_product_name" />
     <input type="submit" value="Check Out" class="btn btn-success w-100">
   </form>
-  <a href="{% url 'shop:single_product' product.subcategory.slug product.slug %}" class="btn btn-warning w-100">Visit Product</a>
+  <a href="{% url 'shop:single_product_slug' product.slug %}" class="btn btn-warning w-100">Visit Product</a>
 {% endblock %}
