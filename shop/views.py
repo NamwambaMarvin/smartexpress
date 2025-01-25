@@ -421,6 +421,7 @@ def request_call(request, product_slug):
     context = {
         "product" : p,
         "form": form,
+        "title": f"Order For {p.name}",
     }
     return render(request, 'request_call.html', context)
 
@@ -436,6 +437,7 @@ def review(request, product_slug):
     context = {
     "product" : p,
     "review_form": review_form,
+    "title": f"Review {p.name}",
 }
     return render(request, 'review_product.html', context)
 
