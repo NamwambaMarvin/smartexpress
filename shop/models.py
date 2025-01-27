@@ -111,7 +111,7 @@ class product(models.Model):
     image1 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
     image2 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
     image3 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
-    slug = models.SlugField(unique=True, editable=True)
+    slug = models.SlugField(unique=True, editable=False)
     price = models.PositiveIntegerField()
     discount = models.PositiveIntegerField()
     brand = models.ForeignKey(brand, on_delete=models.PROTECT, null=True, blank=True)
@@ -134,16 +134,10 @@ class product(models.Model):
     
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.name[:40])
         return super().save(*args, **kwargs)
     
     def get_absolute_url(self):
-        category_slug = "blenders"
-        try:
-           category_slug = self.subcategory.slug
-        except:
-            category_slug = self.category.slug
-
         return reverse("shop:single_product_slug", args=[str(self.slug)])
 
 class category_front_page(models.Model):
@@ -234,8 +228,9 @@ class public_reviews(models.Model):
         return f"{self.product_name}"
 
 
-"""
+
 class other_products(models.Model):
+    secodary_id = models.UUIDField(default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=2000)
     brand = models.CharField(max_length=500)
     discount = models.CharField(max_length=100)
@@ -245,13 +240,21 @@ class other_products(models.Model):
     category4 = models.CharField(max_length=999)
     category5 = models.CharField(max_length=999)
     price = models.CharField(max_length=100)
-    description = models.TextField(max_length=20000)
+    slug = models.SlugField(unique=True, editable=False)
+    description = HTMLField(blank=True, null=True)
+    specifications = HTMLField(blank=True, null=True)
     image = models.ImageField(upload_to='static/product_images')
     image1 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
     image2 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
     image3 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        return super().save(*args, **kwargs)
+    
+    def get_absolute_url(self):
+        return reverse("shop:single_product_slug", args=[str(self.slug)])
+    
     def __str__(self) -> str:
         return f"{self.name}"
-    
-"""
