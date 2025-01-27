@@ -1,9 +1,9 @@
 from django.contrib import admin
 from pathlib import Path
 from .models import product, category_front_page, brand, subcategory, category, rating, review, \
-public_cart, public_reviews
+public_cart, public_reviews, other_products
 # Register your models here.
-my_models = [product, category, category_front_page, brand, subcategory, rating, review, public_cart, public_reviews]
+my_models = [product, category, category_front_page, brand, subcategory, rating, review, public_cart, public_reviews, other_products]
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 class MyModelAdmin(admin.ModelAdmin):
