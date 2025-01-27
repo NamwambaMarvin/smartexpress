@@ -217,7 +217,7 @@
             <h5 class="card-title">Product Specifications</h5>
           </button>
         </h2>
-        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="Specifications for {{product.name}}">
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="Specifications for {{product.name}}">
           <div class="accordion-body">
             <!-- Create an outer card -->
             <div class="card">
