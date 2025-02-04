@@ -35,6 +35,7 @@
           <li class="nav-item mb-2"><a href="{% url 'shop:shipping_policy' %}" aria-label="Shipping Policy Page">Shipping Policy</a></li>
           <li class="nav-item mb-2"><a href="{% url 'shop:return_policy' %}" aria-label="Return Policy Page">Return Policy</a></li>
           <li class="nav-item mb-2"><a href="{% url 'shop:cookie_policy' %}" aria-label="Cookie Policy Page">Cookie Policy</a>
+          <li class="nav-item mb-2"><a href="{% url 'shop:terms' %}" aria-label="Terms And Conditions Page">FAQs</a></li>
           <li class="nav-item mb-2"><a href="{% url 'shop:contact' %}" aria-label="Contact Us Page">Contact Us</a></li>
         </ul>
       </div>
