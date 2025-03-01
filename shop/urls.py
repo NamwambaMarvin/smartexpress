@@ -2,7 +2,7 @@ from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sitemaps.views import sitemap
 from django.conf import settings
 from django.conf.urls.static import static
-from shop.models import product
+from shop.models import product, other_products
 from django.views.generic.base import TemplateView
 # Import path
 from django.urls import path
@@ -12,6 +12,11 @@ app_name = "shop"
 
 products = {
     "queryset": product.objects.all(),
+    "date_field": "updated_at",
+}
+
+other_products = {
+    "queryset": other_products.objects.all(),
     "date_field": "updated_at",
 }
 
@@ -39,6 +44,7 @@ urlpatterns = [
     path('return_and_refunds/', views.return_and_refunds_policy, name='return_and_refunds'),
     path('return_policy/', views.return_and_refunds_policy, name='return_policy'),
     path('sign_up/', views.sign_up, name='sign_up'),
+    path('jpdt_add/', views.jpdt_add, name='jpdt_add'),
     #path('<slug:product_slug>/', views.single_product_slug, name='single_product_slug'),
     path('product/<uuid:product_uuid>/', views.uuid_product_single, name='uuid_product_single'),
     path('category/<slug:category_slug>/', views.products, name='products'),
@@ -50,6 +56,12 @@ urlpatterns = [
         "sitemap.xml",
         sitemap,
         {"sitemaps": {"products": GenericSitemap(products, priority=0.8, changefreq="weekly")}},
+    ),
+    # Site map 2
+    path(
+        "sitemap-general-catalogue.xml",
+        sitemap,
+        {"sitemaps": {"products": GenericSitemap(other_products, priority=0.8, changefreq="weekly")}},
     ),
     # robots.txt file
     path(

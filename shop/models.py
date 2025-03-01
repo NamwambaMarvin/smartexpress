@@ -231,6 +231,7 @@ class public_reviews(models.Model):
 
 class other_products(models.Model):
     secodary_id = models.UUIDField(default=uuid.uuid4, editable=False)
+    updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=2000)
     brand = models.CharField(max_length=500)
     discount = models.CharField(max_length=100)
@@ -240,9 +241,10 @@ class other_products(models.Model):
     category4 = models.CharField(max_length=999)
     category5 = models.CharField(max_length=999)
     price = models.CharField(max_length=100)
-    slug = models.SlugField(unique=True, editable=False)
+    slug = models.SlugField(unique=True, editable=False, null=True)
     description = HTMLField(blank=True, null=True)
     specifications = HTMLField(blank=True, null=True)
+    items_left = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], default=1)
     image = models.ImageField(upload_to='static/product_images')
     image1 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
     image2 = models.ImageField(upload_to='static/product_images', blank=True, null=True)
@@ -258,3 +260,9 @@ class other_products(models.Model):
     
     def __str__(self) -> str:
         return f"{self.name}"
+
+class links(models.Model):
+    link = models.CharField(max_length=2000, unique=True)
+
+    def save(self, *args, **kwargs):
+        return super().save(*args, **kwargs)

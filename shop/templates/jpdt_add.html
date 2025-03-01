@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Add Product</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    {% if error %}
+    <p style="color: red;">{{error}}</p>
+    {% endif %}
+    {% if success %}
+    <p style="color: green;">{{success}}</p>
+    {% endif %}
+    <form action="/jpdt_add/" method="get">
+        <div>
+          <label for="name">Enter link: </label>
+          <input type="text" name="link" required />
+        </div>
+        <button type="submit" class="btn btn-success">Add</button>
+      </form>
+    {% else %}
+    <h1>You dont have enough previleges to perform this action</h1>
+    {% endif %}
+</body>
+</html>

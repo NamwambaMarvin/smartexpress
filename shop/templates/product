@@ -119,7 +119,11 @@
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">{{product.name}}</h5>
+          {% if product.brand.name %}
           <h6>Brand: {{product.brand.name }}</h6>
+          {% else %}
+          <h6>Brand: {{product.brand }}</h6>
+          {% endif %}
           <div class="card border-danger">
            
             <div class="card-body">
@@ -207,7 +211,11 @@
         </h2>
         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="Important information about {{product.name}}">
           <div class="accordion-body">
-            {{product.detail|safe}}
+            {% if product.detail %}
+              {{product.detail|safe}}
+            {% else %}
+              {{product.description|safe}}
+            {% endif %}
           </div>
         </div>
       </div>

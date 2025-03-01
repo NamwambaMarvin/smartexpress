@@ -3,10 +3,11 @@ Render function used to serve context to
 Webpages.
 """
 from functools import reduce
+from itertools import chain
 from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse
 from .forms import public_cart_form, public_review_form
-from .models import product, category, subcategory, public_reviews
+from .models import product, category, other_products, subcategory, public_reviews
 from django.db.models import Q
 import datetime
 import random
@@ -15,6 +16,7 @@ from django.utils.html import strip_tags
 from .forms import RegisterForm
 from django.utils.text import slugify
 from django.core.paginator import Paginator
+from shop.scrap import soup_page, get_content
 
 class section:
     def __init__(self, category):
@@ -370,9 +372,24 @@ def single_product_slug(request, product_slug):
     form = public_cart_form()
     review_form = public_review_form()
     similar_products = None
+    category = ""
+    detail = ""
     try:
         p = product.objects.get(slug=product_slug)
         title = p.name
+        detail = p.detail
+        category = p.category.name
+        # Get a product that is in the same category and brand as the current product
+        try:
+            similar_products = psection(p)
+        except:
+            similar_products = None
+    except product.DoesNotExist:
+        p = other_products.objects.get(slug=product_slug)
+
+        title = p.name
+        detail = p.description
+        category = p.category
         # Get a product that is in the same category and brand as the current product
         try:
             similar_products = psection(p)
@@ -388,9 +405,9 @@ def single_product_slug(request, product_slug):
         except:
             similar_products = None
 
-    percentage_discount = p.discount*100
-    percentage_discount = percentage_discount/p.price
-    original_price = p.price+p.discount
+    percentage_discount = 0#p.discount*100
+    percentage_discount = 0
+    original_price = 0#p.price+p.discount
 
     context = {
         "title"  : title,
@@ -399,11 +416,11 @@ def single_product_slug(request, product_slug):
         "form": form,
         "review_form": review_form,
         "percentage_discount": percentage_discount,
-        "clean_description": strip_tags(p.detail),
+        "clean_description": strip_tags(detail),
         "keywords": ", ".join(slugify(p.name).split("-")),
-        "description": strip_tags(p.detail),
-        "summary": strip_tags(p.detail),
-        "meta_category": p.category.name,
+        "description": strip_tags(detail),
+        #"summary": strip_tags(detail),
+        "meta_category": category,
         "similar_products": similar_products,
     }
     return render(request, 'product', context)
@@ -412,7 +429,10 @@ def single_product_slug(request, product_slug):
 def request_call(request, product_slug):
     form = public_cart_form()
     try:
-        p = product.objects.get(slug=product_slug)
+        try:
+            p = product.objects.get(slug=product_slug)
+        except:
+            p = other_products.objects.get(slug=product_slug)
         title = p.name
     except:
         c = None
@@ -428,7 +448,10 @@ def request_call(request, product_slug):
 def review(request, product_slug):
     review_form = public_review_form()
     try:
-        p = product.objects.get(slug=product_slug)
+        try:
+            p = product.objects.get(slug=product_slug)
+        except:
+            p = other_products.objects.get(slug=product_slug)
         title = p.name
     except:
         c = None
@@ -453,7 +476,7 @@ def register(response):
     return render(response, "registration/register.html", {"form":form})
 
 
-def other_products(request, category_slug):
+def ther_products(request, category_slug):
     """
     This displays products in a particular category
     """
@@ -476,3 +499,19 @@ def other_products(request, category_slug):
         "meta_category": c.name,
     }
     return render(request, 'products', context)
+
+
+def jpdt_add(request):
+    context = {}
+    try:
+        if request.GET:
+            soup_page(get_content(request.GET["link"]))
+            context = {
+                'success': "Success Product Added, Thank You! Let's add some more",
+                }
+    except:
+        context = {
+            'error': "An Error Occured",
+        }
+        return render(request, "jpdt_add.html", context)
+    return render(request, "jpdt_add.html", context)
