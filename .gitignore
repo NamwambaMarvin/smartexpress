@@ -6,3 +6,6 @@ smartexpress/settings.py
 
 # Ignore settings.py
 settings.py
+
+#security settings
+security/
