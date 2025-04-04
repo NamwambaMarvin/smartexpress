@@ -98,6 +98,20 @@ class psection:
         self.id = subject_product.slug
         self.slug = subject_product.subcategory.slug
 
+class potsection:
+    def __init__(self, subject_product):
+        """
+        Accept a product, and get related products using
+        its properties
+        """
+        self.name = "Other " + subject_product.category
+        products = other_products.objects.filter(category=subject_product.category)
+        starting_point = random.randint(0, products.count()-4)
+        self.products = products[starting_point:starting_point+4]
+        self.products_set_two = other_products.objects.filter(category=subject_product.category)[4:8]
+        self.id = subject_product.secodary_id
+        #self.slug = subject_product.subcategory.slug
+
 def single_product(request, category_slug, product_slug):
     """
     This displays details of a product in a particular category
@@ -392,7 +406,7 @@ def single_product_slug(request, product_slug):
         category = p.category
         # Get a product that is in the same category and brand as the current product
         try:
-            similar_products = psection(p)
+            similar_products = potsection(p)
         except:
             similar_products = None
     except:

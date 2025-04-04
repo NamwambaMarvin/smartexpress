@@ -8,10 +8,14 @@
     </div>
     <div class="col-4 col-lg-2">
         <div class="row justify-content-end">
+            {% if products.slug %}
             <a href="{% url 'shop:products' products.slug %}" class="btn border border-dark">
                 Others
                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#000000"><path d="m288-96-68-68 316-316-316-316 68-68 384 384L288-96Z"/></svg>
             </a>
+            {% else %}
+            
+            {% endif %}
         </div>
     </div>
    </div>
